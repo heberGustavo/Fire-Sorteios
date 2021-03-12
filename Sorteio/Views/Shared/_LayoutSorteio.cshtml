@@ -13,16 +13,43 @@
     <!-- CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
     <link href="~/css/material-kit.css?v=2.0.4" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/elastislide.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    
+    <noscript>
+        <style>
+            .es-carousel ul {
+                display: block;
+            }
+        </style>
+    </noscript>
+    <script id="img-wrapper-tmpl" type="text/x-jquery-tmpl">
+        <div class="rg-image-wrapper">
+            {{if itemsCount > 1}}
+            <div class="rg-image-nav">
+                <a href="#" class="rg-image-nav-prev">Previous Image</a>
+                <a href="#" class="rg-image-nav-next">Next Image</a>
+            </div>
+            {{/if}}
+            <div class="rg-image"></div>
+            <div class="rg-loading"></div>
+            <div class="rg-caption-wrapper">
+                <div class="rg-caption" style="display:none;">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </script>
 
 </head>
 <body class="landing-page sidebar-collapse" id="home">
-    <header>
-        <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
+    <header style="height: 100px">
+        <nav class="navbar bg-dark fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav" style="height: 100px">
             <div class="container">
                 <div class="navbar-translate">
                     <a class="navbar-brand" asp-controller="Home" asp-action="Index">
-                        <b>Logo Fire Sorteios</b>
+                        <b>Logo Fire Sorteios 2</b>
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="sr-only">Toggle navigation</span>
@@ -64,6 +91,9 @@
 
     <!-- JS -->
     <script src="~/js/core/jquery.min.js" asp-append-version="true" type="text/javascript"></script>
+    <script type="text/javascript" src="~/js/plugins/jquery.tmpl.min.js" asp-append-version="true"></script>
+    <script type="text/javascript" src="~/js/plugins/jquery.easing.1.3.js" asp-append-version="true"></script>
+    <script type="text/javascript" src="~/js/plugins/jquery.elastislide.js" asp-append-version="true"></script>
     <script src="~/js/core/popper.min.js" asp-append-version="true" type="text/javascript"></script>
     <script src="~/js/core/bootstrap-material-design.min.js" asp-append-version="true" type="text/javascript"></script>
     <script src="~/js/plugins/moment.min.js" asp-append-version="true"></script>
@@ -74,6 +104,8 @@
     <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
     <script src="~/js/plugins/nouislider.min.js" asp-append-version="true" type="text/javascript"></script>
     <script src="~/js/material-kit.js?v=2.0.4" asp-append-version="true" type="text/javascript"></script>
+
+    <script type="text/javascript" src="~/js/plugins/gallery.js" asp-append-version="true"></script>
 
     <script src="~/js/site.js" asp-append-version="true"></script>
 

@@ -1,4 +1,18 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿//Efeito Ancora
+$(document).on(
+    "click",
+    'a[href="#home"], a[href="#ultimos-sorteios"]', function (e) {
 
-// Write your JavaScript code.
+    var target = $(this).attr("href"); //Get the target
+    var scrollToPosition = $(target).offset().top - 70;
+
+    $('html,body').animate({ 'scrollTop': scrollToPosition }, 1000, function () {
+
+    });
+    window.location.hash = target;
+
+    e.preventDefault();
+
+    //Remove o nome da ancora da url
+    history.replaceState("", null, window.location.pathname);
+});
