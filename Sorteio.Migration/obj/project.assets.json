@@ -8,23 +8,23 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\Usuario\\.nuget\\packages\\": {},
+    "C:\\Users\\Heber Gustavo\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\wf_heber\\Sorteio\\Sorteio.Migration\\Sorteio.Migration.csproj",
+      "projectUniqueName": "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.Migration\\Sorteio.Migration.csproj",
       "projectName": "Sorteio.Migration",
-      "projectPath": "C:\\wf_heber\\Sorteio\\Sorteio.Migration\\Sorteio.Migration.csproj",
-      "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\wf_heber\\Sorteio\\Sorteio.Migration\\obj\\",
+      "projectPath": "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.Migration\\Sorteio.Migration.csproj",
+      "packagesPath": "C:\\Users\\Heber Gustavo\\.nuget\\packages\\",
+      "outputPath": "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.Migration\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Heber Gustavo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -65,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
       }
     }
   }

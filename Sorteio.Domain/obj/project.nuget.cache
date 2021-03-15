@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "95pwN6FpUu2LmR+AGVtfrhEc9NWpZkrLsXKaSs/e/6DetfSDmCRfSzvShvgGnPNbGr3s2qqtUt0YByIzHKCHUA==",
+  "dgSpecHash": "B+tz8HvNKbhlfy7XoPTlSrUJ1jNu9e13/WyzVbrArmaiGqidkqG3N5es5+kV/v5UpRQlIR1vJFYovK19MvYYtw==",
   "success": true,
-  "projectFilePath": "C:\\wf_heber\\Sorteio\\Sorteio.Domain\\Sorteio.Domain.csproj",
+  "projectFilePath": "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.Domain\\Sorteio.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

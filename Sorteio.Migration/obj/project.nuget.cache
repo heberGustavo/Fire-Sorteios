@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ty/iunQpvMY3C6aIqgHI4EMp7tIUrwnffX4weCPc2KAWqXLskri0HcZm2ndM6bE0SK98MZSckRAXwG6iqOm+vg==",
+  "dgSpecHash": "3MyWcT3tovgA5fvz54APsSBqHO4Nm/jCk8LgqWKR8DfWk4+/H1BBiwFFAFBFZtgC8IHsDcqz6Xp38L8OgtdMkQ==",
   "success": true,
-  "projectFilePath": "C:\\wf_heber\\Sorteio\\Sorteio.Migration\\Sorteio.Migration.csproj",
+  "projectFilePath": "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.Migration\\Sorteio.Migration.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
