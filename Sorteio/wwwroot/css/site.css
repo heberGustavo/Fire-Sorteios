@@ -159,3 +159,68 @@ body {
 .footer {
     line-height: 20px !important;
 }
+
+/*
+    TELA DE ITEM DE SORTEIO
+*/
+.bloco-filtro-sorteio{
+    display: inline-block;
+}
+
+.bloco-filtro-sorteio label{
+    margin: 10px 20px;
+}
+
+.bloco-filtro-sorteio .item{
+    padding: 10px;
+    border-radius: 2px 10px;
+    color: #000;
+    font-weight: 500;
+    border: 1px solid #a7a7a7;
+}
+
+.bloco-filtro-sorteio .item:hover{
+    cursor: pointer;
+}
+
+.item-todos{
+    background: #a7a7a769;
+}
+
+.item-disponivel {
+    background: #fff;
+}
+
+.item-reservado{
+    background: #00da00e0;
+}
+
+.item-pago{
+    background: yellow;
+}
+
+.consultar-meus-numero{
+    background: #ffaa0d;
+}
+
+.itens-numero-sorteio {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #a7a7a7;
+    font-weight: 700;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
+    margin: 5px;
+}
+
+.dados-banco {
+    text-align: left;
+}
+
+.dados-banco h6{
+    padding: 0;
+    margin: 0;
+}
