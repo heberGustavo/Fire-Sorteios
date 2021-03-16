@@ -60,17 +60,32 @@ html {
     min-height: 100%;
 }
 
-body {
-    /* Margin bottom by footer height */
-    margin-bottom: 60px;
-}
-
 .footer {
     position: absolute;
     bottom: 0;
     width: 100%;
     white-space: nowrap;
     line-height: 60px; /* Vertically center the text there */
+}
+
+/* BOTÃO FLUTUANTE */
+.float_custom {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+}
+
+.my-float {
+    margin-top: 16px;
 }
 
 /* CSS CUSTOM */
@@ -118,7 +133,7 @@ body {
     font-size: 15px;
 }
 
-.card-body a.btn {
+a.btn-dark {
     background: #000;
 }
 
@@ -163,27 +178,27 @@ body {
 /*
     TELA DE ITEM DE SORTEIO
 */
-.bloco-filtro-sorteio{
+.bloco-filtro-sorteio {
     display: inline-block;
 }
 
-.bloco-filtro-sorteio label{
-    margin: 10px 20px;
-}
+    .bloco-filtro-sorteio label {
+        margin: 10px 20px;
+    }
 
-.bloco-filtro-sorteio .item{
-    padding: 10px;
-    border-radius: 2px 10px;
-    color: #000;
-    font-weight: 500;
-    border: 1px solid #a7a7a7;
-}
+    .bloco-filtro-sorteio .item {
+        padding: 10px;
+        border-radius: 2px 10px;
+        color: #000;
+        font-weight: 500;
+        border: 1px solid #a7a7a7;
+    }
 
-.bloco-filtro-sorteio .item:hover{
-    cursor: pointer;
-}
+        .bloco-filtro-sorteio .item:hover {
+            cursor: pointer;
+        }
 
-.item-todos{
+.item-todos {
     background: #a7a7a769;
 }
 
@@ -191,15 +206,15 @@ body {
     background: #fff;
 }
 
-.item-reservado{
+.item-reservado {
     background: #00da00e0;
 }
 
-.item-pago{
+.item-pago {
     background: yellow;
 }
 
-.consultar-meus-numero{
+.consultar-meus-numero {
     background: #ffaa0d;
 }
 
@@ -220,7 +235,92 @@ body {
     text-align: left;
 }
 
-.dados-banco h6{
-    padding: 0;
+    .dados-banco h6 {
+        padding: 0;
+        margin: 0;
+    }
+
+/* CARD LOGIN */
+.card-login .form-custom-login {
+    min-height: 280px;
+}
+
+.form-control,
+.is-focused .form-control {
+    background-image: linear-gradient(to top, #000000 2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #d2d2d2 1px, rgba(210, 210, 210, 0) 1px)
+}
+
+.is-focused [class^='bmd-label'],
+.is-focused [class*=' bmd-label'] {
+    color: #000;
+}
+
+/* TELA ACESSO INTERNO */
+.vertical-nav {
+    min-width: 17rem;
+    width: 17rem;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s;
+}
+
+.page-content {
+    width: calc(100% - 17rem);
+    margin-left: 17rem;
+    transition: all 0.4s;
+}
+
+/* for toggle behavior */
+
+#sidebar.active {
+    margin-left: -17rem;
+}
+
+#content.active {
+    width: 100%;
     margin: 0;
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -17rem;
+    }
+
+        #sidebar.active {
+            margin-left: 0;
+        }
+
+    #content {
+        width: 100%;
+        margin: 0;
+    }
+
+        #content.active {
+            margin-left: 17rem;
+            width: calc(100% - 17rem);
+        }
+}
+
+body.acesso-interno {
+    min-height: 100vh;
+}
+
+.img-perfil {
+    width: 65px;
+    transition: width 2s;
+}
+
+.img-perfil:hover {
+    width: 85px;
+}
+
+.bmd-form-group .bmd-label-static{
+    left: 5px;
+}
+
+.alinhar-embaixo {
+    align-self: flex-end;
 }

@@ -39,8 +39,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#ultimos-sorteios">
-                                <i class="material-icons">list_alt</i> Últimos Sorteios
+                            <a class="nav-link" href="#sorteio-em-andamento">
+                                <i class="material-icons">list_alt</i> Sorteios em Andamento
                             </a>
                         </li>
                         <li class="nav-item">
@@ -53,12 +53,20 @@
                                 <i class="material-icons">help_outline</i> Tire suas dúvidas
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Login" asp-action="Index">
+                                <i class="material-icons">login</i> Login
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <main role="main" class="pb-3">
+    <main role="main">
+        <a href="https://api.whatsapp.com/send?phone=51955081075&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202." class="float_custom" target="_blank">
+            <i class="fab fa-whatsapp my-float"></i>
+        </a>
         @RenderBody()
     </main>
 

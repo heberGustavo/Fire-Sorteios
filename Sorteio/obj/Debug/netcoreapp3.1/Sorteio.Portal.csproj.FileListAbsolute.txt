@@ -706,3 +706,8 @@ C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Sorteio.Port
 C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Sorteio.Portal.dll
 C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Sorteio.Portal.pdb
 C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Sorteio.Portal.genruntimeconfig.cache
+C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Razor\Views\Login\Index.cshtml.g.cs
+C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Razor\Views\AcessoInterno\Index.cshtml.g.cs
+C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LayoutAcessoInterno.cshtml.g.cs
+C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Razor\Views\AcessoInterno\Sorteios.cshtml.g.cs
+C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Razor\Views\AcessoInterno\NovoSorteio.cshtml.g.cs
