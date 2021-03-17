@@ -324,3 +324,31 @@ body.acesso-interno {
 .alinhar-embaixo {
     align-self: flex-end;
 }
+
+/* INPUT FILE CUSTOM */
+.form-group input[type=file]{
+    position: relative;
+}
+
+.file {
+    position: initial;
+}
+
+.logo-banco .file-custom:after {
+    content: "Escolher imagem"
+}
+
+/* Focus */
+.file input:focus ~ .file-custom {
+    box-shadow: 0 0 0 .075rem #fff, 0 0 0 .2rem #000;
+}
+
+.dropdown-menu .disabled > a:focus,
+.dropdown-menu .disabled > a:hover {
+    background: #000 !important;
+}
+
+/* TABELA CUSTOM */
+table.dataTable.no-footer{
+    border-bottom: none !important;
+}

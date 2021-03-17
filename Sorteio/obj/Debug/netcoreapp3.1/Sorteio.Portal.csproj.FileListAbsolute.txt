@@ -711,3 +711,6 @@ C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Razor\Views\
 C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LayoutAcessoInterno.cshtml.g.cs
 C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Razor\Views\AcessoInterno\Sorteios.cshtml.g.cs
 C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Razor\Views\AcessoInterno\NovoSorteio.cshtml.g.cs
+C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Razor\Views\AcessoInterno\Categorias.cshtml.g.cs
+C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Razor\Views\AcessoInterno\FormasDePagamento.cshtml.g.cs
+C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Razor\Views\AcessoInterno\NovaFormaDePagamento.cshtml.g.cs

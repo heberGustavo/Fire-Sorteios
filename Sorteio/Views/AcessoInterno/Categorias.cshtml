@@ -1,0 +1,99 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_LayoutAcessoInterno";
+}
+
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2 class="title">Lista de Categorias</h2>
+                </div>
+            </div>
+            <div class="col-md-12 text-center">
+                <button data-toggle="modal" data-target="#modalNovaCategoria" class="btn btn-outline-danger">Nova Categoria</button>
+            </div>
+            <table class="table table-hover" id="datatableListaCategorias">
+                <thead class="bg-light">
+                    <tr>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Motos</td>
+                        <td>
+                            <a href="javascript:;" data-toggle="modal" data-target="#modalFinalizarSorteio" class="btn btn-sm btn-dark">Excluir</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Carros</td>
+                        <td>
+                            <a href="javascript:;" data-toggle="modal" data-target="#modalFinalizarSorteio" class="btn btn-sm btn-dark">Excluir</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Celular</td>
+                        <td>
+                            <a href="javascript:;" data-toggle="modal" data-target="#modalFinalizarSorteio" class="btn btn-sm btn-dark">Excluir</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Finalizar Sorteio -->
+<div class="modal fade" id="modalFinalizarSorteio" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body pt-0">
+                <h5 class="title m-0 text-center">Excluir Categoria</h5>
+                <p class="text-center">Tem certeza que deseja excluir essa categoria?</p>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-dark btn-sm" data-dismiss="modal">Fechar</button> &#160;
+                <button type="button" class="btn btn-success btn-sm">Confirmar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Nova Categoria -->
+<div class="modal fade" id="modalNovaCategoria" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body pt-0">
+                <h5 class="title m-0 text-center">Cadastrar Categoria</h5>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label>Nome da Categoria</label>
+                            <input type="text" class="form-control" placeholder="Minha categoria">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-dark btn-sm" data-dismiss="modal">Fechar</button> &#160;
+                <button type="button" class="btn btn-success btn-sm">Confirmar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/Pages/AcessoInterno/Categorias/Index.js" type="text/javascript" asp-append-version="true"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>

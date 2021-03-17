@@ -20,6 +20,9 @@
     <!-- Editor de Texto -->
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 
+    <!-- Input File -->
+    <link href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/wtf-forms.css" rel="stylesheet">
+    
 
     <link rel="stylesheet" href="~/css/site.css" />
 
@@ -50,13 +53,13 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link text-light font-italic font-weight-bold">
+                <a asp-controller="AcessoInterno" asp-action="Categorias" class="nav-link text-light font-italic font-weight-bold">
                     <i class="material-icons mr-3 text-light">category</i>
                     Categorias
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link text-light font-italic font-weight-bold">
+                <a asp-controller="AcessoInterno" asp-action="FormasDePagamento" class="nav-link text-light font-italic font-weight-bold">
                     <i class="material-icons mr-3 text-light">account_balance</i>
                     Formas de Pagamento
                 </a>
@@ -81,10 +84,10 @@
                     </div>
 
                     <div class="collapse navbar-collapse">
-                        <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm"><i class="fas fa-bars mr-2 text-dark"></i><small class="text-uppercase font-weight-bold">Menu</small></button>
+                        <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm btn-sm"><i class="fas fa-bars mr-2 text-dark"></i><small class="text-uppercase font-weight-bold">Menu</small></button>
 
                         <div class="ml-auto">
-                            <a class="btn btn-light">Logout</a>
+                            <a class="btn btn-secondary btn-sm">Sair <i class="material-icons">exit_to_app</i></a>
                         </div>
                     </div>
                 </div>

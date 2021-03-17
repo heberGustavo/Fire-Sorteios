@@ -4,56 +4,60 @@
 }
 
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12 text-center">
-            <h2 class="title">Lista de Sorteios</h2>
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2 class="title">Lista de Sorteios</h2>
+                </div>
+            </div>
+            <div class="col-md-12 text-center">
+                <a asp-controller="AcessoInterno" asp-action="NovoSorteio" class="btn btn-outline-danger">Novo Sorteio</a>
+            </div>
+            <table class="table table-hover" id="datatableListaSorteios">
+                <thead class="bg-light">
+                    <tr>
+                        <th scope="col">Sorteio</th>
+                        <th scope="col">Ganhador</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1&deg; Edição - Yamaha 2021</td>
+                        <td></td>
+                        <td>
+                            <button class="btn btn-sm btn-warning">Em andamento</button>
+                        </td>
+                        <td>
+                            <a href="javascript:;" data-toggle="modal" data-target="#exampleModal" class="btn btn-sm btn-dark">Finalizar</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>134&deg; Edição - Golf GT</td>
+                        <td></td>
+                        <td>
+                            <button class="btn btn-sm btn-warning">Em andamento</button>
+                        </td>
+                        <td>
+                            <a href="javascript:;" data-toggle="modal" data-target="#exampleModal" class="btn btn-sm btn-dark">Finalizar</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1&deg; Edição - Iphone X</td>
+                        <td>Mark Anderson | n&deg; 84</td>
+                        <td>
+                            <button class="btn btn-sm btn-success">Concluído</button>
+                        </td>
+                        <td>
+                            <a href="javascript:;" data-toggle="modal" data-target="#exampleModal" class="btn btn-sm btn-dark">Finalizar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
-    <div class="col-md-12 text-center">
-        <a asp-controller="AcessoInterno" asp-action="NovoSorteio" class="btn btn-outline-danger">Novo Sorteio</a>
-    </div>
-    <table class="table table-hover" id="datatableListaSorteios">
-        <thead class="bg-light">
-            <tr>
-                <th scope="col">Sorteio</th>
-                <th scope="col">Ganhador</th>
-                <th scope="col">Status</th>
-                <th scope="col">Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1&deg; Edição - Yamaha 2021</td>
-                <td></td>
-                <td>
-                    <button class="btn btn-sm btn-warning">Em andamento</button>
-                </td>
-                <td>
-                    <a href="javascript:;" data-toggle="modal" data-target="#exampleModal" class="btn btn-sm btn-dark">Finalizar</a>
-                </td>
-            </tr>
-            <tr>
-                <td>134&deg; Edição - Golf GT</td>
-                <td></td>
-                <td>
-                    <button class="btn btn-sm btn-warning">Em andamento</button>
-                </td>
-                <td>
-                    <a href="javascript:;" data-toggle="modal" data-target="#exampleModal" class="btn btn-sm btn-dark">Finalizar</a>
-                </td>
-            </tr>
-            <tr>
-                <td>1&deg; Edição - Iphone X</td>
-                <td>Mark Anderson | n&deg; 84</td>
-                <td>
-                    <button class="btn btn-sm btn-success">Concluído</button>
-                </td>
-                <td>
-                    <a href="javascript:;" data-toggle="modal" data-target="#exampleModal" class="btn btn-sm btn-dark">Finalizar</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </div>
 
 <!-- Modal Finalizar Sorteio -->

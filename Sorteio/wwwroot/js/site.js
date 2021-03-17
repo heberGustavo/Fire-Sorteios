@@ -1,7 +1,7 @@
 ﻿//Efeito Ancora
 $(document).on(
     "click",
-    'a[href="#home"], a[href="#ultimos-sorteios"]', function (e) {
+    'a[href="#home"], a[href="#sorteio-em-andamento"]', function (e) {
 
     var target = $(this).attr("href"); //Get the target
     var scrollToPosition = $(target).offset().top - 70;
