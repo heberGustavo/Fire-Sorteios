@@ -122,7 +122,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\wf_heber\\Sorteio\\Sorteio.Utils\\Sorteio.Common.csproj": {
+                "projectPath": "C:\\wf_heber\\Sorteio\\Sorteio.Utils\\Sorteio.Common.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -134,6 +138,16 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Effortless.Net.Encryption": {
+              "target": "Package",
+              "version": "[3.3.0, )"
+            },
+            "NETCore.Encrypt": {
+              "target": "Package",
+              "version": "[2.0.9, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

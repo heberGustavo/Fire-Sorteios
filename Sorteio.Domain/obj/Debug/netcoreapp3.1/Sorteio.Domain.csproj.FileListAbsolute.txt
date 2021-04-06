@@ -1,0 +1,13 @@
+C:\wf_heber\Sorteio\Sorteio.Domain\bin\Debug\netcoreapp3.1\Sorteio.Domain.deps.json
+C:\wf_heber\Sorteio\Sorteio.Domain\bin\Debug\netcoreapp3.1\Sorteio.Domain.dll
+C:\wf_heber\Sorteio\Sorteio.Domain\bin\Debug\netcoreapp3.1\Sorteio.Domain.pdb
+C:\wf_heber\Sorteio\Sorteio.Domain\obj\Debug\netcoreapp3.1\Sorteio.Domain.csprojAssemblyReference.cache
+C:\wf_heber\Sorteio\Sorteio.Domain\obj\Debug\netcoreapp3.1\Sorteio.Domain.AssemblyInfoInputs.cache
+C:\wf_heber\Sorteio\Sorteio.Domain\obj\Debug\netcoreapp3.1\Sorteio.Domain.AssemblyInfo.cs
+C:\wf_heber\Sorteio\Sorteio.Domain\obj\Debug\netcoreapp3.1\Sorteio.Domain.csproj.CoreCompileInputs.cache
+C:\wf_heber\Sorteio\Sorteio.Domain\obj\Debug\netcoreapp3.1\Sorteio.Domain.dll
+C:\wf_heber\Sorteio\Sorteio.Domain\obj\Debug\netcoreapp3.1\Sorteio.Domain.pdb
+C:\wf_heber\Sorteio\Sorteio.Domain\bin\Debug\netcoreapp3.1\Sorteio.Common.dll
+C:\wf_heber\Sorteio\Sorteio.Domain\obj\Debug\netcoreapp3.1\Sorteio.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\wf_heber\Sorteio\Sorteio.Domain\bin\Debug\netcoreapp3.1\Sorteio.Common.pdb
+C:\wf_heber\Sorteio\Sorteio.Domain\obj\Debug\netcoreapp3.1\Sorteio.Domain.csproj.CopyComplete
