@@ -5,7 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Scripts\" />
+    <None Remove="Scripts\202104071044_Criacao_Tabela_Tipo_Usuario.sql" />
+    <None Remove="Scripts\202104071052_Criacao_Tabelas.sql" />
+    <None Remove="Scripts\202104071110_Criacao_Tabelas_FormasDePagamento.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\202104071044_Criacao_Tabela_Tipo_Usuario.sql" />
+    <EmbeddedResource Include="Scripts\202104071052_Criacao_Tabelas.sql" />
+    <EmbeddedResource Include="Scripts\202104071110_Criacao_Tabelas_FormasDePagamento.sql" />
   </ItemGroup>
 
   <ItemGroup>
