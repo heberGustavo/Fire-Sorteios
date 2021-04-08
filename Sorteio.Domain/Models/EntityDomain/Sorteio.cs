@@ -1,11 +1,11 @@
-﻿using Dapper.Contrib.Extensions;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace Sorteio.Data.EntityData
+namespace Sorteio.Domain.Models.EntityDomain
 {
-    [Table("Sorteio")]
-    public class SorteioData
+    public class Sorteio
     {
-        [Key]
         public int id_sorteio { get; set; }
         public int id_categoria_sorteio { get; set; }
         public string nome { get; set; }

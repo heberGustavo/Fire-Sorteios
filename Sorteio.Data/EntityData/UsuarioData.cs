@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace Sorteio.Domain.Models.EntityDomain
+namespace Sorteio.Data.EntityData
 {
-    public class Usuario
+    [Table("Usuario")]
+    public class UsuarioData
     {
+        [Key]
         public int id_usuario { get; set; }
         public string nome { get; set; }
         public string email { get; set; }
