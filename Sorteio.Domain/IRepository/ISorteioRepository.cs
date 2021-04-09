@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Sorteio.Domain.IRepository
 {
-    public interface ISorteioRepository : IRepositoryBase<Domain.Models.Sorteio>
+    public interface ISorteioRepository : IRepositoryBase<Domain.Models.EntityDomain.Sorteio>
     {
     }
 }

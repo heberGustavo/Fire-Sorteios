@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Sorteio.Data.EntityData;
+using Sorteio.Domain.Models.EntityDomain;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,7 +11,7 @@ namespace Sorteio.CrossCutting.MappingGroups
     {
         public DomainToData()
         {
-            //CreateMap<Usuario, UsuarioData>();
+            CreateMap<CategoriaSorteio, CategoriaSorteioData>();
         }
     }
 }

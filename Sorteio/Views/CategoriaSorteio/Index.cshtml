@@ -1,6 +1,8 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
     Layout = "_LayoutAcessoInterno";
+
+    @model IEnumerable<Sorteio.Domain.Models.EntityDomain.CategoriaSorteio>;
 }
 
 <div class="container-fluid">
@@ -12,7 +14,7 @@
                 </div>
             </div>
             <div class="col-md-12 text-center">
-                <button data-toggle="modal" data-target="#modalNovaCategoria" class="btn btn-outline-danger">Nova Categoria</button>
+                <button onclick="AbrirModalNovaCategoriaSorteio()" class="btn btn-outline-danger">Nova Categoria</button>
             </div>
             <table class="table table-hover" id="datatableListaCategorias">
                 <thead class="bg-light">
@@ -22,24 +24,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Motos</td>
-                        <td>
-                            <a href="javascript:;" data-toggle="modal" data-target="#modalFinalizarSorteio" class="btn btn-sm btn-dark">Excluir</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Carros</td>
-                        <td>
-                            <a href="javascript:;" data-toggle="modal" data-target="#modalFinalizarSorteio" class="btn btn-sm btn-dark">Excluir</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Celular</td>
-                        <td>
-                            <a href="javascript:;" data-toggle="modal" data-target="#modalFinalizarSorteio" class="btn btn-sm btn-dark">Excluir</a>
-                        </td>
-                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.nome</td>
+                            <td>
+                                <a class='btn btn-sm btn-dark text-light' onclick="Editar(this, '@item.id_categoria_sorteio')"><i class='fas fa-edit'></i></a> 
+                                <a class='btn btn-sm btn-danger' onclick="ConfirmarExclusao('@item.id_categoria_sorteio', '@item.nome')"><i class='fas fa-trash'></i></a>
+                            </td>
+                        </tr>
+                    }
                 </tbody>
             </table>
         </div>
@@ -56,12 +50,13 @@
                 </button>
             </div>
             <div class="modal-body pt-0">
+                <input type="text" id="idCategoriaExclusaoSelecionada"/>
                 <h5 class="title m-0 text-center">Excluir Categoria</h5>
-                <p class="text-center">Tem certeza que deseja excluir essa categoria?</p>
+                <p class="text-center">Tem certeza que deseja excluir a categoria <text id="nomeCategoriaExclusao" class="font-weight-bold"></text>?</p>
             </div>
             <div class="modal-footer justify-content-center">
                 <button type="button" class="btn btn-dark btn-sm" data-dismiss="modal">Fechar</button> &#160;
-                <button type="button" class="btn btn-success btn-sm">Confirmar</button>
+                <button onclick="ExcluirCategoria()" type="button" class="btn btn-success btn-sm">Confirmar</button>
             </div>
         </div>
     </div>
@@ -77,23 +72,27 @@
                 </button>
             </div>
             <div class="modal-body pt-0">
+                <input type="hidden" id="idCategoriaSorteioSelecionado" />
                 <h5 class="title m-0 text-center">Cadastrar Categoria</h5>
                 <form>
                     <div class="form-row">
                         <div class="form-group col-md-12">
-                            <label>Nome da Categoria</label>
-                            <input type="text" class="form-control" placeholder="Minha categoria">
+                            <label for="nomeCategoria">Nome da Categoria</label>
+                            <input id="nomeCategoria" name="nomeCategoria" type="text" class="form-control" placeholder="Minha categoria">
                         </div>
                     </div>
                 </form>
             </div>
             <div class="modal-footer justify-content-center">
                 <button type="button" class="btn btn-dark btn-sm" data-dismiss="modal">Fechar</button> &#160;
-                <button type="button" class="btn btn-success btn-sm">Confirmar</button>
+                <button onclick="CadastrarCategoria()" type="button" class="btn btn-success btn-sm">Confirmar</button>
             </div>
         </div>
     </div>
 </div>
 
-<script src="~/js/Pages/AcessoInterno/Categorias/Index.js" type="text/javascript" asp-append-version="true"></script>
+<script src="~/js/Pages/CategoriaSorteio/Index.js" type="text/javascript" asp-append-version="true"></script>
+<script src="~/js/Pages/CategoriaSorteio/Criar.js" type="text/javascript" asp-append-version="true"></script>
+<script src="~/js/Pages/CategoriaSorteio/Editar.js" type="text/javascript" asp-append-version="true"></script>
+<script src="~/js/Pages/CategoriaSorteio/Excluir.js" type="text/javascript" asp-append-version="true"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>

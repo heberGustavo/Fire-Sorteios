@@ -22,7 +22,6 @@
 
     <!-- Input File -->
     <link href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/wtf-forms.css" rel="stylesheet">
-    
 
     <link rel="stylesheet" href="~/css/site.css" />
 
@@ -53,7 +52,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a asp-controller="AcessoInterno" asp-action="Categorias" class="nav-link text-light font-italic font-weight-bold">
+                <a asp-controller="CategoriaSorteio" asp-action="Index" class="nav-link text-light font-italic font-weight-bold">
                     <i class="material-icons mr-3 text-light">category</i>
                     Categorias
                 </a>
@@ -110,7 +109,12 @@
     <script src="~/js/material-kit.js?v=2.0.4" asp-append-version="true" type="text/javascript"></script>
 
     <script src="~/js/plugins/pgwslideshow.js" asp-append-version="true"></script>
+    <script src="~/js/plugins/sweetalert/sweetalert.min.js" asp-append-version="true"></script>
+
+    <script src="~/js/jquery.mask.min.js" asp-append-version="true"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/upload-image.js" asp-append-version="true"></script>
+    <script src="~/js/utilities.js" asp-append-version="true"></script>
 
     @RenderSection("Scripts", required: false)
 </body>

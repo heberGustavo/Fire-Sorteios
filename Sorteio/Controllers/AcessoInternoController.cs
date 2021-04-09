@@ -26,11 +26,6 @@ namespace Sorteio.Controllers
             return View();
         }
 
-        public IActionResult Categorias()
-        {
-            return View();
-        }
-
         public IActionResult FormasDePagamento()
         {
             return View();

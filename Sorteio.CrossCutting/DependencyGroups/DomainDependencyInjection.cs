@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Sorteio.Domain.Business;
+using Sorteio.Domain.IBusiness;
 using Sorteio.Domain.IBusiness.Migration;
 using Sorteio.Migration;
 using System;
@@ -12,6 +14,8 @@ namespace Sorteio.CrossCutting.DependencyGroups
         public static void Register(IServiceCollection serviceCollection)
         {
             serviceCollection.AddTransient<IMigrationBusiness, MigrationBusiness>();
+
+            serviceCollection.AddTransient<ICategoriaSorteioBusiness, CategoriaSorteioBusiness>();
         }
     }
 }
