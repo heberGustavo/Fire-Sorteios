@@ -15,6 +15,7 @@ namespace Sorteio.CrossCutting.DependencyGroups
             serviceCollection.AddScoped<SqlDataContext, SqlDataContext>();
 
             serviceCollection.AddTransient<ICategoriaSorteioRepository, CategoriaSorteioRepository>();
+            serviceCollection.AddTransient<ITipoFormasDePagamentoRepository, TipoFormasDePagamentoRepository>();
         }
     }
 }

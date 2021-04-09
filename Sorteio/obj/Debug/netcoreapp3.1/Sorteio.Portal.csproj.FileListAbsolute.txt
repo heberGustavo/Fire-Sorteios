@@ -1151,3 +1151,5 @@ C:\wf_heber\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Sorteio.Portal.Views.p
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Sorteio.Portal.csproj.CopyComplete
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Sorteio.Portal.genruntimeconfig.cache
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Razor\Views\CategoriaSorteio\Index.cshtml.g.cs
+C:\wf_heber\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Razor\Views\FormasDePagamento\Index.cshtml.g.cs
+C:\wf_heber\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Razor\Views\FormasDePagamento\NovaFormaDePagamento.cshtml.g.cs

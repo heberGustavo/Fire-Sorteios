@@ -26,15 +26,5 @@ namespace Sorteio.Controllers
             return View();
         }
 
-        public IActionResult FormasDePagamento()
-        {
-            return View();
-        }
-
-        public IActionResult NovaFormaDePagamento()
-        {
-            return View();
-        }
-
     }
 }

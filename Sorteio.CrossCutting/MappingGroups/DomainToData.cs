@@ -12,6 +12,7 @@ namespace Sorteio.CrossCutting.MappingGroups
         public DomainToData()
         {
             CreateMap<CategoriaSorteio, CategoriaSorteioData>();
+            CreateMap<TipoFormaDePagamento, TipoFormaDePagamentoData>();
         }
     }
 }
