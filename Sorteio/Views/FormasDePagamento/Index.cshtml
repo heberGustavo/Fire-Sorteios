@@ -1,6 +1,8 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
     Layout = "_LayoutAcessoInterno";
+
+    @model IEnumerable<Sorteio.Domain.Models.EntityDomain.FormasDePagamento>
 }
 
 <partial name="~/Views/PartialViews/Loading.cshtml" />
@@ -14,7 +16,7 @@
                 </div>
             </div>
             <div class="col-md-12 text-center">
-                <a asp-controller="FormasDePagamento" asp-action="NovaFormaDePagamento" class="btn btn-outline-danger">Nova Forma de Pagamento</a>
+                <a asp-controller="FormasDePagamento" asp-action="Novo" class="btn btn-outline-danger">Nova Forma de Pagamento</a>
             </div>
             <table class="table table-hover" id="datatableListaFormasDePagamento">
                 <thead class="bg-light">
@@ -26,30 +28,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Banco Inter</td>
-                        <td>002</td>
-                        <td>5545-5</td>
-                        <td>
-                            <a href="javascript:;" data-toggle="modal" data-target="#modalExcluirFormaDePagamento" class="btn btn-sm btn-dark">Excluir</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Santander</td>
-                        <td>04545</td>
-                        <td>02654-5</td>
-                        <td>
-                            <a href="javascript:;" data-toggle="modal" data-target="#modalExcluirFormaDePagamento" class="btn btn-sm btn-dark">Excluir</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Itau</td>
-                        <td>2455</td>
-                        <td>0658-6</td>
-                        <td>
-                            <a href="javascript:;" data-toggle="modal" data-target="#modalExcluirFormaDePagamento" class="btn btn-sm btn-dark">Excluir</a>
-                        </td>
-                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.nome_banco</td>
+                            <td>@item.agencia</td>
+                            <td>@item.conta</td>
+                            <td>
+                                <a class='btn btn-sm btn-dark text-light' asp-controller="FormasDePagamento" asp-action="Editar" asp-route-id="@item.id_forma_de_pagamento"><i class='fas fa-edit'></i></a>
+                                <a class='btn btn-sm btn-danger' onclick="ConfirmarExclusao('@item.id_forma_de_pagamento', '@item.nome_banco')"><i class='fas fa-trash'></i></a>
+                            </td>
+                        </tr>
+                    }
                 </tbody>
             </table>
         </div>
@@ -57,7 +47,7 @@
 </div>
 
 <!-- Modal Finalizar Sorteio -->
-<div class="modal fade" id="modalExcluirFormaDePagamento" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="modalFinalizarSorteio" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -66,16 +56,18 @@
                 </button>
             </div>
             <div class="modal-body pt-0">
-                <h5 class="title m-0 text-center">Excluir Forma de Pagamento</h5>
-                <p class="text-center">Tem certeza que deseja excluir essa Forma de Pagamento?</p>
+                <input type="hidden" id="idFormaDePagamentoExclusaoSelecionada" />
+                <h5 class="title m-0 text-center">Excluir Categoria</h5>
+                <p class="text-center">Tem certeza que deseja excluir a categoria <text id="nomeBancoExclusao" class="font-weight-bold"></text>?</p>
             </div>
             <div class="modal-footer justify-content-center">
                 <button type="button" class="btn btn-dark btn-sm" data-dismiss="modal">Fechar</button> &#160;
-                <button type="button" class="btn btn-success btn-sm">Confirmar</button>
+                <button onclick="ExcluirFormaDePagamento()" type="button" class="btn btn-success btn-sm">Confirmar</button>
             </div>
         </div>
     </div>
 </div>
 
 <script src="~/js/Pages/FormasDePagamento/Index.js" type="text/javascript" asp-append-version="true"></script>
+<script src="~/js/Pages/FormasDePagamento/Excluir.js" type="text/javascript" asp-append-version="true"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>

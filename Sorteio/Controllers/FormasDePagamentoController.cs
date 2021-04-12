@@ -22,12 +22,13 @@ namespace Sorteio.Controllers
             _formasDePagamentoBusiness = formasDePagamentoBusiness;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var resultado = await _formasDePagamentoBusiness.ObterTodasFormasDePagamentoAtivo();
+            return View(resultado);
         }
 
-        public async Task<IActionResult> NovaFormaDePagamento()
+        public async Task<IActionResult> Novo()
         {
             ViewBag.TipoFormaDePagamento = await _tipoFormasDePagamentoBusiness.ObterTodasFormasDePagamentoAtiva();
             return View();
@@ -39,6 +40,44 @@ namespace Sorteio.Controllers
         {
             var resultado = await _formasDePagamentoBusiness.CriarNovaFormaDePagamento(body);
             return Json(new { erro = resultado.erro, mensagem = resultado.mensagem });
+        }
+
+        [HttpGet]
+        [Route("[controller]/[action]/{idFormaDePagamento:int}")]
+        public async Task<IActionResult> Editar(int idFormaDePagamento)
+        {
+            ViewBag.TipoFormaDePagamento = await _tipoFormasDePagamentoBusiness.ObterTodasFormasDePagamentoAtiva();
+
+            var resultado = await _formasDePagamentoBusiness.ObterFormaDePagamentoPorId(idFormaDePagamento);
+            return View(resultado);
+        }
+
+        [HttpPost]
+        [Route("[controller]/[action]")]
+        public async Task<IActionResult> EditarFormaDePagamento([FromBody] FormasDePagamento body)
+        {
+            var resultado = await _formasDePagamentoBusiness.EditarFormaDePagamento(body);
+            return Json(new { erro = resultado.erro, mensagem = resultado.mensagem });
+        }
+
+        [HttpGet]
+        [Route("[controller]/[action]/{idFormaDePagamento:int}")]
+        public async Task<JsonResult> ExcluirFormaDePagamento(int idFormaDePagamento)
+        {
+            var resultado = await _formasDePagamentoBusiness.ExcluirFormaDePagamento(idFormaDePagamento);
+
+            if (resultado == 1)
+                return Json(new { erro = false, mensagem = "Forma de Pagamento excluída com sucesso!" });
+            else
+                return Json(new { erro = false, mensagem = "Erro ao excluir Forma de Pagamento!" });
+        }
+
+        [HttpGet]
+        [Route("[controller]/[action]")]
+        public async Task<JsonResult> ObterTodasFormasDePagamentoAtivo()
+        {
+            var resultado = await _formasDePagamentoBusiness.ObterTodasFormasDePagamentoAtivo();
+            return Json(resultado);
         }
 
     }

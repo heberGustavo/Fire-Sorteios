@@ -29,3 +29,56 @@
     });
 
 });
+
+function ObterTodasFormasDePagamentoAtivo() {
+    $.ajax({
+        url: "/FormasDePagamento/ObterTodasFormasDePagamentoAtivo/",
+        type: "GET",
+        contentType: 'application/json; charset=UTF-8',
+        dataType: "json",
+        success: function (response) {
+            if (!response.erro) {
+                PreencherTabelaFormasDePagamento(response);
+            }
+            else {
+                swal("Opss", response.mensagem, "error");
+            }
+        },
+        error: function (response) {
+            swal("Erro", "Aconteceu um imprevisto. Contate o administrador", "error");
+            console.log(response);
+        }
+    });
+}
+
+function PreencherTabelaFormasDePagamento(dados) {
+    
+    tabelaListaFormasDePagamento.clear().draw();
+
+    $(dados).each(function (i, value) {
+
+        tabelaListaFormasDePagamento.row.add([
+            value.nome_banco,
+            value.agencia,
+            value.conta,
+            CriarBotaoAções(value.id_forma_de_pagamento, value.nome_banco),
+        ]).node().id = value.id_forma_de_pagamento;
+
+    });
+
+    tabelaListaFormasDePagamento.draw();
+}
+
+function CriarBotaoAções(id, nomeBanco) {
+    return `<td>
+                <a class='btn btn-sm btn-dark text-light' onclick="Editar(this, '${id}')"><i class='fas fa-edit'></i></a>
+                <a class='btn btn-sm btn-danger' onclick="ConfirmarExclusao('${id}', '${nomeBanco}')"><i class='fas fa-trash'></i></a>
+            </td>`;
+}
+
+function FecharModalExcluirFormaDePagamentoLimparCampos() {
+    $('#modalFinalizarSorteio').modal('hide');
+
+    $('#idFormaDePagamentoExclusaoSelecionada').val('');
+    $('#nomeBancoExclusao').text('');
+}

@@ -17,5 +17,11 @@ namespace Sorteio.Data.Repository
         public FormasDePagamentoRepository(SqlDataContext dataContext, IMapper mapper) : base(dataContext, mapper)
         {
         }
+
+        public Task<int> ExcluirFormaDePagamento(int idFormaDePagamento)
+            => _dataContext.Connection.ExecuteAsync(@"UPDATE FormasDePagamento 
+                                                      SET status = 1
+                                                      WHERE id_forma_de_pagamento = @idFormaDePagamento", 
+                                                      new { idFormaDePagamento});
     }
 }

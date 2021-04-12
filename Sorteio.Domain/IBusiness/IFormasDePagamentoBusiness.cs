@@ -11,5 +11,9 @@ namespace Sorteio.Domain.IBusiness
     public interface IFormasDePagamentoBusiness : IBusinessBase<FormasDePagamento>
     {
         Task<ResultResponseModel> CriarNovaFormaDePagamento(FormasDePagamento formasDePagamento);
+        Task<IEnumerable<FormasDePagamento>> ObterTodasFormasDePagamentoAtivo();
+        Task<int> ExcluirFormaDePagamento(int idFormaDePagamento);
+        Task<FormasDePagamento> ObterFormaDePagamentoPorId(int idFormaDePagamento);
+        Task<ResultResponseModel> EditarFormaDePagamento(FormasDePagamento body);
     }
 }

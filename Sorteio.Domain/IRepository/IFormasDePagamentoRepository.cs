@@ -10,5 +10,6 @@ namespace Sorteio.Domain.IRepository
 {
     public interface IFormasDePagamentoRepository : IRepositoryBase<FormasDePagamento>
     {
+        Task<int> ExcluirFormaDePagamento(int idFormaDePagamento);
     }
 }

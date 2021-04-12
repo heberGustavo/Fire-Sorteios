@@ -35,5 +35,27 @@ namespace Sorteio.Domain.Business
                 return new ResultResponseModel(true, "Erro ao cadastrar Forma de Pagamento. Tente novamente!");
             }
         }
+
+        public async Task<ResultResponseModel> EditarFormaDePagamento(FormasDePagamento body)
+        {
+            try
+            {
+                await _formasDePagamentoRepository.UpdateAsync(body);
+                return new ResultResponseModel(false, "Sucesso ao atualizar Forma de Pagamento!");
+            }
+            catch(Exception e)
+            {
+                return new ResultResponseModel(true, "Erro ao atualizar Forma de Pagamento. Tente novamente!");
+            }
+        }
+
+        public Task<int> ExcluirFormaDePagamento(int idFormaDePagamento)
+            => _formasDePagamentoRepository.ExcluirFormaDePagamento(idFormaDePagamento);
+
+        public async Task<FormasDePagamento> ObterFormaDePagamentoPorId(int idFormaDePagamento)
+            => await _formasDePagamentoRepository.GetById(idFormaDePagamento);
+
+        public async Task<IEnumerable<FormasDePagamento>> ObterTodasFormasDePagamentoAtivo()
+            => await _formasDePagamentoRepository.GetAllAsync(fp => fp.status == false);
     }
 }
