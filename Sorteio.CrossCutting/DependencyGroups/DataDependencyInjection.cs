@@ -16,6 +16,7 @@ namespace Sorteio.CrossCutting.DependencyGroups
 
             serviceCollection.AddTransient<ICategoriaSorteioRepository, CategoriaSorteioRepository>();
             serviceCollection.AddTransient<ITipoFormasDePagamentoRepository, TipoFormasDePagamentoRepository>();
+            serviceCollection.AddTransient<IFormasDePagamentoRepository, FormasDePagamentoRepository>();
         }
     }
 }

@@ -1153,3 +1153,4 @@ C:\wf_heber\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Sorteio.Portal.genrunt
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Razor\Views\CategoriaSorteio\Index.cshtml.g.cs
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Razor\Views\FormasDePagamento\Index.cshtml.g.cs
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Razor\Views\FormasDePagamento\NovaFormaDePagamento.cshtml.g.cs
+C:\wf_heber\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Razor\Views\PartialViews\Loading.cshtml.g.cs

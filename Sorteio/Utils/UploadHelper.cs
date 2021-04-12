@@ -10,40 +10,39 @@ namespace Sorteio.Portal.Utils
 {
     public static class UploadHelper
     {
-        public static string UploadBase64Image(string base64Image, string container)
-        {
-            //var fileName = Guid.NewGuid().ToString() + ".jpg";
-
-            //var data = new Regex(@"^data:image\/[a-z]+;base64,").Replace(base64Image, "");
-
-            //byte[] imageBytes = Convert.FromBase64String(data);
-
-            //var blobClient = new BlobClient("DefaultEndpointsProtocol=https;AccountName=cdngapcontabilidade;AccountKey=L76erpaINHsNFXh4/HHqKxSBnmtk80VJYMPYmQmvYJAXlfchr8dIETP06xaI2S30t3cxJUZ4puXhIi5sJ14CUQ==;EndpointSuffix=core.windows.net",
-            //                                "arquivos", fileName);
-
-            //using (var stream = new MemoryStream(imageBytes))
-            //{
-            //    blobClient.Upload(stream);
-            //}
-
-            //return blobClient.Uri.AbsoluteUri;
-            return container;
-        }
-
+        //Img, pdf ...
         public static string UploadFile(byte[] fileBase64, string extensao)
         {
-            //var fileName = Guid.NewGuid().ToString() + extensao;
+            var fileName = Guid.NewGuid().ToString() + extensao;
 
-            //var blobClient = new BlobClient("DefaultEndpointsProtocol=https;AccountName=cdngapcontabilidade;AccountKey=L76erpaINHsNFXh4/HHqKxSBnmtk80VJYMPYmQmvYJAXlfchr8dIETP06xaI2S30t3cxJUZ4puXhIi5sJ14CUQ==;EndpointSuffix=core.windows.net",
-            //                                "arquivos", fileName);
+            var blobClient = new BlobClient("DefaultEndpointsProtocol=https;AccountName=cdnfiresorteios;AccountKey=B8Ksf9VqoXL0cUyHPoxH034cyu0zMQY3pnR5ne/Tim2VfNAFfMOqx0mHX0pvs595w0M2U8E4HZOfKNvWueYAIg==;EndpointSuffix=core.windows.net",
+                                            "imagens", fileName);
 
-            //using (var stream = new MemoryStream(fileBase64))
-            //{
-            //    blobClient.Upload(stream);
-            //}
+            using (var stream = new MemoryStream(fileBase64))
+            {
+                blobClient.Upload(stream);
+            }
 
-            //return blobClient.Uri.AbsoluteUri;
-            return extensao;
+            return blobClient.Uri.AbsoluteUri;
         }
+
+        //public static string UploadBase64Image(string base64Image, string container)
+        //{
+        //    var fileName = Guid.NewGuid().ToString() + ".jpg";
+
+        //    var data = new Regex(@"^data:image\/[a-z]+;base64,").Replace(base64Image, "");
+
+        //    byte[] imageBytes = Convert.FromBase64String(data);
+
+        //    var blobClient = new BlobClient("DefaultEndpointsProtocol=https;AccountName=cdnfiresorteios;AccountKey=B8Ksf9VqoXL0cUyHPoxH034cyu0zMQY3pnR5ne/Tim2VfNAFfMOqx0mHX0pvs595w0M2U8E4HZOfKNvWueYAIg==;EndpointSuffix=core.windows.net",
+        //                                    "imagens", fileName);
+
+        //    using (var stream = new MemoryStream(imageBytes))
+        //    {
+        //        blobClient.Upload(stream);
+        //    }
+
+        //    return blobClient.Uri.AbsoluteUri;
+        //}
     }
 }
