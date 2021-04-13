@@ -12,6 +12,19 @@
                 </div>
             </div>
 
+            <div class="row mb-5">
+                <div class="col-md-12 text-center">
+                    <label for="file-input" class="selecionar_arquivo">
+                        <p class="m-0">Selecionar fotos do sorteio</p>
+                        <i class="material-icons">cloud_upload</i>
+                    </label>
+                    <input id="file-input" type="file" multiple />
+                    <div id="preview"></div>
+                </div>
+            </div>
+
+            <div id="inputs_de_links_gerados"></div>
+
             <form>
                 <div class="form-row">
                     <div class="form-group col-md-12">
@@ -54,6 +67,7 @@
                     <div class="summernote"></div>
                 </div>
             </div>
+
             <button id="edit" class="btn btn-outline-info btn-sm" onclick="edit()">Editar</button>
             <button id="save" class="btn btn-outline-success btn-sm" onclick="save()">Salvar</button>
 
@@ -62,5 +76,5 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-<script src="~/js/Pages/AcessoInterno/Sorteios/NovoSorteio.js" type="text/javascript" asp-append-version="true"></script>
+<script src="~/js/Pages/Sorteios/NovoSorteio.js" type="text/javascript" asp-append-version="true"></script>
 <script src="~/js/plugins/summernote-pt-br.js" type="text/javascript" asp-append-version="true"></script>
