@@ -60,7 +60,7 @@
     }
 }
 
-async function UploadImage(files) {
+function UploadImage(files) {
     $('#loading').removeClass('d-none');
 
     var MEGAS_5 = 5242880;
@@ -94,21 +94,18 @@ async function UploadImage(files) {
                 success: function (response) {
                     $('#loading').addClass('d-none');
                     CriarInputsDinamicamenteComLinkDosArquivos(response.caminhosArquivo);
-                    swal("Sucesso", "Arquivo foi enviado com sucesso!", "success");
-                    return true;
+                    swal("Sucesso", "Fotos anexadas!", "success");
                 },
                 error: function (error) {
                     console.log(error)
                     swal("Ops!", "Erro so submeter a foto." + error, "error");
                     $('#loading').addClass('d-none');
-                    return false;
                 }
             });
 
         } else if (fsizet > MEGAS_5) {
             alert('Não permetido maior que 5mb');
             $('#loading').addClass('d-none');
-            return false;
         }
     }
 }

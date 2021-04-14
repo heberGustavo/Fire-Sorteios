@@ -1,6 +1,8 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
     Layout = "_LayoutAcessoInterno";
+
+    @model IEnumerable<Sorteio.Domain.Models.NotMapped.SorteioNotMapped>
 }
 
 <partial name="~/Views/PartialViews/Loading.cshtml" />
@@ -26,36 +28,28 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1&deg; Edição - Yamaha 2021</td>
-                        <td></td>
-                        <td>
-                            <button class="btn btn-sm btn-warning">Em andamento</button>
-                        </td>
-                        <td>
-                            <a href="javascript:;" data-toggle="modal" data-target="#exampleModal" class="btn btn-sm btn-dark">Finalizar</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>134&deg; Edição - Golf GT</td>
-                        <td></td>
-                        <td>
-                            <button class="btn btn-sm btn-warning">Em andamento</button>
-                        </td>
-                        <td>
-                            <a href="javascript:;" data-toggle="modal" data-target="#exampleModal" class="btn btn-sm btn-dark">Finalizar</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1&deg; Edição - Iphone X</td>
-                        <td>Mark Anderson | n&deg; 84</td>
-                        <td>
-                            <button class="btn btn-sm btn-success">Concluído</button>
-                        </td>
-                        <td>
-                            <a href="javascript:;" data-toggle="modal" data-target="#exampleModal" class="btn btn-sm btn-dark">Finalizar</a>
-                        </td>
-                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.edicao_sorteio&deg; Edição - @item.nome_sorteio</td>
+                            <td>@item.nome_ganhador</td>
+                            @if (item.status == false)
+                            {
+                                <td>
+                                    <button class="btn btn-sm btn-warning">Em andamento</button>
+                                </td>
+                            }
+                            else
+                            {
+                                <td>
+                                    <button class="btn btn-sm btn-success">Finalizado</button>
+                                </td>
+                            }
+                            <td>
+                                <button onclick="AbrirModalFinalizarSorteio('@item.id_sorteio')" class="btn btn-sm btn-dark">Finalizar</button>
+                            </td>
+                        </tr>
+                    }
                 </tbody>
             </table>
         </div>
@@ -63,7 +57,7 @@
 </div>
 
 <!-- Modal Finalizar Sorteio -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalFinalizarSorteio" tabindex="-1" role="dialog" aria-labelledby="modalFinalizarSorteio" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -74,7 +68,7 @@
             <div class="modal-body pt-0">
                 <h5 class="title m-0 text-center">Finalizar Sorteio</h5>
                 <small class="m-auto d-block text-center">Para finalizar o sorteio preencha os campos abaixo</small>
-
+                <input type="text" id="idSorteioSelecionado" />
                 <form>
                     <div class="form-row">
                         <div class="form-group col-md-12">
@@ -101,5 +95,6 @@
     </div>
 </div>
 
-<script src="~/js/Pages/Sorteios/Index.js" type="text/javascript" asp-append-version="true"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="~/js/Pages/Sorteios/Index.js" type="text/javascript" asp-append-version="true"></script>
+<script src="~/js/Pages/Sorteios/FinalizarSorteio.js" type="text/javascript" asp-append-version="true"></script>

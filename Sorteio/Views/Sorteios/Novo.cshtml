@@ -14,12 +14,13 @@
                 </div>
             </div>
 
-            <div class="row mb-5">
+            <div class="row mb-2">
                 <div class="col-md-12 text-center">
                     <label for="file-input" class="selecionar_arquivo">
                         <p class="m-0">Selecionar fotos do sorteio</p>
                         <i class="material-icons">cloud_upload</i>
                     </label>
+                    <p id="quantidade_arquivo" class="font-weight-bold"></p>
                     <input id="file-input" type="file" multiple />
                     <div id="preview"></div>
                 </div>
@@ -30,49 +31,46 @@
             <form>
                 <div class="form-row">
                     <div class="form-group col-md-12">
-                        <label>Nome do Sorteio</label>
-                        <input type="text" class="form-control" placeholder="Meu novo sorteio">
+                        <label for="nome">Nome do Sorteio</label>
+                        <input type="text" name="nome" id="nome" class="form-control" placeholder="Meu novo sorteio">
                     </div>
                     <div class="form-group col-md-3">
-                        <label>Edição</label>
-                        <input type="text" class="form-control" placeholder="Número da Edição">
+                        <label for="edicao">Edição</label>
+                        <input type="text" name="edicao" id="edicao" class="form-control" placeholder="Número da Edição">
                     </div>
                     <div class="form-group col-md-3">
-                        <label>Valor</label>
-                        <input type="text" class="form-control" placeholder="R$ 10,00">
+                        <label for="valor">Valor</label>
+                        <input type="text" name="valor" id="valor" class="form-control money" placeholder="R$ 10,00">
                     </div>
                     <div class="form-group col-md-3">
-                        <label>Quant. de números</label>
-                        <input type="text" class="form-control" placeholder="100">
+                        <label for="quantidade_numeros">Quant. de números</label>
+                        <input type="text" name="quantidade_numeros" id="quantidade_numeros" class="form-control number" placeholder="100">
                     </div>
                     <div class="form-group col-md-3 alinhar-embaixo">
-                        <select class="selectpicker" data-style="btn-dark">
-                            <option>Mustard</option>
-                            <option>Ketchup</option>
-                            <option>Relish</option>
-                            <option>Mustard</option>
-                            <option>Ketchup</option>
-                            <option>Relish</option>
-                            <option>Mustard</option>
-                            <option>Ketchup</option>
-                            <option>Relish</option>
+                        <select id="select_categoria_sorteio" class="selectpicker" data-style="btn-dark">
+                            <option disabled selected value="0">Categoria</option>
+                            @foreach (var item in (IEnumerable<Sorteio.Domain.Models.EntityDomain.CategoriaSorteio>)ViewBag.CategoriaSorteio)
+                            {
+                                <option value="@item.id_categoria_sorteio">@item.nome</option>
+                            }
                         </select>
                     </div>
                     <div class="form-group col-md-12">
-                        <label for="inputAddress">Descrição curta</label>
-                        <input type="text" class="form-control" placeholder="Minha descrição curta">
+                        <label for="descricao_curta">Descrição curta</label>
+                        <input type="text" name="descricao_curta" id="descricao_curta" class="form-control" placeholder="Minha descrição curta">
                     </div>
                 </div>
             </form>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="summernote"></div>
+                    <div class="summernote" id="contentSummernote"></div>
                 </div>
             </div>
 
             <button id="edit" class="btn btn-outline-info btn-sm" onclick="edit()">Editar</button>
             <button id="save" class="btn btn-outline-success btn-sm" onclick="save()">Salvar</button>
-
+            <hr />
+            <button class="btn btn-dark" onclick="CadastrarSorteio();">Cadastrar</button>
         </div>
     </div>
 </div>

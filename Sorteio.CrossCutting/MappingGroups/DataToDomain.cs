@@ -14,6 +14,8 @@ namespace Sorteio.CrossCutting.MappingGroups
             CreateMap<CategoriaSorteioData, CategoriaSorteio>();
             CreateMap<TipoFormaDePagamentoData, TipoFormaDePagamento>();
             CreateMap<FormasDePagamentoData, FormasDePagamento>();
+            CreateMap<Sorteio.Data.EntityData.SorteioData, Sorteio.Domain.Models.EntityDomain.Sorteio>();
+            CreateMap<GaleriaFotosData, GaleriaFotos>();
         }
     }
 }

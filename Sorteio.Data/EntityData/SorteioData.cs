@@ -14,5 +14,6 @@ namespace Sorteio.Data.EntityData
         public int quantidade_numeros { get; set; }
         public string descricao_curta { get; set; }
         public string descricao_longa { get; set; }
+        public bool status { get; set; }
     }
 }
