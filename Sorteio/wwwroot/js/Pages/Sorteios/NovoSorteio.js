@@ -32,19 +32,24 @@
 
 document.querySelector('#file-input').addEventListener("change", previewImages);
 function previewImages() {
-
+    $('#preview').html('');
     var lista_arquivos = [];
     var preview = document.querySelector('#preview');
 
     if (this.files) {
-        [].forEach.call(this.files, readAndPreview);
+        [].forEach.call(this.files, GerarListaDeArquivos);
     }
 
-    UploadImage(lista_arquivos); /**/
+    function GerarListaDeArquivos(file) {
+        lista_arquivos.push(file);
+    }
+
+    var uploads = await UploadImage(lista_arquivos); /**/
+    console.log(uploads)
+
 
     function readAndPreview(file) {
-        lista_arquivos.push(file)
-
+        
         // Make sure `file.name` matches our extensions criteria
         if (!/\.(jpe?g|png|gif)$/i.test(file.name)) {
             return alert(file.name + " is not an image");
@@ -73,7 +78,7 @@ function CriarInputsDinamicamenteComLinkDosArquivos(caminhosArquivo) {
     $(caminhosArquivo).each(function (i, link) {
         var input = `
                         <div class="input_dinamico">
-                            <input type="hidden" class="imagens_galeria" value="${link}"/>
+                            <input type="text" class="imagens_galeria" value="${link}"/>
                         </div>
                     `;
         listaInputs.push(input);
