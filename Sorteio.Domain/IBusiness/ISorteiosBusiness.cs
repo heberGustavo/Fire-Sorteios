@@ -15,5 +15,7 @@ namespace Sorteio.Domain.IBusiness
         Task<ResultResponseModel> CriarNovoSorteio(SorteioBody sorteioBody);
         Task<IEnumerable<SorteioNotMapped>> ObterTodosSorteio();
         Task<ResultResponseModel> FinalizarSorteio(VencedorSorteio vencedorSorteio);
+        Task<SorteioNotMapped> ObterSorteioPorId(int idSorteio);
+        Task<VencedorSorteio> EditarFinalizarSorteio(VencedorSorteio body);
     }
 }

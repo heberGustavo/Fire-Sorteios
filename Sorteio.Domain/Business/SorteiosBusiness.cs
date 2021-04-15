@@ -25,8 +25,17 @@ namespace Sorteio.Domain.Business
         public Task<ResultResponseModel> CriarNovoSorteio(SorteioBody sorteioBody)
             => _sorteiosRepository.CriarNovoSorteio(sorteioBody);
 
+        public Task<VencedorSorteio> EditarFinalizarSorteio(VencedorSorteio body)
+        {
+            ////// AQUIII
+            throw new NotImplementedException();
+        }
+
         public Task<ResultResponseModel> FinalizarSorteio(VencedorSorteio vencedorSorteio)
             => _sorteiosRepository.FinalizarSorteio(vencedorSorteio);
+
+        public Task<SorteioNotMapped> ObterSorteioPorId(int idSorteio)
+            => _sorteiosRepository.ObterSorteioPorId(idSorteio);
 
         public Task<IEnumerable<SorteioNotMapped>> ObterTodosSorteio()
             => _sorteiosRepository.ObterTodosSorteio();

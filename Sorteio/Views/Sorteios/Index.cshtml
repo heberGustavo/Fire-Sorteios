@@ -45,9 +45,14 @@
                                     <button class="btn btn-sm btn-success">Finalizado</button>
                                 </td>
                             }
-                            <td>
-                                <button onclick="AbrirModalFinalizarSorteio('@item.id_sorteio')" class="btn btn-sm btn-dark">Finalizar</button>
-                            </td>
+                        <td>
+                            <a class="btn btn-sm btn-info" asp-controller="Sorteios" asp-action="Editar" asp-route-id="@item.id_sorteio">Editar <span class="material-icons">create</span></a>
+                            @if (item.status == false)
+                            {
+                                <button onclick="AbrirModalFinalizarSorteio('@item.id_sorteio')" class="btn btn-sm btn-dark">Finalizar <span class="material-icons">done</span></button>
+                            }
+
+                        </td>
                         </tr>
                     }
                 </tbody>
@@ -68,7 +73,7 @@
             <div class="modal-body pt-0">
                 <h5 class="title m-0 text-center">Finalizar Sorteio</h5>
                 <small class="m-auto d-block text-center">Para finalizar o sorteio preencha os campos abaixo</small>
-                <input type="text" id="idSorteioSelecionado" />
+                <input type="hidden" id="idSorteioSelecionado" />
                 <form>
                     <div class="form-row">
                         <div class="form-group col-md-12">

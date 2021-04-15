@@ -40,6 +40,18 @@ namespace Sorteio.Controllers
             return View();
         }
 
+        [HttpGet]
+        [Route("[controller]/[action]/{idSorteio:int}")]
+        public async Task<IActionResult> Editar(int idSorteio)
+        {
+            ViewBag.CategoriaSorteio = await _categoriaSorteioBusiness.ObterTodosCategoriaSorteioAtivo();
+            ViewBag.Usuario = await _usuarioBusiness.ObterTodosUsuarios();
+
+            var resultado = await _sorteiosBusiness.ObterSorteioPorId(idSorteio);
+
+            return View(resultado);
+        }
+
         [HttpPost]
         [Route("[controller]/[action]")]
         public async Task<JsonResult> CriarNovoSorteio([FromBody] SorteioBody body)
@@ -48,6 +60,15 @@ namespace Sorteio.Controllers
 
             return Json(new { erro = resultado.erro, mensagem = resultado.mensagem});
         }
+
+        //[HttpPost]
+        //[Route("[controller]/[action]")]
+        //public async Task<JsonResult> EditarFinalizarSorteio([FromBody] VencedorSorteio body)
+        //{
+        //    var resultado = await _sorteiosBusiness.EditarFinalizarSorteio(body);
+
+        //    return Json(new { erro = resultado.erro, mensagem = resultado.mensagem });
+        //}
 
         [HttpPost]
         [Route("[controller]/[action]")]

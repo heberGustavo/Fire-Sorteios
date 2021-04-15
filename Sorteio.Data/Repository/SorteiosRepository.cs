@@ -48,6 +48,9 @@ namespace Sorteio.Data.Repository
             }
         }
 
+        public Task<VencedorSorteio> EditarFinalizarSorteio(VencedorSorteio body)
+            => _dataContext.Connection.UpdateAsync<VencedorSorteio>(body);
+
         public async Task<ResultResponseModel> FinalizarSorteio(VencedorSorteio vencedorSorteio)
         {
             using (var dbContextTransaction = _dataContext.Connection.BeginTransaction())
@@ -73,6 +76,14 @@ namespace Sorteio.Data.Repository
                 }
             }
         }
+
+        public async Task<SorteioNotMapped> ObterSorteioPorId(int idSorteio)
+            => await _dataContext.Connection.QueryFirstOrDefaultAsync<SorteioNotMapped>(@"SELECT s.id_sorteio, s.id_categoria_sorteio, s.nome as nome_sorteio, s.edicao as edicao_sorteio, s.valor, s.quantidade_numeros, s.descricao_curta, s.descricao_longa, s.status,  
+                                                                                          vs.id_usuario, vs.id_vencedor_sorteio, u.nome as nome_ganhador, vs.numero_sorteado, vs.data_sorteio 
+                                                                                          FROM Sorteio s 
+                                                                                          LEFT JOIN VencedorSorteio vs ON s.id_sorteio = vs.id_sorteio 
+                                                                                          LEFT JOIN Usuario u ON vs.id_usuario = u.id_usuario
+                                                                                          WHERE s.id_sorteio = @idSorteio", new { idSorteio = idSorteio } );
 
         public Task<IEnumerable<SorteioNotMapped>> ObterTodosSorteio()
             => _dataContext.Connection.QueryAsync<SorteioNotMapped>(@"SELECT s.id_sorteio, u.id_usuario, s.nome as nome_sorteio, s.edicao as edicao_sorteio, s.status, u.nome as nome_ganhador
