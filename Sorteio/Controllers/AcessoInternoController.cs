@@ -15,16 +15,5 @@ namespace Sorteio.Controllers
         {
             return View();
         }
-
-        public IActionResult Sorteios()
-        {
-            return View();
-        }
-
-        public IActionResult NovoSorteio()
-        {
-            return View();
-        }
-
     }
 }

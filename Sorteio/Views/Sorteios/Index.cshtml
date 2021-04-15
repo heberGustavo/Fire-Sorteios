@@ -72,16 +72,21 @@
                 <form>
                     <div class="form-row">
                         <div class="form-group col-md-12">
-                            <label for="exampleFormControlInput1">Data</label>
-                            <input type="date" class="form-control" id="exampleFormControlInput1">
+                            <label for="data_sorteio">Data</label>
+                            <input type="date" class="form-control" id="data_sorteio" name="data_sorteio">
                         </div>
                         <div class="form-group col-md-12">
-                            <label for="exampleFormControlInput1">Nome do Ganhador</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="João da Silva">
+                            <select id="select_nome_cliente" class="selectpicker w-100" data-style="btn-dark" data-live-search="true">
+                                <option disabled selected value="0">Nome do Ganhador</option>
+                                @foreach (var item in (IEnumerable<Sorteio.Domain.Models.EntityDomain.Usuario>)ViewBag.Usuario)
+                                {
+                                    <option value="@item.id_usuario">@item.nome</option>
+                                }
+                            </select>
                         </div>
                         <div class="form-group col-md-12">
-                            <label for="exampleFormControlInput1">Número Sorteado</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="001">
+                            <label for="numero_sorteado">Número Sorteado</label>
+                            <input type="text" class="form-control" id="numero_sorteado" name="numero_sorteado" placeholder="001">
                         </div>
                     </div>
                 </form>
@@ -89,7 +94,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-dark btn-sm" data-dismiss="modal">Fechar</button> &#160;
-                <button type="button" class="btn btn-success btn-sm">Finalizar</button>
+                <button type="button" onclick="FinalizarSorteio();" class="btn btn-success btn-sm">Finalizar</button>
             </div>
         </div>
     </div>

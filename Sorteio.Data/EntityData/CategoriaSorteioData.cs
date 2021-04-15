@@ -1,6 +1,5 @@
 ﻿using Dapper.Contrib.Extensions;
 
-
 namespace Sorteio.Data.EntityData
 {
     [Table("CategoriaSorteio")]

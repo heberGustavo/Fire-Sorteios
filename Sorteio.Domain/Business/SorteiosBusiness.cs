@@ -25,8 +25,8 @@ namespace Sorteio.Domain.Business
         public Task<ResultResponseModel> CriarNovoSorteio(SorteioBody sorteioBody)
             => _sorteiosRepository.CriarNovoSorteio(sorteioBody);
 
-        public Task<int> FinalizarSorteio(int idSorteio)
-            => _sorteiosRepository.FinalizarSorteio(idSorteio);
+        public Task<ResultResponseModel> FinalizarSorteio(VencedorSorteio vencedorSorteio)
+            => _sorteiosRepository.FinalizarSorteio(vencedorSorteio);
 
         public Task<IEnumerable<SorteioNotMapped>> ObterTodosSorteio()
             => _sorteiosRepository.ObterTodosSorteio();

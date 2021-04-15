@@ -19,6 +19,7 @@ namespace Sorteio.CrossCutting.DependencyGroups
             serviceCollection.AddTransient<ITipoFormasDePagamentoBusiness, TipoFormasDePagamnetoBusiness>();
             serviceCollection.AddTransient<IFormasDePagamentoBusiness, FormasDePagamentoBusiness>();
             serviceCollection.AddTransient<ISorteiosBusiness, SorteiosBusiness>();
+            serviceCollection.AddTransient<IUsuarioBusiness, UsuarioBusiness>();
         }
     }
 }

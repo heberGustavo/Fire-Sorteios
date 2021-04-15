@@ -48,16 +48,36 @@ namespace Sorteio.Data.Repository
             }
         }
 
-        public Task<int> FinalizarSorteio(int idSorteio)
-            => _dataContext.Connection.ExecuteAsync(@"UPDATE Sorteio
-                                                      SET status = 1
-                                                      WHERE id_sorteio = @idSorteio",
-                                                      new { idSorteio = idSorteio });
+        public async Task<ResultResponseModel> FinalizarSorteio(VencedorSorteio vencedorSorteio)
+        {
+            using (var dbContextTransaction = _dataContext.Connection.BeginTransaction())
+            {
+                try
+                {
+                    var idVencedorSorteioCadastrado = await _dataContext.Connection.InsertAsync(_mapper.Map<VencedorSorteioData>(vencedorSorteio), dbContextTransaction);
+
+                    await _dataContext.Connection.ExecuteAsync(@"UPDATE Sorteio
+                                                                 SET status = 1
+                                                                 WHERE id_sorteio = @idSorteio",
+                                                                 new { idSorteio = vencedorSorteio.id_sorteio },
+                                                                 dbContextTransaction);
+
+                    dbContextTransaction.Commit();
+
+                    return new ResultResponseModel(false, "Sorteio finalizado com sucesso");
+                }
+                catch (Exception ex)
+                {
+                    dbContextTransaction.Rollback();
+                    return new ResultResponseModel(true, "Erro ao finalizar Sorteio, entre em contato com o suporte.");
+                }
+            }
+        }
 
         public Task<IEnumerable<SorteioNotMapped>> ObterTodosSorteio()
-            => _dataContext.Connection.QueryAsync<SorteioNotMapped>(@"SELECT s.id_sorteio, s.nome as nome_sorteio, s.edicao as edicao_sorteio, s.status, u.nome as nome_ganhador
+            => _dataContext.Connection.QueryAsync<SorteioNotMapped>(@"SELECT s.id_sorteio, u.id_usuario, s.nome as nome_sorteio, s.edicao as edicao_sorteio, s.status, u.nome as nome_ganhador
                                                                       FROM Sorteio s 
                                                                       LEFT JOIN VencedorSorteio vs ON s.id_sorteio = vs.id_sorteio 
-                                                                      LEFT JOIN Usuario u ON vs.id_usuario = u.id_usuario ");
+                                                                      LEFT JOIN Usuario u ON vs.id_usuario = u.id_usuario");
     }
 }
