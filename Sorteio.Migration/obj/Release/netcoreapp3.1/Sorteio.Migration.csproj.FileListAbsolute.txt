@@ -1,0 +1,15 @@
+C:\wf_heber\Fire-Sorteios\Sorteio.Migration\bin\Release\netcoreapp3.1\Sorteio.Migration.deps.json
+C:\wf_heber\Fire-Sorteios\Sorteio.Migration\bin\Release\netcoreapp3.1\Sorteio.Migration.dll
+C:\wf_heber\Fire-Sorteios\Sorteio.Migration\bin\Release\netcoreapp3.1\Sorteio.Migration.pdb
+C:\wf_heber\Fire-Sorteios\Sorteio.Migration\bin\Release\netcoreapp3.1\Sorteio.Common.dll
+C:\wf_heber\Fire-Sorteios\Sorteio.Migration\bin\Release\netcoreapp3.1\Sorteio.Domain.dll
+C:\wf_heber\Fire-Sorteios\Sorteio.Migration\bin\Release\netcoreapp3.1\Sorteio.Domain.pdb
+C:\wf_heber\Fire-Sorteios\Sorteio.Migration\bin\Release\netcoreapp3.1\Sorteio.Common.pdb
+C:\wf_heber\Fire-Sorteios\Sorteio.Migration\obj\Release\netcoreapp3.1\Sorteio.Migration.csprojAssemblyReference.cache
+C:\wf_heber\Fire-Sorteios\Sorteio.Migration\obj\Release\netcoreapp3.1\Sorteio.Migration.GeneratedMSBuildEditorConfig.editorconfig
+C:\wf_heber\Fire-Sorteios\Sorteio.Migration\obj\Release\netcoreapp3.1\Sorteio.Migration.AssemblyInfoInputs.cache
+C:\wf_heber\Fire-Sorteios\Sorteio.Migration\obj\Release\netcoreapp3.1\Sorteio.Migration.AssemblyInfo.cs
+C:\wf_heber\Fire-Sorteios\Sorteio.Migration\obj\Release\netcoreapp3.1\Sorteio.Migration.csproj.CoreCompileInputs.cache
+C:\wf_heber\Fire-Sorteios\Sorteio.Migration\obj\Release\netcoreapp3.1\Sorteio.Migration.csproj.CopyComplete
+C:\wf_heber\Fire-Sorteios\Sorteio.Migration\obj\Release\netcoreapp3.1\Sorteio.Migration.dll
+C:\wf_heber\Fire-Sorteios\Sorteio.Migration\obj\Release\netcoreapp3.1\Sorteio.Migration.pdb

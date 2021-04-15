@@ -1,0 +1,477 @@
+﻿a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+    color: #0366d6;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+}
+
+/* BOTÃO FLUTUANTE */
+.float_custom {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+}
+
+.my-float {
+    margin-top: 16px;
+}
+
+/* CSS CUSTOM */
+.fundo_vermelho {
+    background: rgb(0,0,0);
+    background: linear-gradient(7deg, rgba(0,0,0,1) 0%, rgba(164,4,4,1) 43%, rgba(0,0,0,1) 100%);
+}
+
+.page-header img.logo {
+    width: 50%;
+    margin: auto;
+    display: block;
+}
+
+.info {
+    padding: 30px 0 30px !important;
+}
+
+.card-img-principal {
+    width: 100%;
+    height: 250px;
+    margin: auto;
+    background-position: center !important;
+    background-size: cover !important;
+}
+
+.card-header .titulo-card-sorteios b {
+    font-size: 21px !important;
+}
+
+.card-body .info-numeros {
+    padding: 8px 0;
+}
+
+.card-body .card-text {
+    margin-top: 12px;
+    font-size: 16px;
+    color: black;
+    font-weight: 700;
+}
+
+.card-body .info-numeros h5 {
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+}
+
+a.btn-dark {
+    background: #000;
+}
+
+.dropdown-menu .dropdown-item:hover,
+.dropdown-menu .dropdown-item:focus,
+.dropdown-menu .dropdown-item:active,
+.dropdown-menu a:active,
+.dropdown-menu a.active,
+.dropdown-menu a:hover,
+.dropdown-menu a:focus,
+.dropdown-menu a:active {
+    box-shadow: 0 4px 20px 0px rgb(0 0 0 / 14%), 0 7px 10px -5px rgb(0 0 0 / 40%);
+    background-color: #000000db;
+    color: #fff !important;
+}
+
+/* RODAPE */
+.rodape img.logo {
+    width: 20%;
+    margin: auto;
+    display: block;
+}
+
+.rodape .redes-sociais img {
+    width: 50px;
+    margin: 10px;
+}
+
+.rodape a {
+    color: #000;
+    font-weight: 500;
+}
+
+    .rodape a:hover {
+        color: rgba(164,4,4,1);
+    }
+
+.footer {
+    line-height: 20px !important;
+}
+
+/*
+    TELA DE ITEM DE SORTEIO
+*/
+.bloco-filtro-sorteio {
+    display: inline-block;
+}
+
+    .bloco-filtro-sorteio label {
+        margin: 10px 20px;
+    }
+
+    .bloco-filtro-sorteio .item {
+        padding: 10px;
+        border-radius: 2px 10px;
+        color: #000;
+        font-weight: 500;
+        border: 1px solid #a7a7a7;
+    }
+
+        .bloco-filtro-sorteio .item:hover {
+            cursor: pointer;
+        }
+
+.item-todos {
+    background: #a7a7a769;
+}
+
+.item-disponivel {
+    background: #fff;
+}
+
+.item-reservado {
+    background: #00da00e0;
+}
+
+.item-pago {
+    background: yellow;
+}
+
+.consultar-meus-numero {
+    background: #ffaa0d;
+}
+
+.itens-numero-sorteio {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #a7a7a7;
+    font-weight: 700;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
+    margin: 5px;
+}
+
+.dados-banco {
+    text-align: left;
+}
+
+    .dados-banco h6 {
+        padding: 0;
+        margin: 0;
+    }
+
+/* CARD LOGIN */
+.card-login .form-custom-login {
+    min-height: 280px;
+}
+
+.form-control,
+.is-focused .form-control {
+    background-image: linear-gradient(to top, #000000 2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #d2d2d2 1px, rgba(210, 210, 210, 0) 1px)
+}
+
+.is-focused [class^='bmd-label'],
+.is-focused [class*=' bmd-label'] {
+    color: #000;
+}
+
+/* TELA ACESSO INTERNO */
+.vertical-nav {
+    min-width: 17rem;
+    width: 17rem;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s;
+}
+
+.page-content {
+    width: calc(100% - 17rem);
+    margin-left: 17rem;
+    transition: all 0.4s;
+}
+
+/* for toggle behavior */
+
+#sidebar.active {
+    margin-left: -17rem;
+}
+
+#content.active {
+    width: 100%;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -17rem;
+    }
+
+        #sidebar.active {
+            margin-left: 0;
+        }
+
+    #content {
+        width: 100%;
+        margin: 0;
+    }
+
+        #content.active {
+            margin-left: 17rem;
+            width: calc(100% - 17rem);
+        }
+}
+
+body.acesso-interno {
+    min-height: 100vh;
+}
+
+.img-perfil {
+    width: 65px;
+    transition: width 2s;
+}
+
+.img-perfil:hover {
+    width: 85px;
+}
+
+.bmd-form-group .bmd-label-static{
+    left: 5px;
+}
+
+.alinhar-embaixo {
+    align-self: flex-end;
+}
+
+/* INPUT FILE CUSTOM */
+.form-group input[type=file]{
+    position: relative;
+}
+
+.file {
+    position: initial;
+}
+
+.logo-banco .file-custom:after {
+    content: "Escolher imagem"
+}
+
+/* Focus */
+.file input:focus ~ .file-custom {
+    box-shadow: 0 0 0 .075rem #fff, 0 0 0 .2rem #000;
+}
+
+.dropdown-menu .disabled > a:focus,
+.dropdown-menu .disabled > a:hover {
+    background: #000 !important;
+}
+
+/* TABELA CUSTOM */
+table.dataTable.no-footer{
+    border-bottom: none !important;
+}
+
+
+
+
+
+
+
+
+
+/* CUSTOMIZAÇÕES PADRÃO */
+
+/* Campos obrigatorios */
+/*01*/
+form .form-group.required label.required:after {
+    content: " *";
+    color: red;
+}
+/*02*/
+form .form-row.required label.required:after {
+    content: " *";
+    color: red;
+}
+
+/* MODAL EXCLUSÃO */
+.modal .modal-header-exclusao {
+    border-bottom: 0 !important;
+}
+
+    .modal .modal-header-exclusao h5 {
+        margin: auto !important;
+        margin-right: -7% !important;
+        border-bottom: 0 !important;
+    }
+
+/* CARREGAMENTO DE PAGINA */
+.loader-wrapper {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #292929;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999 !important;
+}
+
+.loader {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    border: 4px solid #fff;
+    animation: loader 2s infinite ease;
+}
+
+.loader-inner {
+    vertical-align: top;
+    display: inline-block;
+    width: 100%;
+    background-color: #fff;
+    animation: loader-inner 2s infinite ease-in;
+}
+
+@keyframes loader {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(180deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    75% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loader-inner {
+    0% {
+        height: 0%;
+    }
+
+    25% {
+        height: 0%;
+    }
+
+    50% {
+        height: 100%;
+    }
+
+    75% {
+        height: 100%;
+    }
+
+    100% {
+        height: 0%;
+    }
+}
+
+/* INPUT CUSTOM FILE*/
+/* Esconde o input */
+input[type='file'] {
+    display: none
+}
+
+/* Aparência que terá o seletor de arquivo */
+label.selecionar_arquivo {
+    background-color: #000000;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    margin: 10px;
+    padding: 8px 20px;
+}
+
+/***/
