@@ -48,8 +48,35 @@ namespace Sorteio.Data.Repository
             }
         }
 
-        public Task<VencedorSorteio> EditarFinalizarSorteio(VencedorSorteio body)
-            => _dataContext.Connection.UpdateAsync<VencedorSorteio>(body);
+        public async Task<bool> EditarFinalizarSorteio(VencedorSorteio body)
+            => await _dataContext.Connection.UpdateAsync(_mapper.Map<VencedorSorteioData>(body));
+
+        public async Task<ResultResponseModel> EditarSorteio(SorteioBody body)
+        {
+            using (var dbContextTransaction = _dataContext.Connection.BeginTransaction())
+            {
+                try
+                {
+                    await _dataContext.Connection.UpdateAsync(_mapper.Map<Sorteio.Data.EntityData.SorteioData>(body.sorteio), dbContextTransaction);
+
+                    foreach (var itemImagem in body.linkImagens)
+                    {
+                        itemImagem.id_sorteio = body.sorteio.id_sorteio;
+
+                        await _dataContext.Connection.InsertAsync(_mapper.Map<GaleriaFotosData>(itemImagem), dbContextTransaction);
+                    }
+
+                    dbContextTransaction.Commit();
+
+                    return new ResultResponseModel(false, "Sorteio atualizado com sucesso!");
+                }
+                catch (Exception ex)
+                {
+                    dbContextTransaction.Rollback();
+                    return new ResultResponseModel(true, "Erro ao atualizar Sorteio, entre em contato com o suporte.");
+                }
+            }
+        }
 
         public async Task<ResultResponseModel> FinalizarSorteio(VencedorSorteio vencedorSorteio)
         {
@@ -78,12 +105,15 @@ namespace Sorteio.Data.Repository
         }
 
         public async Task<SorteioNotMapped> ObterSorteioPorId(int idSorteio)
-            => await _dataContext.Connection.QueryFirstOrDefaultAsync<SorteioNotMapped>(@"SELECT s.id_sorteio, s.id_categoria_sorteio, s.nome as nome_sorteio, s.edicao as edicao_sorteio, s.valor, s.quantidade_numeros, s.descricao_curta, s.descricao_longa, s.status,  
-                                                                                          vs.id_usuario, vs.id_vencedor_sorteio, u.nome as nome_ganhador, vs.numero_sorteado, vs.data_sorteio 
-                                                                                          FROM Sorteio s 
+            => await _dataContext.Connection.QueryFirstOrDefaultAsync<SorteioNotMapped>(@"SELECT COUNT(gf.id_galeria_fotos) quantidade_imagens, s.id_sorteio, s.id_categoria_sorteio, s.nome as nome_sorteio, s.edicao as edicao_sorteio, s.valor, s.quantidade_numeros, s.descricao_curta, s.descricao_longa, s.status,  
+                                                                                          vs.id_usuario, vs.id_vencedor_sorteio, u.nome as nome_ganhador, vs.numero_sorteado, vs.data_sorteio
+                                                                                          FROM Sorteio s
                                                                                           LEFT JOIN VencedorSorteio vs ON s.id_sorteio = vs.id_sorteio 
                                                                                           LEFT JOIN Usuario u ON vs.id_usuario = u.id_usuario
-                                                                                          WHERE s.id_sorteio = @idSorteio", new { idSorteio = idSorteio } );
+                                                                                          LEFT JOIN GaleriaFotos gf ON s.id_sorteio = gf.id_sorteio 
+                                                                                          WHERE s.id_sorteio = @idSorteio
+                                                                                          GROUP BY s.id_sorteio, s.id_categoria_sorteio, s.nome, s.edicao, s.valor, s.quantidade_numeros, s.descricao_curta, s.descricao_longa, s.status,  
+                                                                                          vs.id_usuario, vs.id_vencedor_sorteio, u.nome, vs.numero_sorteado, vs.data_sorteio", new { idSorteio = idSorteio } );
 
         public Task<IEnumerable<SorteioNotMapped>> ObterTodosSorteio()
             => _dataContext.Connection.QueryAsync<SorteioNotMapped>(@"SELECT s.id_sorteio, u.id_usuario, s.nome as nome_sorteio, s.edicao as edicao_sorteio, s.status, u.nome as nome_ganhador

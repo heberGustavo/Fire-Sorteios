@@ -28,7 +28,8 @@ function AtualizarFinalizarSorteio() {
                 if (!response.erro) {
                     swal("Sucesso", response.mensagem, "success")
                         .then((okay) => {
-                            window.location.href = "/Sorteios";
+                            $('#modalFinalizarSorteio').modal('hide');
+                            AtualizarDataDaBolhaDoSorteio();
                         });
                 }
                 else {
@@ -42,4 +43,12 @@ function AtualizarFinalizarSorteio() {
         });
     }
     
+}
+
+function AtualizarDataDaBolhaDoSorteio() {
+    var novoGanhador = $('#select_nome_cliente option:selected').text();
+
+    $('.bolha_vencedor .data-sorteio').text(ConverterParaDataBr('data_sorteio'));
+    $('.bolha_vencedor .nome-ganhador').text(novoGanhador);
+
 }

@@ -16,6 +16,7 @@ namespace Sorteio.Domain.IRepository
         Task<IEnumerable<SorteioNotMapped>> ObterTodosSorteio();
         Task<ResultResponseModel> FinalizarSorteio(VencedorSorteio vencedorSorteio);
         Task<SorteioNotMapped> ObterSorteioPorId(int idSorteio);
-        Task<VencedorSorteio> EditarFinalizarSorteio(VencedorSorteio body);
+        Task<bool> EditarFinalizarSorteio(VencedorSorteio body);
+        Task<ResultResponseModel> EditarSorteio(SorteioBody body);
     }
 }

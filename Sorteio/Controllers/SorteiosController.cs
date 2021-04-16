@@ -48,7 +48,7 @@ namespace Sorteio.Controllers
             ViewBag.Usuario = await _usuarioBusiness.ObterTodosUsuarios();
 
             var resultado = await _sorteiosBusiness.ObterSorteioPorId(idSorteio);
-
+            
             return View(resultado);
         }
 
@@ -61,14 +61,25 @@ namespace Sorteio.Controllers
             return Json(new { erro = resultado.erro, mensagem = resultado.mensagem});
         }
 
-        //[HttpPost]
-        //[Route("[controller]/[action]")]
-        //public async Task<JsonResult> EditarFinalizarSorteio([FromBody] VencedorSorteio body)
-        //{
-        //    var resultado = await _sorteiosBusiness.EditarFinalizarSorteio(body);
+        [HttpPost]
+        [Route("[controller]/[action]")]
+        public async Task<JsonResult> EditarSorteio([FromBody] SorteioBody body)
+        {
+            var resultado = await _sorteiosBusiness.EditarSorteio(body);
+            return Json(new { erro = resultado.erro, mensagem = resultado.mensagem });
+        }
 
-        //    return Json(new { erro = resultado.erro, mensagem = resultado.mensagem });
-        //}
+        [HttpPost]
+        [Route("[controller]/[action]")]
+        public async Task<JsonResult> EditarFinalizarSorteio([FromBody] VencedorSorteio body)
+        {
+            var resultado = await _sorteiosBusiness.EditarFinalizarSorteio(body);
+
+            if (resultado)
+                return Json(new { erro = false, mensagem = "Dados atualizados!" });
+            else
+                return Json(new { erro = true, mensagem = "Erro ao atualizar dados. Tente novamente!" });
+        }
 
         [HttpPost]
         [Route("[controller]/[action]")]

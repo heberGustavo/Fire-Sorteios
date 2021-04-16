@@ -25,11 +25,11 @@ namespace Sorteio.Domain.Business
         public Task<ResultResponseModel> CriarNovoSorteio(SorteioBody sorteioBody)
             => _sorteiosRepository.CriarNovoSorteio(sorteioBody);
 
-        public Task<VencedorSorteio> EditarFinalizarSorteio(VencedorSorteio body)
-        {
-            ////// AQUIII
-            throw new NotImplementedException();
-        }
+        public Task<bool> EditarFinalizarSorteio(VencedorSorteio body)
+            => _sorteiosRepository.EditarFinalizarSorteio(body);
+
+        public Task<ResultResponseModel> EditarSorteio(SorteioBody body)
+            => _sorteiosRepository.EditarSorteio(body);
 
         public Task<ResultResponseModel> FinalizarSorteio(VencedorSorteio vencedorSorteio)
             => _sorteiosRepository.FinalizarSorteio(vencedorSorteio);

@@ -21,5 +21,7 @@ namespace Sorteio.Domain.Models.NotMapped
         public string nome_ganhador { get; set; }
         public int numero_sorteado { get; set; }
         public DateTime data_sorteio { get; set; }
+
+        public int quantidade_imagens { get; set; }
     }
 }

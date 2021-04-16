@@ -36,7 +36,6 @@ function CadastrarSorteio() {
     if (VerificarCamposObrigatorios()) {
 
         var dadosJson = GerarJsonCamposObrigatorios();
-        console.log(dadosJson)
 
         $.ajax({
             url: "/Sorteios/CriarNovoSorteio",
