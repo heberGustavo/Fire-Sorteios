@@ -791,6 +791,14 @@ function ObterValorCheckBoxOuDefault(nomeCheckBox) {
     return document.getElementById(nomeCheckBox).checked ? true : false;
 }
 
+function ObterStatusBoleanoNoInput(nomeInput) {
+
+    if (parseInt($("#" + nomeInput).val()) == 1)
+        return true;
+    else
+        return false;
+}
+
 function ObterValorSelectOuDefault(idElemento) {
 
     return ElementoExiste(idElemento) ? parseInt($("#" + idElemento).val()) : 0;

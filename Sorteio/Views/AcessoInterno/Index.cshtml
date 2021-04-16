@@ -7,9 +7,138 @@
     <div class="card">
         <div class="card-body">
             <div class="row">
-                Acesso interno Admin
+                <div class="col-md-12 text-center mb-5">
+                    <h4 class="title mb-0 pb-0">MINHA CONTA</h4>
+                    <div class="divisor"></div>
+                    <span>Seja bem-vindo(a), <span class="nome-usuario font-weight-bold">Priscila</span>!</span>
+                </div>
+                <div class="col-md-12 mb-4">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <ul class="nav nav-pills nav-pills-rose flex-column">
+                                <li class="nav-item"><a class="nav-link active" href="#tab_meus_bilhetes" data-toggle="tab"><span class="material-icons">confirmation_number</span> &nbsp; Meus bilhetes</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#tab_meus_premio" data-toggle="tab"><span class="material-icons">emoji_events</span> &nbsp; Meus prêmios</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#tab_meus_dados" data-toggle="tab"><span class="material-icons">account_box</span> &nbsp; Meus dados</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="tab_meus_bilhetes">
+                                    <h4 class="titulo-cards-perfil">Meus Bilhetes</h4>
+                                    <span class="font-weight-bold">Importante:</span> <span>Os bilhetes apenas reservados serão cancelados automaticamente ao passar da data de validade!</span>
 
+                                    <table class="table table-hover mt-5 text-center" id="datatableMeusBilhetes">
+                                        <thead class="bg-light">
+                                            <tr>
+                                                <th scope="col">Sorteio</th>
+                                                <th scope="col">Data Compra</th>
+                                                <th scope="col">Número</th>
+                                                <th scope="col">Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Yahama 2020</td>
+                                                <td>10/10/2021</td>
+                                                <td>5</td>
+                                                <td>Pago</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                                <div class="tab-pane" id="tab_meus_premio">
+                                    <h4 class="titulo-cards-perfil">Meus Prêmios</h4>
+                                    <span>Aqui você pode ver todos os prêmios que você foi sorteado!</span>
+
+                                    <table class="table table-hover mt-5 text-center" id="datatableMeusPremios">
+                                        <thead class="bg-light">
+                                            <tr>
+                                                <th scope="col">Sorteio</th>
+                                                <th scope="col">Data Sorteio</th>
+                                                <th scope="col">Número Premiado</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Yahama 2020</td>
+                                                <td>20/10/2021</td>
+                                                <td>5</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                                <div class="tab-pane" id="tab_meus_dados">
+                                    <h4 class="titulo-cards-perfil">Meus Dados</h4>
+
+                                    <form>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-12">
+                                                <label for="nome">Nome</label>
+                                                <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome e Sobrenome">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="cpf">CPF</label>
+                                                <input type="text" class="form-control" id="cpf" placeholder="000.000.000-00">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="data_de_nascimento">Data de Nascimento</label>
+                                                <input type="date" class="form-control" id="data_de_nascimento" name="data_de_nascimento">
+                                            </div>
+                                            <div class="form-group col-md-9">
+                                                <label for="email">Email</label>
+                                                <input type="email" class="form-control" id="email" name="email" placeholder="email@email.com">
+                                            </div>
+                                            <div class="form-group col-md-3">
+                                                <label for="telefone">Telefone/Celular</label>
+                                                <input type="text" class="form-control" id="telefone" name="telefone" placeholder="(00) 00000-0000">
+                                            </div>
+                                            <div class="form-group col-md-3">
+                                                <label for="cep">CEP</label>
+                                                <input type="text" class="form-control" id="cep" name="cep" placeholder="00000-000">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="logadouro">Logadouro</label>
+                                                <input type="text" class="form-control" id="logadouro" name="logadouro" placeholder="Rua, Avenida">
+                                            </div>
+                                            <div class="form-group col-md-3">
+                                                <label for="numero">Número</label>
+                                                <input type="text" class="form-control" id="numero" name="numero" placeholder="00000">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="bairro">Bairro</label>
+                                                <input type="text" class="form-control" id="bairro" name="bairro" placeholder="Meu bairro">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="complemento">Complemento</label>
+                                                <input type="text" class="form-control" id="complemento" name="complemento" placeholder="Casa, apartamento">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="estado">Estado</label>
+                                                <input type="text" class="form-control" id="estado" name="estado" placeholder="Meu estado">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="cidade">Cidade</label>
+                                                <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Minha Cidade">
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <label for="referencia">Referência</label>
+                                                <input type="text" class="form-control" id="referencia" name="referencia" placeholder="Próximo a ...">
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+
+<script src="~/js/Pages/AcessoInterno/Index.js" type="text/javascript" asp-append-version="true"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>

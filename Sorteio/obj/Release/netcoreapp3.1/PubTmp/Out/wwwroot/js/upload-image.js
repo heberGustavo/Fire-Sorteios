@@ -38,6 +38,7 @@
                 processData: false,
                 success: function (response) {
                     $('#loading').addClass('d-none');
+
                     swal("Sucesso", "Arquivo foi enviado com sucesso!", "success");
                     $('#' + idElementoInputCaminhoArquivo).val(response.caminhoArquivo);
                 },
@@ -47,12 +48,11 @@
                     $('#loading').addClass('d-none');
                 }
             });
-
-        } else if (fsizet > MEGAS_5) {
+        }
+        else if (fsizet > MEGAS_5) {
             alert('Não permetido maior que 5mb');
             $('#loading').addClass('d-none');
         }
-
     }
     else {
         alert('Maximo de 1 arquivos.');
@@ -60,7 +60,7 @@
     }
 }
 
-function UploadImage(files) {
+function UploadGalleryImage(files) {
     $('#loading').removeClass('d-none');
 
     var MEGAS_5 = 5242880;

@@ -400,3 +400,4 @@ C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\Sorteio.Portal.cspro
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\Sorteio.Portal.dll
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\Sorteio.Portal.pdb
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\Sorteio.Portal.genruntimeconfig.cache
+C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\Razor\Views\Sorteios\Editar.cshtml.g.cs

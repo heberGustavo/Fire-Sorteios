@@ -1130,11 +1130,7 @@ C:\wf_heber\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\scopedcss\bundle\Sorte
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Sorteio.Portal.TagHelpers.input.cache
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Sorteio.Portal.TagHelpers.output.cache
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Sorteio.Portal.RazorCoreGenerate.cache
-C:\wf_heber\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Razor\Views\AcessoInterno\FormasDePagamento.cshtml.g.cs
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Razor\Views\AcessoInterno\Index.cshtml.g.cs
-C:\wf_heber\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Razor\Views\AcessoInterno\NovaFormaDePagamento.cshtml.g.cs
-C:\wf_heber\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Razor\Views\AcessoInterno\NovoSorteio.cshtml.g.cs
-C:\wf_heber\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Razor\Views\AcessoInterno\Sorteios.cshtml.g.cs
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Razor\Views\Home\Sorteio.cshtml.g.cs
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Razor\Views\Login\Index.cshtml.g.cs

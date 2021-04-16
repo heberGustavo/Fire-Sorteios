@@ -350,8 +350,17 @@ table.dataTable.no-footer{
     border-bottom: none !important;
 }
 
-
-
+.bolha_vencedor {
+    display: inline-block;
+    border: 1px solid green;
+    border-radius: 30%;
+    padding: 25px 30px;
+    color: #fff;
+    font-weight: 900;
+    text-align: center;
+    background-color: #63d471;
+    background-image: linear-gradient(315deg, #1d1d1d 0%, #4caf50 74%);
+}
 
 
 
