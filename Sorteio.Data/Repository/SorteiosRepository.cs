@@ -10,6 +10,7 @@ using Sorteio.Domain.Models.EntityDomain;
 using Sorteio.Domain.Models.NotMapped;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -58,6 +59,11 @@ namespace Sorteio.Data.Repository
                 try
                 {
                     await _dataContext.Connection.UpdateAsync(_mapper.Map<Sorteio.Data.EntityData.SorteioData>(body.sorteio), dbContextTransaction);
+
+                    if(body.linkImagens.Count() > 0) //Se existir imagem para esse sorteio, apaga todas antes de cadastrar as novas
+                    {
+                        await _dataContext.Connection.ExecuteAsync(@"DELETE FROM GaleriaFotos WHERE id_sorteio = @idSorteio", new { idSorteio = body.sorteio.id_sorteio }, dbContextTransaction);
+                    }
 
                     foreach (var itemImagem in body.linkImagens)
                     {

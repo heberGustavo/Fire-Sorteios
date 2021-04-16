@@ -153,7 +153,7 @@ function previewImages() {
         lista_arquivos.push(file);
     }
 
-    UploadImage(lista_arquivos); /**/
+    UploadGalleryImage(lista_arquivos); /**/
 
     function readAndPreview(file) {
         

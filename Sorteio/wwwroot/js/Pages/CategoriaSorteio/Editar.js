@@ -8,6 +8,7 @@ function Editar(elemento, id) {
 
     $('#idCategoriaSorteioSelecionado').val(id);
     $('#nomeCategoria').val(nomeCategoriaAtual);
+    $('#tipo_modal').text('Editar');
 
     $('#modalNovaCategoria').modal();
 }

@@ -90,6 +90,8 @@ function FecharModalExcluirCategoriaLimparCampos() {
 function AbrirModalNovaCategoriaSorteio() {
     $('#idCategoriaSorteioSelecionado').val('');
     $('#nomeCategoria').val('');
+    $('#tipo_modal').text('Cadastrar');
+
 
     $('#modalNovaCategoria').modal();
 }
