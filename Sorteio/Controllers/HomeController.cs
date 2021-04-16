@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Sorteio.Domain.IBusiness;
 using Sorteio.Models;
 using System;
 using System.Collections.Generic;
@@ -11,15 +12,17 @@ namespace Sorteio.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ISorteiosBusiness _sorteiosBusiness;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ISorteiosBusiness sorteiosBusiness)
         {
-            _logger = logger;
+            _sorteiosBusiness = sorteiosBusiness;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            ////// AQUIII
+            //var resultado = await _sorteiosBusiness.ObterInformacoesSorteio();
             return View();
         }
         
