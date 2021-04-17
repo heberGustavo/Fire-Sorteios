@@ -4,6 +4,9 @@
 
 function RealizarLogin() {
 
+    var USUARIO_ADMIN = 1;
+    var USUARIO_CLIENTE = 2;
+
     if (VerificaCamposPreenchidos()) {
 
         var jsonBody = {
@@ -20,15 +23,22 @@ function RealizarLogin() {
             success: function (response) {
                 console.log(response);
                 if (response.erro) {
-                    alert(response.mensagem);
+                    swal("Erro", response.mensagem, "error");
                 }
                 else {
-                    alert('tudo certo')
-
+                    if (parseInt(response.model.id_tipo_usuario) == USUARIO_ADMIN) {
+                        window.location.href = "/Sorteios";
+                    }
+                    else if (parseInt(response.model.id_tipo_usuario) == USUARIO_CLIENTE) {
+                        window.location.href = "/AcessoInterno";
+                    }
+                    else {
+                        swal("Erro", "Aconteceu um imprevisto. Contate o administrador", "error");
+                    }
                 }
             },
             error: function (response) {
-                alert(response);
+                swal("Erro", response.mensagem, "error");
             }
         });
     }

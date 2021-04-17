@@ -110,6 +110,14 @@ namespace Sorteio.Data.Repository
             }
         }
 
+        public Task<IEnumerable<InformacoesSorteio>> ObterInformacoesSorteio()
+            => _dataContext.Connection.QueryAsync<InformacoesSorteio>(@"SELECT s.id_sorteio, s.nome, s.edicao, s.valor, s.quantidade_numeros, s.status, 
+                                                                        vs.numero_sorteado, vs.data_sorteio, 
+                                                                        u.nome as nome_ganhador
+                                                                        FROM Sorteio s 
+                                                                        LEFT JOIN VencedorSorteio vs ON s.id_sorteio = vs.id_sorteio 
+                                                                        LEFT JOIN Usuario u ON vs.id_usuario = u.id_usuario");
+
         public async Task<SorteioNotMapped> ObterSorteioPorId(int idSorteio)
             => await _dataContext.Connection.QueryFirstOrDefaultAsync<SorteioNotMapped>(@"SELECT COUNT(gf.id_galeria_fotos) quantidade_imagens, s.id_sorteio, s.id_categoria_sorteio, s.nome as nome_sorteio, s.edicao as edicao_sorteio, s.valor, s.quantidade_numeros, s.descricao_curta, s.descricao_longa, s.status,  
                                                                                           vs.id_usuario, vs.id_vencedor_sorteio, u.nome as nome_ganhador, vs.numero_sorteado, vs.data_sorteio

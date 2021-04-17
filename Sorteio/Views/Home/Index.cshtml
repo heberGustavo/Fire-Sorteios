@@ -1,5 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    @model IEnumerable<Sorteio.Domain.Models.NotMapped.InformacoesSorteio>;
 }
 
 <div class="page-header header-filter fundo_vermelho" data-parallax="true">
@@ -30,198 +31,46 @@
             </div>
             <div class="features">
                 <div class="row">
-                    <div class="col-md-4">
-                        <div class="info">
-                            <div class="card card-nav-tabs">
-                                <div class="card-body card-img-principal" style="background: url(https://cdn.pixabay.com/photo/2016/04/07/06/53/bmw-1313343_960_720.jpg);">
-                                </div>
-                                <div class="card-header card-header-danger">
-                                    <text class="titulo-card-sorteios"><b>11° Edição</b></text>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row info-numeros">
-                                        <div class="col-md-4">
-                                            <h5>
-                                                <b>100</b><br />números
-                                            </h5>
+
+                    @foreach (var item in Model)
+                    {
+                        if (item.status == false)
+                        {
+                            <div class="col-md-4">
+                                <div class="info">
+                                    <div class="card card-nav-tabs">
+                                        <div class="card-body card-img-principal" style="background: url(https://cdn.pixabay.com/photo/2016/04/07/06/53/bmw-1313343_960_720.jpg);">
                                         </div>
-                                        <div class="col-md-4">
-                                            <h5>
-                                                <b>35</b><br />reservados
-                                            </h5>
+                                        <div class="card-header card-header-danger">
+                                            <text class="titulo-card-sorteios"><b>@item.edicao° Edição</b></text>
                                         </div>
-                                        <div class="col-md-4">
-                                            <h5>
-                                                <b>10</b><br />pagos
-                                            </h5>
-                                        </div>
-                                    </div>
-                                    <p class="card-text">1 Moto 0km + 10 mil na conta</p>
-                                    <a asp-controller="Home" asp-action="Sorteio" class="btn btn-dark">Comprar</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="info">
-                            <div class="card card-nav-tabs">
-                                <div class="card-body card-img-principal" style="background: url(https://cdn.pixabay.com/photo/2016/04/07/06/53/bmw-1313343_960_720.jpg);">
-                                </div>
-                                <div class="card-header card-header-danger">
-                                    <text class="titulo-card-sorteios"><b>11° Edição</b></text>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row info-numeros">
-                                        <div class="col-md-4">
-                                            <h5>
-                                                <b>100</b><br />números
-                                            </h5>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <h5>
-                                                <b>35</b><br />reservados
-                                            </h5>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <h5>
-                                                <b>10</b><br />pagos
-                                            </h5>
+                                        <div class="card-body">
+                                            <div class="row info-numeros">
+                                                <div class="col-md-4">
+                                                    <h5>
+                                                        <b>@item.quantidade_numeros</b><br />números
+                                                    </h5>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <h5>
+                                                        <b>00</b><br />reservados
+                                                    </h5>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <h5>
+                                                        <b>00</b><br />pagos
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                            <p class="card-text">@item.nome</p>
+                                            <a asp-controller="Home" asp-action="Sorteio" class="btn btn-dark">Comprar</a>
                                         </div>
                                     </div>
-                                    <p class="card-text">1 Moto 0km + 10 mil na conta</p>
-                                    <a asp-controller="Home" asp-action="Sorteio" class="btn btn-dark">Comprar</a>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="info">
-                            <div class="card card-nav-tabs">
-                                <div class="card-body card-img-principal" style="background: url(https://cdn.pixabay.com/photo/2016/04/07/06/53/bmw-1313343_960_720.jpg);">
-                                </div>
-                                <div class="card-header card-header-danger">
-                                    <text class="titulo-card-sorteios"><b>11° Edição</b></text>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row info-numeros">
-                                        <div class="col-md-4">
-                                            <h5>
-                                                <b>100</b><br />números
-                                            </h5>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <h5>
-                                                <b>35</b><br />reservados
-                                            </h5>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <h5>
-                                                <b>10</b><br />pagos
-                                            </h5>
-                                        </div>
-                                    </div>
-                                    <p class="card-text">1 Moto 0km + 10 mil na conta</p>
-                                    <a asp-controller="Home" asp-action="Sorteio" class="btn btn-dark">Comprar</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="info">
-                            <div class="card card-nav-tabs">
-                                <div class="card-body card-img-principal" style="background: url(https://cdn.pixabay.com/photo/2016/04/07/06/53/bmw-1313343_960_720.jpg);">
-                                </div>
-                                <div class="card-header card-header-danger">
-                                    <text class="titulo-card-sorteios"><b>11° Edição</b></text>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row info-numeros">
-                                        <div class="col-md-4">
-                                            <h5>
-                                                <b>100</b><br />números
-                                            </h5>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <h5>
-                                                <b>35</b><br />reservados
-                                            </h5>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <h5>
-                                                <b>10</b><br />pagos
-                                            </h5>
-                                        </div>
-                                    </div>
-                                    <p class="card-text">1 Moto 0km + 10 mil na conta</p>
-                                    <a href="javascript:;" class="btn btn-dark">Comprar</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="info">
-                            <div class="card card-nav-tabs">
-                                <div class="card-body card-img-principal" style="background: url(https://cdn.pixabay.com/photo/2016/04/07/06/53/bmw-1313343_960_720.jpg);">
-                                </div>
-                                <div class="card-header card-header-danger">
-                                    <text class="titulo-card-sorteios"><b>11° Edição</b></text>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row info-numeros">
-                                        <div class="col-md-4">
-                                            <h5>
-                                                <b>100</b><br />números
-                                            </h5>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <h5>
-                                                <b>35</b><br />reservados
-                                            </h5>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <h5>
-                                                <b>10</b><br />pagos
-                                            </h5>
-                                        </div>
-                                    </div>
-                                    <p class="card-text">1 Moto 0km + 10 mil na conta</p>
-                                    <a href="javascript:;" class="btn btn-dark">Comprar</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="info">
-                            <div class="card card-nav-tabs">
-                                <div class="card-body card-img-principal" style="background: url(https://cdn.pixabay.com/photo/2016/04/07/06/53/bmw-1313343_960_720.jpg);">
-                                </div>
-                                <div class="card-header card-header-danger">
-                                    <text class="titulo-card-sorteios"><b>11° Edição</b></text>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row info-numeros">
-                                        <div class="col-md-4">
-                                            <h5>
-                                                <b>100</b><br />números
-                                            </h5>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <h5>
-                                                <b>35</b><br />reservados
-                                            </h5>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <h5>
-                                                <b>10</b><br />pagos
-                                            </h5>
-                                        </div>
-                                    </div>
-                                    <p class="card-text">1 Moto 0km + 10 mil na conta</p>
-                                    <a href="javascript:;" class="btn btn-dark">Comprar</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        }
+                    }
+
                 </div>
 
                 <div class="row m-5 bg-info">
@@ -241,141 +90,48 @@
                 <div class="col-md-8 ml-auto mr-auto">
                     <h2 class="title text-white">ÚLTIMOS SORTEIOS REALIZADOS</h2>
                     <h4 class="description text-white">Confira abaixo os nossos últimos sorteios</h4>
-                    <select class="selectpicker" data-style="btn-danger">
-                        <option>Mustard</option>
-                        <option>Ketchup</option>
-                        <option>Relish</option>
-                        <option>Mustard</option>
-                        <option>Ketchup</option>
-                        <option>Relish</option>
-                        <option>Mustard</option>
-                        <option>Ketchup</option>
-                        <option>Relish</option>
+
+                    <select id="select_categoria_sorteio" class="selectpicker" data-style="btn-danger">
+                        <option selected value="0">Todos</option>
+
+                        @foreach (var item in (IEnumerable<Sorteio.Domain.Models.EntityDomain.CategoriaSorteio>)ViewBag.CategoriaSorteio)
+                        {
+                            <option value="@item.id_categoria_sorteio">@item.nome</option>
+                        }
                     </select>
+
                 </div>
             </div>
             <div class="features">
                 <div class="row">
-                    <div class="col-md-4">
-                        <div class="info">
-                            <div class="card card-nav-tabs">
-                                <div class="card-body card-img-principal" style="background: url(https://cdn.pixabay.com/photo/2016/04/07/06/53/bmw-1313343_960_720.jpg);">
-                                </div>
-                                <div class="card-header card-header-danger">
-                                    <text class="titulo-card-sorteios"><b>11° Edição</b></text>
-                                </div>
-                                <div class="card-body">
-                                    <h4>
-                                        <b>GANHADOR</b> <br />
-                                        Robert Soares
-                                    </h4>
-                                    <h5>
-                                        <b>Sorteado: </b> n°98
-                                    </h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="info">
-                            <div class="card card-nav-tabs">
-                                <div class="card-body card-img-principal" style="background: url(https://cdn.pixabay.com/photo/2016/04/07/06/53/bmw-1313343_960_720.jpg);">
-                                </div>
-                                <div class="card-header card-header-danger">
-                                    <text class="titulo-card-sorteios"><b>11° Edição</b></text>
-                                </div>
-                                <div class="card-body">
-                                    <h4>
-                                        <b>GANHADOR</b> <br />
-                                        Robert Soares
-                                    </h4>
-                                    <h5>
-                                        <b>Sorteado: </b> n°98
-                                    </h5>
+
+                    @foreach (var item in Model)
+                    {
+                        if (item.status == true)
+                        {
+                            <div class="col-md-4">
+                                <div class="info">
+                                    <div class="card card-nav-tabs">
+                                        <div class="card-body card-img-principal" style="background: url(https://cdn.pixabay.com/photo/2016/04/07/06/53/bmw-1313343_960_720.jpg);">
+                                        </div>
+                                        <div class="card-header card-header-danger">
+                                            <text class="titulo-card-sorteios"><b>@item.edicao° Edição</b></text>
+                                        </div>
+                                        <div class="card-body">
+                                            <h4>
+                                                <b>GANHADOR</b> <br />
+                                                @item.nome_ganhador
+                                            </h4>
+                                            <h5>
+                                                <b>Sorteado: </b> n°@item.numero_sorteado
+                                            </h5>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="info">
-                            <div class="card card-nav-tabs">
-                                <div class="card-body card-img-principal" style="background: url(https://cdn.pixabay.com/photo/2016/04/07/06/53/bmw-1313343_960_720.jpg);">
-                                </div>
-                                <div class="card-header card-header-danger">
-                                    <text class="titulo-card-sorteios"><b>11° Edição</b></text>
-                                </div>
-                                <div class="card-body">
-                                    <h4>
-                                        <b>GANHADOR</b> <br />
-                                        Robert Soares
-                                    </h4>
-                                    <h5>
-                                        <b>Sorteado: </b> n°98
-                                    </h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="info">
-                            <div class="card card-nav-tabs">
-                                <div class="card-body card-img-principal" style="background: url(https://cdn.pixabay.com/photo/2016/04/07/06/53/bmw-1313343_960_720.jpg);">
-                                </div>
-                                <div class="card-header card-header-danger">
-                                    <text class="titulo-card-sorteios"><b>11° Edição</b></text>
-                                </div>
-                                <div class="card-body">
-                                    <h4>
-                                        <b>GANHADOR</b> <br />
-                                        Robert Soares
-                                    </h4>
-                                    <h5>
-                                        <b>Sorteado: </b> n°98
-                                    </h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="info">
-                            <div class="card card-nav-tabs">
-                                <div class="card-body card-img-principal" style="background: url(https://cdn.pixabay.com/photo/2016/04/07/06/53/bmw-1313343_960_720.jpg);">
-                                </div>
-                                <div class="card-header card-header-danger">
-                                    <text class="titulo-card-sorteios"><b>11° Edição</b></text>
-                                </div>
-                                <div class="card-body">
-                                    <h4>
-                                        <b>GANHADOR</b> <br />
-                                        Robert Soares
-                                    </h4>
-                                    <h5>
-                                        <b>Sorteado: </b> n°98
-                                    </h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="info">
-                            <div class="card card-nav-tabs">
-                                <div class="card-body card-img-principal" style="background: url(https://cdn.pixabay.com/photo/2016/04/07/06/53/bmw-1313343_960_720.jpg);">
-                                </div>
-                                <div class="card-header card-header-danger">
-                                    <text class="titulo-card-sorteios"><b>11° Edição</b></text>
-                                </div>
-                                <div class="card-body">
-                                    <h4>
-                                        <b>GANHADOR</b> <br />
-                                        Robert Soares
-                                    </h4>
-                                    <h5>
-                                        <b>Sorteado: </b> n°98
-                                    </h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        }
+                    }
+
                 </div>
             </div>
         </div>
@@ -388,9 +144,9 @@
         <div>
             <img src="~/img/logo.jpeg" class="logo" />,
             <div class="row redes-sociais d-flex justify-content-center">
-                <img src="~/img/face.png" alt="Facebook" />
-                <img src="~/img/instagran.png" alt="Instagran" />
-                <img src="~/img/whatsapp.png" alt="Whatsapp" />
+                <img class="img-fluid" src="~/img/face.png" alt="Facebook" />
+                <img class="img-fluid" src="~/img/instagran.png" alt="Instagran" />
+                <img class="img-fluid" src="~/img/whatsapp.png" alt="Whatsapp" />
             </div>
 
             <div class="text-center mt-3">
@@ -410,3 +166,5 @@
         <br /><br />
     </div>
 </div>
+
+<script src="~/js/Pages/Home/Index.js" asp-append-version="true" type="text/javascript"></script>

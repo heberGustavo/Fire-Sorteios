@@ -11,3 +11,16 @@ C:\wf_heber\Fire-Sorteios\Sorteio.Domain\obj\Release\netcoreapp3.1\Sorteio.Domai
 C:\wf_heber\Fire-Sorteios\Sorteio.Domain\obj\Release\netcoreapp3.1\Sorteio.Domain.csproj.CopyComplete
 C:\wf_heber\Fire-Sorteios\Sorteio.Domain\obj\Release\netcoreapp3.1\Sorteio.Domain.dll
 C:\wf_heber\Fire-Sorteios\Sorteio.Domain\obj\Release\netcoreapp3.1\Sorteio.Domain.pdb
+C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio.Domain\bin\Release\netcoreapp3.1\Sorteio.Domain.deps.json
+C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio.Domain\bin\Release\netcoreapp3.1\Sorteio.Domain.dll
+C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio.Domain\bin\Release\netcoreapp3.1\Sorteio.Domain.pdb
+C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio.Domain\bin\Release\netcoreapp3.1\Sorteio.Common.dll
+C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio.Domain\bin\Release\netcoreapp3.1\Sorteio.Common.pdb
+C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio.Domain\obj\Release\netcoreapp3.1\Sorteio.Domain.csprojAssemblyReference.cache
+C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio.Domain\obj\Release\netcoreapp3.1\Sorteio.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio.Domain\obj\Release\netcoreapp3.1\Sorteio.Domain.AssemblyInfoInputs.cache
+C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio.Domain\obj\Release\netcoreapp3.1\Sorteio.Domain.AssemblyInfo.cs
+C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio.Domain\obj\Release\netcoreapp3.1\Sorteio.Domain.csproj.CoreCompileInputs.cache
+C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio.Domain\obj\Release\netcoreapp3.1\Sorteio.Domain.csproj.CopyComplete
+C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio.Domain\obj\Release\netcoreapp3.1\Sorteio.Domain.dll
+C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio.Domain\obj\Release\netcoreapp3.1\Sorteio.Domain.pdb

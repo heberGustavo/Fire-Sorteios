@@ -7,8 +7,8 @@ namespace Sorteio.Domain.Models.NotMapped
     public class InformacoesSorteio
     {
         public int id_sorteio { get; set; }
-        public string nome_sorteio { get; set; }
-        public string edicao_sorteio { get; set; }
+        public string nome { get; set; }
+        public string edicao { get; set; }
         public decimal valor { get; set; }
         public int quantidade_numeros { get; set; }
         public bool status { get; set; }

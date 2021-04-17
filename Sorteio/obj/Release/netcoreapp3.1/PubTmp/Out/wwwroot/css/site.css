@@ -21,6 +21,14 @@ a {
     border-color: #1861ac;
 }
 
+.divisor {
+    width: 10%;
+    background: rgb(255 0 0 / 57%);
+    height: 2px;
+    margin: auto;
+    margin-bottom: 5px;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -149,7 +157,7 @@ a.btn-dark {
 
 /* RODAPE */
 .rodape img.logo {
-    width: 20%;
+    width: 30%;
     margin: auto;
     display: block;
 }
@@ -362,8 +370,12 @@ table.dataTable.no-footer{
     background-image: linear-gradient(315deg, #1d1d1d 0%, #4caf50 74%);
 }
 
-
-
+.titulo-cards-perfil {
+    margin: 0;
+    font-weight: 900;
+    border-bottom: 1px solid #000;
+    margin-bottom: 6px;
+}
 
 
 
@@ -483,4 +495,7 @@ label.selecionar_arquivo {
     padding: 8px 20px;
 }
 
-/***/
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    padding: 0em 1em !important;
+    border-radius: 5px !important;
+}
