@@ -18,3 +18,13 @@ C:\wf_heber\Fire-Sorteios\Sorteio.Utils\obj\Debug\netcoreapp3.1\Sorteio.Common.A
 C:\wf_heber\Fire-Sorteios\Sorteio.Utils\obj\Debug\netcoreapp3.1\Sorteio.Common.csproj.CoreCompileInputs.cache
 C:\wf_heber\Fire-Sorteios\Sorteio.Utils\obj\Debug\netcoreapp3.1\Sorteio.Common.dll
 C:\wf_heber\Fire-Sorteios\Sorteio.Utils\obj\Debug\netcoreapp3.1\Sorteio.Common.pdb
+C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio.Utils\bin\Debug\netcoreapp3.1\Sorteio.Common.deps.json
+C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio.Utils\bin\Debug\netcoreapp3.1\Sorteio.Common.dll
+C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio.Utils\bin\Debug\netcoreapp3.1\Sorteio.Common.pdb
+C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio.Utils\obj\Debug\netcoreapp3.1\Sorteio.Common.csprojAssemblyReference.cache
+C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio.Utils\obj\Debug\netcoreapp3.1\Sorteio.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio.Utils\obj\Debug\netcoreapp3.1\Sorteio.Common.AssemblyInfoInputs.cache
+C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio.Utils\obj\Debug\netcoreapp3.1\Sorteio.Common.AssemblyInfo.cs
+C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio.Utils\obj\Debug\netcoreapp3.1\Sorteio.Common.csproj.CoreCompileInputs.cache
+C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio.Utils\obj\Debug\netcoreapp3.1\Sorteio.Common.dll
+C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio.Utils\obj\Debug\netcoreapp3.1\Sorteio.Common.pdb

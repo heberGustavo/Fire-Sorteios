@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\wf_heber\\Fire-Sorteios\\Sorteio.CrossCutting\\Sorteio.CrossCutting.csproj": {}
+    "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.CrossCutting\\Sorteio.CrossCutting.csproj": {}
   },
   "projects": {
-    "C:\\wf_heber\\Fire-Sorteios\\Sorteio.CrossCutting\\Sorteio.CrossCutting.csproj": {
+    "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.CrossCutting\\Sorteio.CrossCutting.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\wf_heber\\Fire-Sorteios\\Sorteio.CrossCutting\\Sorteio.CrossCutting.csproj",
+        "projectUniqueName": "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.CrossCutting\\Sorteio.CrossCutting.csproj",
         "projectName": "Sorteio.CrossCutting",
-        "projectPath": "C:\\wf_heber\\Fire-Sorteios\\Sorteio.CrossCutting\\Sorteio.CrossCutting.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\wf_heber\\Fire-Sorteios\\Sorteio.CrossCutting\\obj\\",
+        "projectPath": "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.CrossCutting\\Sorteio.CrossCutting.csproj",
+        "packagesPath": "C:\\Users\\Heber Gustavo\\.nuget\\packages\\",
+        "outputPath": "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.CrossCutting\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Heber Gustavo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -32,11 +32,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\wf_heber\\Fire-Sorteios\\Sorteio.Data\\Sorteio.Data.csproj": {
-                "projectPath": "C:\\wf_heber\\Fire-Sorteios\\Sorteio.Data\\Sorteio.Data.csproj"
+              "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.Data\\Sorteio.Data.csproj": {
+                "projectPath": "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.Data\\Sorteio.Data.csproj"
               },
-              "C:\\wf_heber\\Fire-Sorteios\\Sorteio.Migration\\Sorteio.Migration.csproj": {
-                "projectPath": "C:\\wf_heber\\Fire-Sorteios\\Sorteio.Migration\\Sorteio.Migration.csproj"
+              "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.Migration\\Sorteio.Migration.csproj": {
+                "projectPath": "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.Migration\\Sorteio.Migration.csproj"
               }
             }
           }
@@ -75,24 +75,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\wf_heber\\Fire-Sorteios\\Sorteio.Data\\Sorteio.Data.csproj": {
+    "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.Data\\Sorteio.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\wf_heber\\Fire-Sorteios\\Sorteio.Data\\Sorteio.Data.csproj",
+        "projectUniqueName": "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.Data\\Sorteio.Data.csproj",
         "projectName": "Sorteio.Data",
-        "projectPath": "C:\\wf_heber\\Fire-Sorteios\\Sorteio.Data\\Sorteio.Data.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\wf_heber\\Fire-Sorteios\\Sorteio.Data\\obj\\",
+        "projectPath": "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.Data\\Sorteio.Data.csproj",
+        "packagesPath": "C:\\Users\\Heber Gustavo\\.nuget\\packages\\",
+        "outputPath": "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Heber Gustavo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -107,11 +107,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\wf_heber\\Fire-Sorteios\\Sorteio.Domain\\Sorteio.Domain.csproj": {
-                "projectPath": "C:\\wf_heber\\Fire-Sorteios\\Sorteio.Domain\\Sorteio.Domain.csproj"
+              "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.Domain\\Sorteio.Domain.csproj": {
+                "projectPath": "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.Domain\\Sorteio.Domain.csproj"
               },
-              "C:\\wf_heber\\Fire-Sorteios\\Sorteio.Utils\\Sorteio.Common.csproj": {
-                "projectPath": "C:\\wf_heber\\Fire-Sorteios\\Sorteio.Utils\\Sorteio.Common.csproj"
+              "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.Utils\\Sorteio.Common.csproj": {
+                "projectPath": "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.Utils\\Sorteio.Common.csproj"
               }
             }
           }
@@ -166,24 +166,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\wf_heber\\Fire-Sorteios\\Sorteio.Domain\\Sorteio.Domain.csproj": {
+    "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.Domain\\Sorteio.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\wf_heber\\Fire-Sorteios\\Sorteio.Domain\\Sorteio.Domain.csproj",
+        "projectUniqueName": "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.Domain\\Sorteio.Domain.csproj",
         "projectName": "Sorteio.Domain",
-        "projectPath": "C:\\wf_heber\\Fire-Sorteios\\Sorteio.Domain\\Sorteio.Domain.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\wf_heber\\Fire-Sorteios\\Sorteio.Domain\\obj\\",
+        "projectPath": "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.Domain\\Sorteio.Domain.csproj",
+        "packagesPath": "C:\\Users\\Heber Gustavo\\.nuget\\packages\\",
+        "outputPath": "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Heber Gustavo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -198,8 +198,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\wf_heber\\Fire-Sorteios\\Sorteio.Utils\\Sorteio.Common.csproj": {
-                "projectPath": "C:\\wf_heber\\Fire-Sorteios\\Sorteio.Utils\\Sorteio.Common.csproj"
+              "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.Utils\\Sorteio.Common.csproj": {
+                "projectPath": "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.Utils\\Sorteio.Common.csproj"
               }
             }
           }
@@ -238,24 +238,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\wf_heber\\Fire-Sorteios\\Sorteio.Migration\\Sorteio.Migration.csproj": {
+    "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.Migration\\Sorteio.Migration.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\wf_heber\\Fire-Sorteios\\Sorteio.Migration\\Sorteio.Migration.csproj",
+        "projectUniqueName": "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.Migration\\Sorteio.Migration.csproj",
         "projectName": "Sorteio.Migration",
-        "projectPath": "C:\\wf_heber\\Fire-Sorteios\\Sorteio.Migration\\Sorteio.Migration.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\wf_heber\\Fire-Sorteios\\Sorteio.Migration\\obj\\",
+        "projectPath": "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.Migration\\Sorteio.Migration.csproj",
+        "packagesPath": "C:\\Users\\Heber Gustavo\\.nuget\\packages\\",
+        "outputPath": "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.Migration\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Heber Gustavo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -270,11 +270,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\wf_heber\\Fire-Sorteios\\Sorteio.Domain\\Sorteio.Domain.csproj": {
-                "projectPath": "C:\\wf_heber\\Fire-Sorteios\\Sorteio.Domain\\Sorteio.Domain.csproj"
+              "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.Domain\\Sorteio.Domain.csproj": {
+                "projectPath": "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.Domain\\Sorteio.Domain.csproj"
               },
-              "C:\\wf_heber\\Fire-Sorteios\\Sorteio.Utils\\Sorteio.Common.csproj": {
-                "projectPath": "C:\\wf_heber\\Fire-Sorteios\\Sorteio.Utils\\Sorteio.Common.csproj"
+              "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.Utils\\Sorteio.Common.csproj": {
+                "projectPath": "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.Utils\\Sorteio.Common.csproj"
               }
             }
           }
@@ -313,24 +313,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\wf_heber\\Fire-Sorteios\\Sorteio.Utils\\Sorteio.Common.csproj": {
+    "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.Utils\\Sorteio.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\wf_heber\\Fire-Sorteios\\Sorteio.Utils\\Sorteio.Common.csproj",
+        "projectUniqueName": "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.Utils\\Sorteio.Common.csproj",
         "projectName": "Sorteio.Common",
-        "projectPath": "C:\\wf_heber\\Fire-Sorteios\\Sorteio.Utils\\Sorteio.Common.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\wf_heber\\Fire-Sorteios\\Sorteio.Utils\\obj\\",
+        "projectPath": "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.Utils\\Sorteio.Common.csproj",
+        "packagesPath": "C:\\Users\\Heber Gustavo\\.nuget\\packages\\",
+        "outputPath": "C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio.Utils\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Heber Gustavo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -385,7 +385,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
         }
       }
     }

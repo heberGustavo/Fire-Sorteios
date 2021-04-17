@@ -34,6 +34,11 @@ namespace Sorteio.Domain.Business
         public Task<ResultResponseModel> FinalizarSorteio(VencedorSorteio vencedorSorteio)
             => _sorteiosRepository.FinalizarSorteio(vencedorSorteio);
 
+        public Task<IEnumerable<InformacoesSorteio>> ObterInformacoesSorteio()
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<SorteioNotMapped> ObterSorteioPorId(int idSorteio)
             => _sorteiosRepository.ObterSorteioPorId(idSorteio);
 

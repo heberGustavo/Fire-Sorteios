@@ -61,7 +61,7 @@ namespace Sorteio.Controllers
         public async Task<IActionResult> Logout()
         {
             await _httpContextAccessor.HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction(nameof(Login));
+            return RedirectToAction("Index", "Home");
         }
     }
 }

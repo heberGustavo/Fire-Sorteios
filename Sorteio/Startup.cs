@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Sorteio.Controllers;
 using Sorteio.CrossCutting.DependencyGroups;
 using Sorteio.CrossCutting.MappingGroups;
 using Sorteio.Domain.IBusiness.Migration;
@@ -61,7 +62,7 @@ namespace Sorteio
                    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
                    options.Cookie.SameSite = SameSiteMode.None;
                    options.Cookie.Name = ".Sorteio.AuthCookie";
-                   options.LoginPath = "/Login/Index";
+                   options.LoginPath = "/Login/Login";
                    options.LogoutPath = "/Logout";
                    options.Cookie.MaxAge = TimeSpan.FromDays(1);
                });
@@ -86,6 +87,11 @@ namespace Sorteio
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+
+            var httpContextAcessor = app.ApplicationServices.GetRequiredService<IHttpContextAccessor>();
+
+            LoginController.Configure(httpContextAcessor);
+            AuthHelper.Configure(httpContextAcessor);
 
             app.UseStaticFiles();
             app.UseRouting();
