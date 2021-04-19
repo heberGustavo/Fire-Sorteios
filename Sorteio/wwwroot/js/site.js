@@ -1,10 +1,10 @@
 ﻿//Efeito Ancora
 $(document).on(
     "click",
-    'a[href="#home"], a[href="#sorteio-em-andamento"]', function (e) {
+    'a[href="#home"], a[href="#sorteio-em-andamento"], a[href="#ultimos-sorteios"]', function (e) {
 
     var target = $(this).attr("href"); //Get the target
-    var scrollToPosition = $(target).offset().top - 70;
+    var scrollToPosition = $(target).offset().top - 20;
 
     $('html,body').animate({ 'scrollTop': scrollToPosition }, 1000, function () {
 
