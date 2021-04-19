@@ -2,7 +2,7 @@
     ViewData["Title"] = "Home Page";
     Layout = "_LayoutAcessoInterno";
 
-    @model IEnumerable<Sorteio.Domain.Models.EntityDomain.FormasDePagamento>
+    @model IEnumerable<Sorteio.Domain.Models.Body.FormaDePagamentoBody>
 }
 
 <partial name="~/Views/PartialViews/Loading.cshtml" />
@@ -18,7 +18,7 @@
             <div class="col-md-12 text-center">
                 <a asp-controller="FormasDePagamento" asp-action="Novo" class="btn btn-outline-danger">Nova Forma de Pagamento</a>
             </div>
-            <table class="table table-hover table-responsive" id="datatableListaFormasDePagamento">
+            <table class="table table-hover" id="datatableListaFormasDePagamento">
                 <thead class="bg-light">
                     <tr>
                         <th scope="col">Banco</th>

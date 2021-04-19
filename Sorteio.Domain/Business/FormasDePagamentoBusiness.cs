@@ -2,6 +2,7 @@
 using Sorteio.Domain.IBusiness;
 using Sorteio.Domain.IRepository;
 using Sorteio.Domain.IRepository.Base;
+using Sorteio.Domain.Models.Body;
 using Sorteio.Domain.Models.Common;
 using Sorteio.Domain.Models.EntityDomain;
 using System;
@@ -55,7 +56,7 @@ namespace Sorteio.Domain.Business
         public async Task<FormasDePagamento> ObterFormaDePagamentoPorId(int idFormaDePagamento)
             => await _formasDePagamentoRepository.GetById(idFormaDePagamento);
 
-        public async Task<IEnumerable<FormasDePagamento>> ObterTodasFormasDePagamentoAtivo()
-            => await _formasDePagamentoRepository.GetAllAsync(fp => fp.status == false);
+        public async Task<IEnumerable<FormaDePagamentoBody>> ObterTodasFormasDePagamentoAtivo()
+            => await _formasDePagamentoRepository.ObterTodasFormasDePagamentoAtivo();
     }
 }
