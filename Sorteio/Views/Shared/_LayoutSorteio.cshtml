@@ -27,7 +27,7 @@
             <div class="container">
                 <div class="navbar-translate">
                     <a class="navbar-brand" asp-controller="Home" asp-action="Index">
-                        <b>Logo Fire Sorteios</b>
+                        <img id="logo_branca" src="~/img/logo_branca.png" alt="Logo" style="width: 45%;" />
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="sr-only">Toggle navigation</span>
@@ -44,7 +44,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link">
+                            <a class="nav-link" asp-controller="Home" asp-action="Index" asp-fragment="sorteio-em-andamento">
                                 <i class="material-icons">list_alt</i> Sorteios em Andamento
                             </a>
                         </li>
