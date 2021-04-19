@@ -4,6 +4,7 @@ C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\c
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\css\pgwslideshow.css
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\css\site.css
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\favicon.ico
+C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\fonts\good_times.ttf
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\bancos\inter.png
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\bancos\itau.png
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\bancos\santander.png
@@ -12,6 +13,8 @@ C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\i
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\instagran.png
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\loading\fire.gif
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\logo.jpeg
+C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\logo_branca.png
+C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\logo_preta.png
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\moto_modelo.jpg
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\usuarios\teste.jpg
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\whatsapp.png
@@ -20,6 +23,7 @@ C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\j
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\core\popper.min.js
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\jquery.mask.min.js
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\material-kit.js
+C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\Pages\AcessoInterno\Index.js
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\Pages\CategoriaSorteio\Criar.js
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\Pages\CategoriaSorteio\Editar.js
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\Pages\CategoriaSorteio\Excluir.js
@@ -28,6 +32,7 @@ C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\j
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\Pages\FormasDePagamento\Editar.js
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\Pages\FormasDePagamento\Excluir.js
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\Pages\FormasDePagamento\Index.js
+C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\Pages\Home\Index.js
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\Pages\Home\ItemSorteio.js
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\Pages\Login\Index.js
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\Pages\Sorteios\EditarFinalizarSorteio.js

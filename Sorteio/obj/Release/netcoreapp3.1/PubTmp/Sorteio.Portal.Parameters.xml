@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <parameter name="IIS Web Application Name" description="" value="firesorteio" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\wp_empresa\\Sorteio\\Fire-Sorteios\\Sorteio\\obj\\Release\\netcoreapp3\.1\\PubTmp\\Out\\$" />
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\wf_heber\\Fire-Sorteios\\Sorteio\\obj\\Release\\netcoreapp3\.1\\PubTmp\\Out\\$" />
   </parameter>
 </parameters>

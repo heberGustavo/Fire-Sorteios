@@ -50,3 +50,25 @@ function GerarDadosJsonCadastrarUsuario() {
         id_tipo_usuario: USUARIO_CLIENTE
     }
 }
+
+
+var itens_escolhidos = [];
+$('.item-disponivel').click(function (e) {
+    e.preventDefault();
+
+    if ($('#sessao-fixa').hasClass('d-none')) {
+        $('#sessao-fixa').removeClass('d-none')
+    }
+
+    $('#numeros_selecionados').html('');
+
+    var numero_atual = $(this).text();
+    itens_escolhidos.push(numero_atual);
+
+    itens_escolhidos.forEach(function (value) {
+        var html = `<div class="numero-escolhido">${value}</div>`;
+
+        $('#numeros_selecionados').append(html);
+    });
+
+});
