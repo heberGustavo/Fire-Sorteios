@@ -120,6 +120,29 @@ namespace Sorteio.Data.Repository
             }
         }
 
+        public async Task<SorteioBody> ObterDadosDoSorteioPorId(int idSorteio)
+        {
+            try
+            {
+                var results = _dataContext.Connection.QueryMultiple(@"
+                                                                        SELECT * FROM Sorteio s WHERE s.id_sorteio = @idSorteio
+                                                                        SELECT * FROM GaleriaFotos gf WHERE gf.id_sorteio = @idSorteio
+                                                                     ", new { idSorteio });
+
+                var sorteio = results.ReadSingleOrDefault<Sorteio.Domain.Models.EntityDomain.Sorteio>();
+                var imagens = results.Read<GaleriaFotos>();
+
+                var dados = new SorteioBody(sorteio, imagens);
+
+                return dados;
+
+            }
+            catch(Exception e)
+            {
+                return null;
+            }
+        }
+
         public Task<IEnumerable<InformacoesSorteio>> ObterInformacoesSorteio()
             => _dataContext.Connection.QueryAsync<InformacoesSorteio>(@"SELECT s.id_sorteio, s.nome, s.edicao, s.valor, s.quantidade_numeros, s.status, 
                                                                         vs.numero_sorteado, vs.data_sorteio, 

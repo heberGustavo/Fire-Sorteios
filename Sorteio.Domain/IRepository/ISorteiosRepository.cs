@@ -21,5 +21,6 @@ namespace Sorteio.Domain.IRepository
         Task<IEnumerable<InformacoesSorteio>> ObterInformacoesSorteio();
         Task<IEnumerable<InformacoesSorteio>> FiltrarSorteioPorCategoria(int idCategoria);
         Task<IEnumerable<InformacoesSorteio>> ObterTodosUltimosSorteiosRealizados();
+        Task<SorteioBody> ObterDadosDoSorteioPorId(int idSorteio);
     }
 }

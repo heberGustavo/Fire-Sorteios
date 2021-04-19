@@ -37,6 +37,9 @@ namespace Sorteio.Domain.Business
         public Task<ResultResponseModel> FinalizarSorteio(VencedorSorteio vencedorSorteio)
             => _sorteiosRepository.FinalizarSorteio(vencedorSorteio);
 
+        public Task<SorteioBody> ObterDadosDoSorteioPorId(int idSorteio)
+            => _sorteiosRepository.ObterDadosDoSorteioPorId(idSorteio);
+
         public Task<IEnumerable<InformacoesSorteio>> ObterInformacoesSorteio()
             => _sorteiosRepository.ObterInformacoesSorteio();
 

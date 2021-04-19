@@ -31,10 +31,13 @@ namespace Sorteio.Controllers
             return View(resultado);
         }
         
-        [Route("Sorteio")]
-        public async Task<IActionResult> Sorteio()
+        [HttpGet]
+        [Route("[controller]/[action]/{idSorteio:int}")]
+        public async Task<IActionResult> Sorteio(int idSorteio)
         {
             ViewBag.FormasDePamento = await _formasDePagamentoBusiness.ObterTodasFormasDePagamentoAtivo();
+
+            var resultado = await _sorteiosBusiness.ObterDadosDoSorteioPorId(idSorteio);
 
             return View();
         }

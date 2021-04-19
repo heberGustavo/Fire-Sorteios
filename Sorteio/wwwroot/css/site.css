@@ -534,3 +534,20 @@ label.selecionar_arquivo {
     font-family: good_times;
     font-size: 12px;
 }
+
+#sessao-fixa{
+    background: #000;
+    color: #fff;
+}
+
+.numero-escolhido {
+    display: inline-block;
+    background: orange;
+    color: #000;
+    padding: 7px;
+    margin: 2px 2px;
+    border-radius: 10px;
+    font-weight: 900;
+    font-size: 15px;
+    cursor: pointer;
+}
