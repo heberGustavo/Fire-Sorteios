@@ -31,6 +31,9 @@ namespace Sorteio.Domain.Business
         public Task<ResultResponseModel> EditarSorteio(SorteioBody body)
             => _sorteiosRepository.EditarSorteio(body);
 
+        public Task<IEnumerable<InformacoesSorteio>> FiltrarSorteioPorCategoria(int idCategoria)
+            => _sorteiosRepository.FiltrarSorteioPorCategoria(idCategoria);
+
         public Task<ResultResponseModel> FinalizarSorteio(VencedorSorteio vencedorSorteio)
             => _sorteiosRepository.FinalizarSorteio(vencedorSorteio);
 

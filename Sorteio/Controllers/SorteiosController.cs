@@ -92,10 +92,18 @@ namespace Sorteio.Controllers
 
         [HttpGet]
         [Route("[controller]/[action]")]
-        public async Task<JsonResult> ObterTodosSorteio(int idSorteio)
+        public async Task<JsonResult> ObterTodosSorteio()
         {
             var resultado = await _sorteiosBusiness.ObterTodosSorteio();
             return Json(new { resultado });
+        }
+
+        [HttpGet]
+        [Route("[controller]/[action]/{idCategoria}")]
+        public async Task<JsonResult> FiltrarSorteioPorCategoria(int idCategoria)
+        {
+            var resultado = await _sorteiosBusiness.FiltrarSorteioPorCategoria(idCategoria);
+            return Json(resultado);
         }
     }
 }

@@ -19,5 +19,6 @@ namespace Sorteio.Domain.IBusiness
         Task<SorteioNotMapped> ObterSorteioPorId(int idSorteio);
         Task<bool> EditarFinalizarSorteio(VencedorSorteio body);
         Task<ResultResponseModel> EditarSorteio(SorteioBody body);
+        Task<IEnumerable<InformacoesSorteio>> FiltrarSorteioPorCategoria(int idCategoria);
     }
 }
