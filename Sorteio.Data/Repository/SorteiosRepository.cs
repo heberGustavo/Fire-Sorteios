@@ -144,5 +144,14 @@ namespace Sorteio.Data.Repository
                                                                       FROM Sorteio s 
                                                                       LEFT JOIN VencedorSorteio vs ON s.id_sorteio = vs.id_sorteio 
                                                                       LEFT JOIN Usuario u ON vs.id_usuario = u.id_usuario");
+
+        public Task<IEnumerable<InformacoesSorteio>> ObterTodosUltimosSorteiosRealizados()
+            => _dataContext.Connection.QueryAsync<InformacoesSorteio>(@"SELECT s.id_sorteio, s.nome, s.edicao, s.valor, s.quantidade_numeros, s.status, 
+                                                                        vs.numero_sorteado, vs.data_sorteio, 
+                                                                        u.nome as nome_ganhador
+                                                                        FROM Sorteio s 
+                                                                        LEFT JOIN VencedorSorteio vs ON s.id_sorteio = vs.id_sorteio 
+                                                                        LEFT JOIN Usuario u ON vs.id_usuario = u.id_usuario
+                                                                        WHERE s.status = 1");
     }
 }

@@ -45,5 +45,8 @@ namespace Sorteio.Domain.Business
 
         public Task<IEnumerable<SorteioNotMapped>> ObterTodosSorteio()
             => _sorteiosRepository.ObterTodosSorteio();
+
+        public Task<IEnumerable<InformacoesSorteio>> ObterTodosUltimosSorteiosRealizados()
+            => _sorteiosRepository.ObterTodosUltimosSorteiosRealizados();
     }
 }

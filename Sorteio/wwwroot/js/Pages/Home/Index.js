@@ -3,26 +3,52 @@
 
 $('#select_categoria_sorteio').change(function () {
 
-    var idCategoriaSelecionada = parseInt($('#select_categoria_sorteio').val());
+    var FILTRO_TODOS = 0;
 
-    $.ajax({
-        url: "/Sorteios/FiltrarSorteioPorCategoria/" + idCategoriaSelecionada,
-        type: "GET",
-        contentType: 'application/json; charset=UTF-8',
-        dataType: "json",
-        success: function (response) {
-            if (!response.erro) {
-                PreencherNaTelaUltimosSorteios(response);
+    var idCategoriaSelecionada = parseInt($('#select_categoria_sorteio').val());
+    console.log(idCategoriaSelecionada);
+
+    if (parseInt(idCategoriaSelecionada) == FILTRO_TODOS) {
+        $.ajax({
+            url: "/Sorteios/ObterTodosUltimosSorteiosRealizados/",
+            type: "GET",
+            contentType: 'application/json; charset=UTF-8',
+            dataType: "json",
+            success: function (response) {
+                if (!response.erro) {
+                    PreencherNaTelaUltimosSorteios(response);
+                }
+                else {
+                    swal("Opss", response.mensagem, "error");
+                }
+            },
+            error: function (response) {
+                swal("Erro", "Aconteceu um imprevisto. Contate o administrador", "error");
+                console.log(response);
             }
-            else {
-                swal("Opss", response.mensagem, "error");
+        });
+    }
+
+    else {
+        $.ajax({
+            url: "/Sorteios/FiltrarSorteioPorCategoria/" + idCategoriaSelecionada,
+            type: "GET",
+            contentType: 'application/json; charset=UTF-8',
+            dataType: "json",
+            success: function (response) {
+                if (!response.erro) {
+                    PreencherNaTelaUltimosSorteios(response);
+                }
+                else {
+                    swal("Opss", response.mensagem, "error");
+                }
+            },
+            error: function (response) {
+                swal("Erro", "Aconteceu um imprevisto. Contate o administrador", "error");
+                console.log(response);
             }
-        },
-        error: function (response) {
-            swal("Erro", "Aconteceu um imprevisto. Contate o administrador", "error");
-            console.log(response);
-        }
-    });
+        });
+    }
 
 });
 

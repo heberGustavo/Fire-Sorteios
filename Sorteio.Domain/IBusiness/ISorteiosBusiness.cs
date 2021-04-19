@@ -20,5 +20,6 @@ namespace Sorteio.Domain.IBusiness
         Task<bool> EditarFinalizarSorteio(VencedorSorteio body);
         Task<ResultResponseModel> EditarSorteio(SorteioBody body);
         Task<IEnumerable<InformacoesSorteio>> FiltrarSorteioPorCategoria(int idCategoria);
+        Task<IEnumerable<InformacoesSorteio>> ObterTodosUltimosSorteiosRealizados();
     }
 }

@@ -20,5 +20,6 @@ namespace Sorteio.Domain.IRepository
         Task<ResultResponseModel> EditarSorteio(SorteioBody body);
         Task<IEnumerable<InformacoesSorteio>> ObterInformacoesSorteio();
         Task<IEnumerable<InformacoesSorteio>> FiltrarSorteioPorCategoria(int idCategoria);
+        Task<IEnumerable<InformacoesSorteio>> ObterTodosUltimosSorteiosRealizados();
     }
 }
