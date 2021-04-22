@@ -25,5 +25,6 @@ namespace Sorteio.Domain.IRepository
         Task<bool> CadastrarNumerosEscolhidos(decimal valorTotal, IEnumerable<NumeroEscolhido> numeroSorteios, int idUsuario, int idSorteio);
         Task<IEnumerable<MeusBilhetes>> ObterSorteiosBilheteClientePorId(int id_usuario);
         Task<IEnumerable<MeusPremios>> ObterMeusPremiosClientePorId(int id_usuario);
+        Task<IEnumerable<NumeroEscolhidoBody>> ObterNumerosDoSorteioPorId(int idSorteio);
     }
 }

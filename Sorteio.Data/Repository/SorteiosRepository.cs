@@ -199,6 +199,12 @@ namespace Sorteio.Data.Repository
                                                                  WHERE vs.id_usuario = @idUsuario
                                                                  ORDER BY vs.data_sorteio", new { idUsuario });
 
+        public Task<IEnumerable<NumeroEscolhidoBody>> ObterNumerosDoSorteioPorId(int idSorteio)
+            => _dataContext.Connection.QueryAsync<NumeroEscolhidoBody>(@"SELECT ne.*, p.id_status_pedido 
+                                                                         FROM Pedido p 
+                                                                         LEFT JOIN NumeroEscolhido ne ON p.id_pedido = ne.id_pedido 
+                                                                         WHERE p.id_sorteio = @idSorteio", new { idSorteio });
+
         public async Task<SorteioNotMapped> ObterSorteioPorId(int idSorteio)
             => await _dataContext.Connection.QueryFirstOrDefaultAsync<SorteioNotMapped>(@"SELECT COUNT(gf.id_galeria_fotos) quantidade_imagens, s.id_sorteio, s.id_categoria_sorteio, s.nome as nome_sorteio, s.edicao as edicao_sorteio, s.valor, s.quantidade_numeros, s.descricao_curta, s.descricao_longa, s.status,  
                                                                                           vs.id_usuario, vs.id_vencedor_sorteio, u.nome as nome_ganhador, vs.numero_sorteado, vs.data_sorteio

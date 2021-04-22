@@ -36,8 +36,10 @@ namespace Sorteio.Controllers
         public async Task<IActionResult> Sorteio(int idSorteio)
         {
             ViewBag.FormasDePamento = await _formasDePagamentoBusiness.ObterTodasFormasDePagamentoAtivo();
+            ViewBag.NumerosDoSorteio = await _sorteiosBusiness.ObterNumerosDoSorteioPorId(idSorteio);
 
             var resultado = await _sorteiosBusiness.ObterDadosDoSorteioPorId(idSorteio);
+
             return View(resultado);
         }
     }

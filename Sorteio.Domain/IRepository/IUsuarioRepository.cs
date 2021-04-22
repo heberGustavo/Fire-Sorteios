@@ -10,5 +10,6 @@ namespace Sorteio.Domain.IRepository
 {
     public interface IUsuarioRepository : IRepositoryBase<Usuario>
     {
+        Task<int> EditarDadosCliente(Usuario usuario);
     }
 }

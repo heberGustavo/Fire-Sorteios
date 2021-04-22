@@ -1,4 +1,6 @@
-﻿@{
+﻿@using Sorteio.Common;
+
+@{
     ViewData["Title"] = "Sorteio";
     Layout = "_LayoutSorteio";
 
@@ -72,9 +74,21 @@
                         var contador = 1;
                         while (contador <= Model.sorteio.quantidade_numeros)
                         {
-                        <div class="itens-numero-sorteio item-disponivel">@contador.ToString("000")</div>
+                            foreach (var item in (IEnumerable<Sorteio.Domain.Models.Body.NumeroEscolhidoBody>)ViewBag.NumerosDoSorteio)
+                            {
+                                if (contador == item.numero && item.id_status_pedido == DataDictionary.STATUS_PEDIDO_PENDENTE)
+                                {
+                                    <div class="itens-numero-sorteio item-reservado">@contador.ToString("000")</div>
+                                }
+                                else
+                                {
+                                    <div class="itens-numero-sorteio item-disponivel">@contador.ToString("000")</div>
+                                }
+                            }
+
                             contador++;
                         }
+
                     }
                 </div>
             </div>

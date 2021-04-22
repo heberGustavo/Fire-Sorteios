@@ -24,5 +24,6 @@ namespace Sorteio.Domain.IBusiness
         Task<IEnumerable<InformacoesSorteio>> FiltrarSorteioPorCategoria(int idCategoria);
         Task<IEnumerable<InformacoesSorteio>> ObterTodosUltimosSorteiosRealizados();
         Task<SorteioBody> ObterDadosDoSorteioPorId(int idSorteio);
+        Task<IEnumerable<NumeroEscolhidoBody>> ObterNumerosDoSorteioPorId(int idSorteio);
     }
 }

@@ -52,6 +52,9 @@ namespace Sorteio.Domain.Business
         public Task<IEnumerable<MeusBilhetes>> ObterSorteiosBilheteClientePorId(int id_usuario)
             => _sorteiosRepository.ObterSorteiosBilheteClientePorId(id_usuario);
 
+        public Task<IEnumerable<NumeroEscolhidoBody>> ObterNumerosDoSorteioPorId(int idSorteio)
+            => _sorteiosRepository.ObterNumerosDoSorteioPorId(idSorteio);
+
         public Task<IEnumerable<SorteioNotMapped>> ObterTodosSorteio()
             => _sorteiosRepository.ObterTodosSorteio();
 

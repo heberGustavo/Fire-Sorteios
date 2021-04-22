@@ -37,6 +37,17 @@ namespace Sorteio.Domain.Business
             return new ResultResponseModel(false, "Cadastro realizado com sucesso");
         }
 
+        public Task<int> EditarDadosCliente(Usuario usuario)
+        {
+            if(usuario.data_de_nascimento.Year <= 1760)
+            {
+                usuario.data_de_nascimento = new DateTime(1760, 01, 01);
+            }
+
+            var resultado = _usuarioRepository.EditarDadosCliente(usuario);
+            return resultado;
+        }
+
         public async Task<ResultResponseModel<Usuario>> LogarCadastraNumeros(LoginListaNumerosBody login)
         {
             var usuarios = await _usuarioRepository.GetAllAsync();

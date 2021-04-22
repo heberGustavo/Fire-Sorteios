@@ -15,5 +15,6 @@ namespace Sorteio.Domain.IBusiness
         Task<ResultResponseModel> CriarUsuario(Usuario usuario);
         Task<IEnumerable<Usuario>> ObterTodosUsuarios();
         Task<ResultResponseModel<Usuario>> LogarCadastraNumeros(LoginListaNumerosBody login);
+        Task<int> EditarDadosCliente(Usuario usuario);
     }
 }
