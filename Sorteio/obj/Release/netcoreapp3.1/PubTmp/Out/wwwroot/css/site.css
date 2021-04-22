@@ -243,6 +243,7 @@ a.btn-dark {
     align-items: center;
     float: left;
     margin: 5px;
+    cursor: pointer;
 }
 
 .dados-banco {

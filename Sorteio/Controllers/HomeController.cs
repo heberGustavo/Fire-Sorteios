@@ -38,8 +38,7 @@ namespace Sorteio.Controllers
             ViewBag.FormasDePamento = await _formasDePagamentoBusiness.ObterTodasFormasDePagamentoAtivo();
 
             var resultado = await _sorteiosBusiness.ObterDadosDoSorteioPorId(idSorteio);
-
-            return View();
+            return View(resultado);
         }
     }
 }

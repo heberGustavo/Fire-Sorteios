@@ -1,4 +1,5 @@
 ﻿using Sorteio.Domain.IBusiness.Base;
+using Sorteio.Domain.Models.Body;
 using Sorteio.Domain.Models.Common;
 using Sorteio.Domain.Models.EntityDomain;
 using System;
@@ -13,5 +14,6 @@ namespace Sorteio.Domain.IBusiness
         Task<ResultResponseModel<Usuario>> RealizarLogin(string email, string senha);
         Task<ResultResponseModel> CriarUsuario(Usuario usuario);
         Task<IEnumerable<Usuario>> ObterTodosUsuarios();
+        Task<ResultResponseModel<Usuario>> LogarCadastraNumeros(LoginListaNumerosBody login);
     }
 }

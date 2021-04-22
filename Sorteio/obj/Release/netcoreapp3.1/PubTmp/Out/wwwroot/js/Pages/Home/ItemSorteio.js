@@ -1,6 +1,20 @@
 ﻿$(document).ready(function () {
     $('.pgwSlideshow').pgwSlideshow();
+
+    var textoHtml = $('#texto_longo_html').text();
+    $('#contentSummernote').html('');
+
+    setTimeout(function () {
+        $('#contentSummernote').append(textoHtml);
+    }, 80);
+
+    GerarTicket();
+
 });
+
+function GerarTicket() {
+    $('#modalGerarTicket').modal();
+}
 
 function AbrirModalCadastrarUsuario() {
     alert('testando');
@@ -51,10 +65,11 @@ function GerarDadosJsonCadastrarUsuario() {
     }
 }
 
-
 var itens_escolhidos = [];
 $('.item-disponivel').click(function (e) {
     e.preventDefault();
+
+    var valor_rifa = ConverterParaFloat($('#valor_rifa').text());
 
     if ($('#sessao-fixa').hasClass('d-none')) {
         $('#sessao-fixa').removeClass('d-none')
@@ -70,5 +85,8 @@ $('.item-disponivel').click(function (e) {
 
         $('#numeros_selecionados').append(html);
     });
+
+    $('#quantidade_selecionado').text(itens_escolhidos.length);
+    $('#valor_total').text(FormatDinheiro((itens_escolhidos.length) * valor_rifa));
 
 });

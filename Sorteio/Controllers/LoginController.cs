@@ -57,11 +57,30 @@ namespace Sorteio.Controllers
             return Json(new { erro = resultadoCadastro.erro, mensagem = resultadoCadastro.mensagem });
         }
 
+        [HttpPost]
+        [Route("[controller]/[action]")]
+        public async Task<JsonResult> LogarCadastraNumeros([FromBody] LoginListaNumerosBody login)
+        {
+            var resultLogin = await _usuarioBusiness.LogarCadastraNumeros(login);
+
+            if (!resultLogin.erro)
+            {
+                var claimUsuario = AuthHelper.GerarClaimsUsuarioLogado(resultLogin.model);
+
+                await _httpContextAccessor.HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
+                                                                    claimUsuario, new AuthenticationProperties());
+            }
+
+            return Json(new { erro = resultLogin.erro, mensagem = resultLogin.mensagem, model = resultLogin.model });
+        }
+
+
         [Route("[controller]/[action]")]
         public async Task<IActionResult> Logout()
         {
             await _httpContextAccessor.HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Index", "Home");
         }
+
     }
 }

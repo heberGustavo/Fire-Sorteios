@@ -43,8 +43,14 @@ namespace Sorteio.Domain.Business
         public Task<IEnumerable<InformacoesSorteio>> ObterInformacoesSorteio()
             => _sorteiosRepository.ObterInformacoesSorteio();
 
+        public Task<IEnumerable<MeusPremios>> ObterMeusPremiosClientePorId(int id_usuario)
+            => _sorteiosRepository.ObterMeusPremiosClientePorId(id_usuario);
+
         public Task<SorteioNotMapped> ObterSorteioPorId(int idSorteio)
             => _sorteiosRepository.ObterSorteioPorId(idSorteio);
+
+        public Task<IEnumerable<MeusBilhetes>> ObterSorteiosBilheteClientePorId(int id_usuario)
+            => _sorteiosRepository.ObterSorteiosBilheteClientePorId(id_usuario);
 
         public Task<IEnumerable<SorteioNotMapped>> ObterTodosSorteio()
             => _sorteiosRepository.ObterTodosSorteio();

@@ -17,7 +17,9 @@ namespace Sorteio.Domain.IBusiness
         Task<ResultResponseModel> FinalizarSorteio(VencedorSorteio vencedorSorteio);
         Task<IEnumerable<InformacoesSorteio>> ObterInformacoesSorteio();
         Task<SorteioNotMapped> ObterSorteioPorId(int idSorteio);
+        Task<IEnumerable<MeusBilhetes>> ObterSorteiosBilheteClientePorId(int id_usuario);
         Task<bool> EditarFinalizarSorteio(VencedorSorteio body);
+        Task<IEnumerable<MeusPremios>> ObterMeusPremiosClientePorId(int id_usuario);
         Task<ResultResponseModel> EditarSorteio(SorteioBody body);
         Task<IEnumerable<InformacoesSorteio>> FiltrarSorteioPorCategoria(int idCategoria);
         Task<IEnumerable<InformacoesSorteio>> ObterTodosUltimosSorteiosRealizados();

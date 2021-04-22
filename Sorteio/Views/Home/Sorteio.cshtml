@@ -1,15 +1,23 @@
 ﻿@{
     ViewData["Title"] = "Sorteio";
     Layout = "_LayoutSorteio";
+
+    @model Sorteio.Domain.Models.Body.SorteioBody
 }
+
+
+<input type="hidden" id="idSorteioSelecionado" value="@Model.sorteio.id_sorteio"  />
 
 <div class="main main-raised">
     <div class="container">
         <div class="section text-center">
+
+
             <div class="row">
                 <div class="col-md-8 ml-auto mr-auto">
-                    <h2 class="title mt-5 mb-5 ">YAMAHA MT-07</h2>
-                    <button onclick="AbrirModalCadastrarUsuario()" class="btn">Cadastrar Usuario</button>
+                    <h2 class="title mt-5 mb-0 p-0">@Model.sorteio.nome</h2>
+                    <h3 class="mt-0 mb-5 p-0 text-danger"><strong id="valor_rifa">R$ @Model.sorteio.valor</strong></h3>
+                    @*<button onclick="AbrirModalCadastrarUsuario()" class="btn">Cadastrar Usuario</button>*@
                 </div>
 
                 <div class="col-md-8">
@@ -28,36 +36,8 @@
                 </div>
                 <div class="col-md-4 text-left">
                     <h4 class="title mt-0">REGULAMENTO / DESCRIÇÃO</h4>
-                    <p>
-                        YAMAHA MT-07 - 2019
-                        <br />
-                        26 MIL KM
-                        <br /><br />
-                        Cor: VERMELHA
-                        <br />
-                        Cilindrada: 689cc / 8 válvulas
-                        <br />
-                        2 cilindros em paralelo
-                        <br />
-                        Potência máxima: 74,8cv
-                        <br />
-                        Torque: 6.9 kgfm
-                        <br />
-                        Câmbio: 6 velocidades
-                        <br />
-                        Acompanha Manual e Chave Reserva
-                        <br />
-                        IPVA 2021 PAGO.
-                        <br />
-                        ESCAPAMENTO ESPORTIVO E ORIGINAL.
-                        <br />
-                        ELIMINNADOR DE PARALAMAS E ORIGINAL.
-                        <br />
-                        <br />
-                        (MOTO TOTALMENTE REVISADA E SEM DETALHES.)
-                        <br /><br />
-                        APOS FAZER A RESERVA DOS NÚMEROS ENVIAR O COMPROVANTE IMEDIATAMENTE A NOSSA EQUIPE.
-                    </p>
+                    <div id="texto_longo_html" class="d-none">@Model.sorteio.descricao_longa</div>
+                    <div class="summernote" id="contentSummernote"></div>
                 </div>
 
             </div>
@@ -67,16 +47,16 @@
                     <h3 class="title">Números do Sorteio</h3>
 
                     <div class="bloco-filtro-sorteio">
-                        <label class="item item-todos">Todos (1000)</label>
+                        <label class="item item-todos">Todos (@Model.sorteio.quantidade_numeros)</label>
                     </div>
                     <div class="bloco-filtro-sorteio">
-                        <label class="item item-disponivel">Disponível (1000)</label>
+                        <label class="item item-disponivel">Disponível (000)</label>
                     </div>
                     <div class="bloco-filtro-sorteio">
-                        <label class="item item-reservado">Reservado (1000)</label>
+                        <label class="item item-reservado">Reservado (000)</label>
                     </div>
                     <div class="bloco-filtro-sorteio">
-                        <label class="item item-pago">Pago (1000)</label>
+                        <label class="item item-pago">Pago (000)</label>
                     </div>
                 </div>
                 <div class="col-md-12">
@@ -88,55 +68,22 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-pago">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-reservado">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-pago">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-reservado">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-pago">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-reservado">001</div>
-                    <div class="itens-numero-sorteio item-reservado">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
-                    <div class="itens-numero-sorteio item-disponivel">001</div>
+                    @{
+                        var contador = 1;
+                        while (contador <= Model.sorteio.quantidade_numeros)
+                        {
+                        <div class="itens-numero-sorteio item-disponivel">@contador.ToString("000")</div>
+                            contador++;
+                        }
+                    }
                 </div>
+            </div>
+
+            <div class="row">
+                <hr />
+                <div class="itens-numero-sorteio item-disponivel">001</div>
+                <div class="itens-numero-sorteio item-pago">001</div>
+                <div class="itens-numero-sorteio item-reservado">001</div>
             </div>
 
             <div class="row">
@@ -146,20 +93,20 @@
 
                 @foreach (var item in (IEnumerable<Sorteio.Domain.Models.Body.FormaDePagamentoBody>)ViewBag.FormasDePamento)
                 {
-                    <div class="col-md-3">
-                        <div class="card" style="width: 17rem;">
-                            <img class="card-img-top" src="~/img/bancos/itau.png">
-                            <div class="card-body dados-banco">
-                                <h4 class="title">@item.nome_banco</h4>
-                                <h6><strong>Cód Banco:</strong> @item.codigo_banco</h6>
-                                <h6><strong>Favorecido:</strong> @item.favorecido</h6>
-                                <h6><strong>CPF:</strong> @item.cpf</h6>
-                                <h6><strong>Agência:</strong> @item.agencia</h6>
-                                <h6><strong>Conta:</strong> @item.conta</h6>
-                                <h6><strong>Tipo:</strong> @item.nome_tipo_forma_de_pagamento</h6>
-                            </div>
+                <div class="col-md-3">
+                    <div class="card" style="width: 17rem;">
+                        <img class="card-img-top" src="~/img/bancos/itau.png">
+                        <div class="card-body dados-banco">
+                            <h4 class="title">@item.nome_banco</h4>
+                            <h6><strong>Cód Banco:</strong> @item.codigo_banco</h6>
+                            <h6><strong>Favorecido:</strong> @item.favorecido</h6>
+                            <h6><strong>CPF:</strong> @item.cpf</h6>
+                            <h6><strong>Agência:</strong> @item.agencia</h6>
+                            <h6><strong>Conta:</strong> @item.conta</h6>
+                            <h6><strong>Tipo:</strong> @item.nome_tipo_forma_de_pagamento</h6>
                         </div>
                     </div>
+                </div>
                 }
 
             </div>
@@ -170,12 +117,12 @@
                 <div class="row">
                     <div id="numeros_selecionados" class="col-md-7"></div>
                     <div class="col-md-3">
-                        <strong>Selecionado(s): 0 </strong>
+                        <strong>Selecionado(s): <text id="quantidade_selecionado"></text> </strong>
                         <br />
-                        <strong>Total a pagar: R$ 0,00</strong>
+                        <strong>Total a pagar: R$ <text id="valor_total"></text> </strong>
                     </div>
                     <div class="col-md-2">
-                        <button class="btn btn-success">GERAR TICKET <span class="material-icons">check</span></button>
+                        <button onclick="GerarTicket()" class="btn btn-success">GERAR TICKET <span class="material-icons">check</span></button>
                     </div>
                 </div>
             </div>
@@ -188,9 +135,9 @@
             <div>
                 <img src="~/img/logo_preta.png" class="logo" />
                 <div class="row redes-sociais d-flex justify-content-center">
-                    <img src="~/img/face.png" alt="Facebook" style="width: 50px; height: 50px;"/>
-                    <img src="~/img/instagran.png" alt="Instagran" style="width: 50px; height: 50px;"/>
-                    <img src="~/img/whatsapp.png" alt="Whatsapp" style="width: 50px; height: 50px;"/>
+                    <img src="~/img/face.png" alt="Facebook" style="width: 50px; height: 50px;" />
+                    <img src="~/img/instagran.png" alt="Instagran" style="width: 50px; height: 50px;" />
+                    <img src="~/img/whatsapp.png" alt="Whatsapp" style="width: 50px; height: 50px;" />
                 </div>
 
                 <div class="text-center mt-3">
@@ -214,4 +161,76 @@
     </div>
 </div>
 
+<!-- Modal Gerar Ticket -->
+<div class="modal fade" id="modalGerarTicket" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-danger">
+                <h5 class="title mt-0 mb-2 font-good-times">Informe seus dados</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="text-dark">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h5 class="title m-0">Já tenho cadastro</h5> 
+                <p>Preencha seus dados de login para gerar o bilhete!</p>
+                <form>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-5">
+                            <label for="emailLogin">Seu e-mail</label>
+                            <input id="emailLogin" name="emailLogin" type="email" class="form-control" placeholder="E-mail">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label for="senhaLogin">Seu senha</label>
+                            <input id="senhaLogin" name="senhaLogin" type="password" class="form-control" placeholder="Senha">
+                        </div>
+                        <div class="form-group col-md-2 text-right align-self-center">
+                            <a onclick="RealizarLogin()" class="btn btn-sm btn-success text-light">Acessar</a>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <h5 class="title m-0">Já tenho cadastro</h5>
+                            <p>Preencha seus dados de login para gerar o bilhete!</p>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="nomeCategoria">Nome Completo</label>
+                            <input id="nomeCategoria" name="nomeCategoria" type="text" class="form-control" placeholder="Nome completo">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="nomeCategoria">E-mail</label>
+                            <input id="nomeCategoria" name="nomeCategoria" type="email" class="form-control" placeholder="E-mail">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="nomeCategoria">Senha</label>
+                            <input id="nomeCategoria" name="nomeCategoria" type="password" class="form-control" placeholder="Senha">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="nomeCategoria">Repita a senha</label>
+                            <input id="nomeCategoria" name="nomeCategoria" type="password" class="form-control" placeholder="Repita a senha">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="nomeCategoria">CPF</label>
+                            <input id="nomeCategoria" name="nomeCategoria" type="text" class="form-control cpf" placeholder="CPF">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="nomeCategoria">Telefone</label>
+                            <input id="nomeCategoria" name="nomeCategoria" type="text" class="form-control cel_with_ddd" placeholder="Telefone">
+                        </div>
+                        <div class="form-group col-md-12 text-right">
+                            <a class="btn btn-dark btn-sm text-light" data-dismiss="modal">Fechar</a> &#160;
+                            <a class="btn btn-sm btn-success text-light">Acessar</a>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="~/js/Pages/Home/ItemSorteio.js" asp-append-version="true" type="text/javascript"></script>
+<script src="~/js/Pages/Home/ItemSorteioLogin.js" asp-append-version="true" type="text/javascript"></script>

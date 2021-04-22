@@ -1,16 +1,18 @@
-﻿@{
+﻿@using Sorteio.Common;
+
+@{
     ViewData["Title"] = "Home Page";
     Layout = "_LayoutAcessoInterno";
 }
 
-<div class="container-fluid ml-4 mr-4">
+<div class="container-fluid">
     <div class="card">
         <div class="card-body">
             <div class="row">
                 <div class="col-md-12 text-center mb-5">
                     <h4 class="title mb-0 pb-0">MINHA CONTA</h4>
                     <div class="divisor"></div>
-                    <span>Seja bem-vindo(a), <span class="nome-usuario font-weight-bold">Priscila</span>!</span>
+                    <span>Seja bem-vindo(a), <span class="nome-usuario font-weight-bold">@ViewBag.NomeUsuarioLogado</span>!</span>
                 </div>
                 <div class="col-md-12 mb-4">
                     <div class="row">
@@ -27,7 +29,7 @@
                                     <h4 class="titulo-cards-perfil">Meus Bilhetes</h4>
                                     <span class="font-weight-bold">Importante:</span> <span>Os bilhetes apenas reservados serão cancelados automaticamente ao passar da data de validade!</span>
 
-                                    <table class="table table-hover mt-5 text-center table-responsive" id="datatableMeusBilhetes">
+                                    <table class="table table-hover mt-5 text-center" id="datatableMeusBilhetes">
                                         <thead class="bg-light">
                                             <tr>
                                                 <th scope="col">Sorteio</th>
@@ -37,12 +39,30 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach (var item in (IEnumerable<Sorteio.Domain.Models.NotMapped.MeusBilhetes>)ViewBag.MeusBilhetes)
+                                            {
                                             <tr>
-                                                <td>Yahama 2020</td>
-                                                <td>10/10/2021</td>
-                                                <td>5</td>
-                                                <td>Pago</td>
+                                                <td>@item.nome_sorteio</td>
+                                                <td>@item.data_compra_sorteio.ToString("dd/MM/yyyy")</td>
+                                                <td>@item.numero</td>
+                                                @if (item.id_status_pedido == DataDictionary.STATUS_PEDIDO_PENDENTE)
+                                                {
+                                                    <td>Pendente</td>
+                                                }
+                                                else if (item.id_status_pedido == DataDictionary.STATUS_PEDIDO_PAGO)
+                                                {
+                                                    <td>Pago</td>
+                                                }
+                                                else if (item.id_status_pedido == DataDictionary.STATUS_PEDIDO_RESERVADO)
+                                                {
+                                                    <td>Reservado</td>
+                                                }
+                                                else if (item.id_status_pedido == DataDictionary.STATUS_PEDIDO_CANCELADO)
+                                                {
+                                                    <td>Cancelado</td>
+                                                }
                                             </tr>
+                                            }
                                         </tbody>
                                     </table>
 
@@ -60,11 +80,14 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>Yahama 2020</td>
-                                                <td>20/10/2021</td>
-                                                <td>5</td>
-                                            </tr>
+                                            @foreach (var item in (IEnumerable<Sorteio.Domain.Models.NotMapped.MeusPremios>)ViewBag.MeusPremios)
+                                            {
+                                                <tr>
+                                                    <td>@item.nome_sorteio</td>
+                                                    <td>@item.data_sorteio.ToString("dd/MM/yyyy")</td>
+                                                    <td>@item.numero_sorteado</td>
+                                                </tr>
+                                            }
                                         </tbody>
                                     </table>
 
