@@ -71,23 +71,41 @@
             <div class="row">
                 <div class="col-md-12">
                     @{
-                        var contador = 1;
-                        while (contador <= Model.sorteio.quantidade_numeros)
-                        {
-                            foreach (var item in (IEnumerable<Sorteio.Domain.Models.Body.NumeroEscolhidoBody>)ViewBag.NumerosDoSorteio)
-                            {
-                                if (contador == item.numero && item.id_status_pedido == DataDictionary.STATUS_PEDIDO_PENDENTE)
-                                {
-                                    <div class="itens-numero-sorteio item-reservado">@contador.ToString("000")</div>
-                                }
-                                else
-                                {
-                                    <div class="itens-numero-sorteio item-disponivel">@contador.ToString("000")</div>
-                                }
-                            }
+                        var myModel = (IList<Sorteio.Domain.Models.Body.NumeroEscolhidoBody>)ViewBag.NumerosDoSorteio;
 
-                            contador++;
+                        @for (var i = 0; i <= Model.sorteio.quantidade_numeros; i++)
+                        {
+                            if (myModel.Any(x => x.numero == i && x.id_status_pedido == DataDictionary.STATUS_PEDIDO_PENDENTE))
+                            {
+                                var nomeUsuario = myModel.Where(n => n.numero == i).Select(v => v.nome_usuario).First().ToString();
+                                
+                                <div class="itens-numero-sorteio item-reservado" data-toggle="tooltip" data-placement="top" title="Reservado para @nomeUsuario">@i.ToString("000")</div>
+                                
+                            }
+                            else
+                            {
+                                <div class="itens-numero-sorteio item-disponivel">@i.ToString("000")</div>
+                            }
                         }
+
+
+                        @*var contador = 1;
+            while (contador <= Model.sorteio.quantidade_numeros)
+            {
+                foreach (var item in (IEnumerable<Sorteio.Domain.Models.Body.NumeroEscolhidoBody>)ViewBag.NumerosDoSorteio)
+                {
+                    if (contador == item.numero && item.id_status_pedido == DataDictionary.STATUS_PEDIDO_PENDENTE)
+                    {
+                        <div class="itens-numero-sorteio item-reservado">@contador.ToString("000")</div>
+                    }
+                    else
+                    {
+                        <div class="itens-numero-sorteio item-disponivel">@contador.ToString("000")</div>
+                    }
+                }
+
+                contador++;
+            }*@
 
                     }
                 </div>

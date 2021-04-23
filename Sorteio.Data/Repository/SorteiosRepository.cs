@@ -197,12 +197,13 @@ namespace Sorteio.Data.Repository
                                                                  FROM VencedorSorteio vs 
                                                                  LEFT JOIN Sorteio s ON vs.id_sorteio = s.id_sorteio 
                                                                  WHERE vs.id_usuario = @idUsuario
-                                                                 ORDER BY vs.data_sorteio", new { idUsuario });
+                                                                 ORDER BY vs.data_sorteio DESC", new { idUsuario });
 
         public Task<IEnumerable<NumeroEscolhidoBody>> ObterNumerosDoSorteioPorId(int idSorteio)
-            => _dataContext.Connection.QueryAsync<NumeroEscolhidoBody>(@"SELECT ne.*, p.id_status_pedido 
+            => _dataContext.Connection.QueryAsync<NumeroEscolhidoBody>(@"SELECT ne.*, p.id_status_pedido, u.nome as nome_usuario 
                                                                          FROM Pedido p 
                                                                          LEFT JOIN NumeroEscolhido ne ON p.id_pedido = ne.id_pedido 
+                                                                         LEFT JOIN Usuario u ON u.id_usuario = p.id_usuario 
                                                                          WHERE p.id_sorteio = @idSorteio", new { idSorteio });
 
         public async Task<SorteioNotMapped> ObterSorteioPorId(int idSorteio)
@@ -222,7 +223,7 @@ namespace Sorteio.Data.Repository
                                                                   LEFT JOIN Sorteio s ON p.id_sorteio = s.id_sorteio
                                                                   LEFT JOIN NumeroEscolhido ne ON ne.id_pedido = p.id_pedido
                                                                   WHERE p.id_usuario = @idUsuario
-                                                                  ORDER BY p.data_pedido", new { idUsuario });
+                                                                  ORDER BY p.data_pedido DESC", new { idUsuario });
 
         public Task<IEnumerable<SorteioNotMapped>> ObterTodosSorteio()
             => _dataContext.Connection.QueryAsync<SorteioNotMapped>(@"SELECT s.id_sorteio, u.id_usuario, s.nome as nome_sorteio, s.edicao as edicao_sorteio, s.status, u.nome as nome_ganhador

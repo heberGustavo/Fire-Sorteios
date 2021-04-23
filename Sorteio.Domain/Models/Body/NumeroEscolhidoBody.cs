@@ -11,5 +11,6 @@ namespace Sorteio.Domain.Models.Body
         public int id_pedido { get; set; }
         public int numero { get; set; }
         public int id_status_pedido { get; set; }
+        public string nome_usuario { get; set; }
     }
 }
