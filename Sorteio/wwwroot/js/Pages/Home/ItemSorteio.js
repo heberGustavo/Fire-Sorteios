@@ -14,26 +14,47 @@ var itens_escolhidos = [];
 $('.item-disponivel').click(function (e) {
     e.preventDefault();
 
-    var valor_rifa = ConverterParaFloat($('#valor_rifa').text());
-    
+    //Mostra sessão
     if ($('#sessao-fixa').hasClass('d-none')) {
         $('#sessao-fixa').removeClass('d-none')
     }
 
     $('#numeros_selecionados').html('');
 
-    var numero_atual = $(this).text();
-    itens_escolhidos.push(numero_atual);
+    //Remove dos itens selecionados e habilita o botao
+    if ($(this).hasClass("notactive")) {
 
+        var numeroClicado = $(this).text();
+        if ($.inArray(numeroClicado, itens_escolhidos) !== -1) {
+            itens_escolhidos.splice($.inArray(numeroClicado, itens_escolhidos), 1);
+            $(this).removeClass("notactive");
+
+            MostrarItensSelecionados(itens_escolhidos);
+        }
+        return;
+    }
+    else {
+        
+        var numero_atual = $(this).text();
+        itens_escolhidos.push(numero_atual);
+
+        MostrarItensSelecionados(itens_escolhidos);
+
+        $(this).addClass("notactive");
+    }
+
+});
+
+function MostrarItensSelecionados(itens_escolhidos) {
     itens_escolhidos.forEach(function (value) {
         var html = `<div class="numero-escolhido">${value}</div>`;
 
         $('#numeros_selecionados').append(html);
     });
 
+    var valor_rifa = ConverterParaFloat($('#valor_rifa').text());
     var valor_total_rifas = itens_escolhidos.length * valor_rifa;
 
     $('#quantidade_selecionado').text(itens_escolhidos.length);
     $('#valor_total').text(valor_total_rifas);
-
-});
+}

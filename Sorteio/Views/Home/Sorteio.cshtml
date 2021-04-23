@@ -44,6 +44,14 @@
 
             </div>
 
+            @{ 
+                var myModel = (IList<Sorteio.Domain.Models.Body.NumeroEscolhidoBody>)ViewBag.NumerosDoSorteio;
+
+                int quantidadeReservado = myModel.Where(x => x.id_status_pedido == DataDictionary.STATUS_PEDIDO_PENDENTE).Count();
+                int quantidadePago = myModel.Where(x => x.id_status_pedido == DataDictionary.STATUS_PEDIDO_PAGO).Count();
+                int quantidadeDisponivel = Model.sorteio.quantidade_numeros - quantidadeReservado - quantidadePago;
+            }
+
             <div class="row">
                 <div class="col-md-12">
                     <h3 class="title">Números do Sorteio</h3>
@@ -52,60 +60,48 @@
                         <label class="item item-todos">Todos (@Model.sorteio.quantidade_numeros)</label>
                     </div>
                     <div class="bloco-filtro-sorteio">
-                        <label class="item item-disponivel">Disponível (000)</label>
+                        <label class="item item-disponivel">Disponível (@quantidadeDisponivel)</label>
                     </div>
                     <div class="bloco-filtro-sorteio">
-                        <label class="item item-reservado">Reservado (000)</label>
+                        <label class="item item-reservado">Reservado (@quantidadeReservado)</label>
                     </div>
                     <div class="bloco-filtro-sorteio">
-                        <label class="item item-pago">Pago (000)</label>
+                        <label class="item item-pago">Pago (@quantidadePago)</label>
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <div class="bloco-filtro-sorteio">
-                        <label class="item consultar-meus-numero">Consultar meus números</label>
-                    </div>
+                    <a asp-controller="Login" asp-action="Index">
+                        <div class="bloco-filtro-sorteio">
+                            <label class="item consultar-meus-numero">Consultar meus números</label>
+                        </div>
+                    </a>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-12">
                     @{
-                        var myModel = (IList<Sorteio.Domain.Models.Body.NumeroEscolhidoBody>)ViewBag.NumerosDoSorteio;
-
                         @for (var i = 0; i <= Model.sorteio.quantidade_numeros; i++)
                         {
                             if (myModel.Any(x => x.numero == i && x.id_status_pedido == DataDictionary.STATUS_PEDIDO_PENDENTE))
                             {
                                 var nomeUsuario = myModel.Where(n => n.numero == i).Select(v => v.nome_usuario).First().ToString();
-                                
-                                <div class="itens-numero-sorteio item-reservado" data-toggle="tooltip" data-placement="top" title="Reservado para @nomeUsuario">@i.ToString("000")</div>
-                                
+
+                                <button class="itens-numero-sorteio item-reservado" data-toggle="tooltip" data-placement="top" title="Reservado para: @nomeUsuario">@i.ToString("000")</button>
+
+                            }
+                            else if (myModel.Any(x => x.numero == i && x.id_status_pedido == DataDictionary.STATUS_PEDIDO_PAGO))
+                            {
+                                var nomeUsuario = myModel.Where(n => n.numero == i).Select(v => v.nome_usuario).First().ToString();
+
+                                <button class="itens-numero-sorteio item-reservado" data-toggle="tooltip" data-placement="top" title="Pago por: @nomeUsuario">@i.ToString("000")</button>
+
                             }
                             else
                             {
-                                <div class="itens-numero-sorteio item-disponivel">@i.ToString("000")</div>
+                                <button class="itens-numero-sorteio item-disponivel">@i.ToString("000")</button>
                             }
                         }
-
-
-                        @*var contador = 1;
-            while (contador <= Model.sorteio.quantidade_numeros)
-            {
-                foreach (var item in (IEnumerable<Sorteio.Domain.Models.Body.NumeroEscolhidoBody>)ViewBag.NumerosDoSorteio)
-                {
-                    if (contador == item.numero && item.id_status_pedido == DataDictionary.STATUS_PEDIDO_PENDENTE)
-                    {
-                        <div class="itens-numero-sorteio item-reservado">@contador.ToString("000")</div>
-                    }
-                    else
-                    {
-                        <div class="itens-numero-sorteio item-disponivel">@contador.ToString("000")</div>
-                    }
-                }
-
-                contador++;
-            }*@
 
                     }
                 </div>
@@ -125,20 +121,20 @@
 
                 @foreach (var item in (IEnumerable<Sorteio.Domain.Models.Body.FormaDePagamentoBody>)ViewBag.FormasDePamento)
                 {
-                <div class="col-md-3">
-                    <div class="card" style="width: 17rem;">
-                        <img class="card-img-top" src="~/img/bancos/itau.png">
-                        <div class="card-body dados-banco">
-                            <h4 class="title">@item.nome_banco</h4>
-                            <h6><strong>Cód Banco:</strong> @item.codigo_banco</h6>
-                            <h6><strong>Favorecido:</strong> @item.favorecido</h6>
-                            <h6><strong>CPF:</strong> @item.cpf</h6>
-                            <h6><strong>Agência:</strong> @item.agencia</h6>
-                            <h6><strong>Conta:</strong> @item.conta</h6>
-                            <h6><strong>Tipo:</strong> @item.nome_tipo_forma_de_pagamento</h6>
+                    <div class="col-md-3">
+                        <div class="card" style="width: 17rem;">
+                            <img class="card-img-top" src="~/img/bancos/itau.png">
+                            <div class="card-body dados-banco">
+                                <h4 class="title">@item.nome_banco</h4>
+                                <h6><strong>Cód Banco:</strong> @item.codigo_banco</h6>
+                                <h6><strong>Favorecido:</strong> @item.favorecido</h6>
+                                <h6><strong>CPF:</strong> @item.cpf</h6>
+                                <h6><strong>Agência:</strong> @item.agencia</h6>
+                                <h6><strong>Conta:</strong> @item.conta</h6>
+                                <h6><strong>Tipo:</strong> @item.nome_tipo_forma_de_pagamento</h6>
+                            </div>
                         </div>
                     </div>
-                </div>
                 }
 
             </div>
