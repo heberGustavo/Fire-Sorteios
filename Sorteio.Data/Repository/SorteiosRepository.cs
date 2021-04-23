@@ -206,6 +206,13 @@ namespace Sorteio.Data.Repository
                                                                          LEFT JOIN Usuario u ON u.id_usuario = p.id_usuario 
                                                                          WHERE p.id_sorteio = @idSorteio", new { idSorteio });
 
+        public Task<IEnumerable<ParticipanteSorteio>> ObterParticipantesSorteioPorId(int idSorteio)
+            => _dataContext.Connection.QueryAsync<ParticipanteSorteio>(@"SELECT u.id_usuario, u.nome, u.cpf, ne.numero, p.id_status_pedido, p.id_pedido
+                                                                         FROM Usuario u 
+                                                                         LEFT JOIN Pedido p ON u.id_usuario = p.id_usuario 
+                                                                         LEFT JOIN NumeroEscolhido ne ON p.id_pedido = ne.id_pedido
+                                                                         WHERE p.id_sorteio = @idSorteio;", new { idSorteio });
+
         public async Task<SorteioNotMapped> ObterSorteioPorId(int idSorteio)
             => await _dataContext.Connection.QueryFirstOrDefaultAsync<SorteioNotMapped>(@"SELECT COUNT(gf.id_galeria_fotos) quantidade_imagens, s.id_sorteio, s.id_categoria_sorteio, s.nome as nome_sorteio, s.edicao as edicao_sorteio, s.valor, s.quantidade_numeros, s.descricao_curta, s.descricao_longa, s.status,  
                                                                                           vs.id_usuario, vs.id_vencedor_sorteio, u.nome as nome_ganhador, vs.numero_sorteado, vs.data_sorteio
@@ -218,7 +225,7 @@ namespace Sorteio.Data.Repository
                                                                                           vs.id_usuario, vs.id_vencedor_sorteio, u.nome, vs.numero_sorteado, vs.data_sorteio", new { idSorteio = idSorteio } );
 
         public Task<IEnumerable<MeusBilhetes>> ObterSorteiosBilheteClientePorId(int idUsuario)
-            => _dataContext.Connection.QueryAsync<MeusBilhetes>(@"SELECT p.id_pedido, s.nome as nome_sorteio, p.data_pedido as data_compra_sorteio, p.id_status_pedido, ne.numero
+            => _dataContext.Connection.QueryAsync<MeusBilhetes>(@"SELECT p.id_pedido, s.nome as nome_sorteio, p.data_pedido as data_compra_sorteio, p.id_status_pedido, ne.numero, s.valor 
                                                                   FROM Pedido p 
                                                                   LEFT JOIN Sorteio s ON p.id_sorteio = s.id_sorteio
                                                                   LEFT JOIN NumeroEscolhido ne ON ne.id_pedido = p.id_pedido

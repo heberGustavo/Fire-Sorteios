@@ -113,5 +113,13 @@ namespace Sorteio.Controllers
             var resultado = await _sorteiosBusiness.ObterTodosUltimosSorteiosRealizados();
             return Json(resultado);
         }
+
+        [HttpGet]
+        [Route("[controller]/[action]/{idSorteio:int}")]
+        public async Task<JsonResult> ObterParticipantesSorteioPorId(int idSorteio)
+        {
+            var resultado = await _sorteiosBusiness.ObterParticipantesSorteioPorId(idSorteio);
+            return Json(resultado);
+        }
     }
 }

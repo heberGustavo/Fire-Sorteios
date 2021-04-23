@@ -60,5 +60,11 @@ namespace Sorteio.Domain.Business
 
         public Task<IEnumerable<InformacoesSorteio>> ObterTodosUltimosSorteiosRealizados()
             => _sorteiosRepository.ObterTodosUltimosSorteiosRealizados();
+
+        public async Task<IEnumerable<Models.EntityDomain.Sorteio>> ObterTodosSorteioAtivos()
+            => await _sorteiosRepository.GetAllAsync(x => x.status == false);
+
+        public Task<IEnumerable<ParticipanteSorteio>> ObterParticipantesSorteioPorId(int idSorteio)
+            => _sorteiosRepository.ObterParticipantesSorteioPorId(idSorteio);
     }
 }

@@ -7,6 +7,8 @@ function AtualizarDadosCliente() {
     if (VerificarCamposObrigatoriosDadosClientes()) {
 
         var dadosJson = GerarJsonDadosCliente();
+        console.log(dadosJson)
+        debugger;
 
         $.ajax({
             url: "/AcessoInterno/EditarDadosCliente",
@@ -56,6 +58,10 @@ function VerificarCamposObrigatoriosDadosClientes() {
     }
     else if (IsNullOrEmpty($('#cpf').val().trim())) {
         MostrarModalErroCampoObrigatorioNaoPreenchido("CPF");
+        return false;
+    }
+    else if (IsNullOrEmpty($('#data_de_nascimento').val().trim())) {
+        MostrarModalErroCampoObrigatorioNaoPreenchido("Data de Nascimento");
         return false;
     }
     else if (IsNullOrEmpty($('#telefone').val().trim())) {

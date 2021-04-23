@@ -5,7 +5,7 @@
     Layout = "_LayoutAcessoInterno";
 }
 
-<input type="hidden" id="idUsuarioLogado" value="@ViewBag.UsuarioLogado.id_usuario"/>
+<input type="hidden" id="idUsuarioLogado" value="@ViewBag.UsuarioLogado.id_usuario" />
 
 <div class="container-fluid">
     <div class="card">
@@ -31,44 +31,60 @@
                                     <h4 class="titulo-cards-perfil">Meus Bilhetes</h4>
                                     <span class="font-weight-bold">Importante:</span> <span>Os bilhetes apenas reservados serão cancelados automaticamente ao passar da data de validade!</span>
 
-                                    <table class="table table-hover mt-5 text-center" id="datatableMeusBilhetes">
-                                        <thead class="bg-light">
-                                            <tr>
-                                                <th scope="col">Sorteio</th>
-                                                <th scope="col">Data Compra</th>
-                                                <th scope="col">Número</th>
-                                                <th scope="col">Status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach (var item in (IEnumerable<Sorteio.Domain.Models.NotMapped.MeusBilhetes>)ViewBag.MeusBilhetes)
+                                    <div id="accordion">
+                                        @{
+                                            var myModel = (IEnumerable<Sorteio.Domain.Models.NotMapped.MeusBilhetes>)ViewBag.MeusBilhetes;
+                                            var query = myModel.GroupBy(x => x.id_pedido);
+
+                                            foreach (var item in query)
                                             {
-                                            <tr>
-                                                <td>@item.nome_sorteio</td>
-                                                <td>@item.data_compra_sorteio.ToString("dd/MM/yyyy")</td>
-                                                <td>@item.numero</td>
-                                                @if (item.id_status_pedido == DataDictionary.STATUS_PEDIDO_PENDENTE)
-                                                {
-                                                    <td>Pendente</td>
-                                                }
-                                                else if (item.id_status_pedido == DataDictionary.STATUS_PEDIDO_PAGO)
-                                                {
-                                                    <td>Pago</td>
-                                                }
-                                                else if (item.id_status_pedido == DataDictionary.STATUS_PEDIDO_RESERVADO)
-                                                {
-                                                    <td>Reservado</td>
-                                                }
-                                                else if (item.id_status_pedido == DataDictionary.STATUS_PEDIDO_CANCELADO)
-                                                {
-                                                    <td>Cancelado</td>
-                                                }
-                                            </tr>
+                                                var codigoDoPedido = item.Key;
+                                                <div class="card card-custom">
+                                                    <div class="card-header card-header-custom" id="heading_@codigoDoPedido">
+                                                        <h5 class="mb-0 mt-0">
+                                                            <button onclick="ObterParticipantesSorteio('@codigoDoPedido')" class="btn btn-link" data-toggle="collapse" data-target="#collapse_@codigoDoPedido" aria-expanded="true" aria-controls="collapse_@codigoDoPedido">
+                                                                @codigoDoPedido.ToString("0000000")
+                                                            </button>
+                                                            @{
+                                                                var valorTotalPagar = myModel.Where(x => x.id_pedido == codigoDoPedido).Sum(x => x.valor);
+                                                                <button class="btn btn-sm btn-warning" style="float: right; margin-right: 10px; margin-top: 10px;">Efetuar Pagamento - R$ @valorTotalPagar</button>
+                                                            }
+                                                        </h5>
+                                                    </div>
+
+                                                    <div id="collapse_@codigoDoPedido" class="collapse" aria-labelledby="heading_@codigoDoPedido" data-parent="#accordion">
+                                                        <div class="card-body">
+                                                            <table class="table table-hover mt-5 text-center" id="datatableMeusBilhetes">
+                                                                <thead class="bg-light">
+                                                                    <tr>
+                                                                        <th scope="col">Sorteio</th>
+                                                                        <th scope="col">Data Compra</th>
+                                                                        <th scope="col">Número</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+
+                                                                    @foreach (var itensPedido in item)
+                                                                    {
+                                                                        <tr>
+                                                                            <td>@itensPedido.nome_sorteio</td>
+                                                                            <td>@itensPedido.data_compra_sorteio.ToString("dd/MM/yyyy")</td>
+                                                                            <td>@itensPedido.numero</td>
+                                                                        </tr>
+                                                                    }
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             }
-                                        </tbody>
-                                    </table>
+                                        }
+
+
+                                    </div>
 
                                 </div>
+
                                 <div class="tab-pane" id="tab_meus_premio">
                                     <h4 class="titulo-cards-perfil">Meus Prêmios</h4>
                                     <span>Aqui você pode ver todos os prêmios que você foi sorteado!</span>

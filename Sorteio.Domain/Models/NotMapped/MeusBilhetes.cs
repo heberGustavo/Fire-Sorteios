@@ -11,5 +11,6 @@ namespace Sorteio.Domain.Models.NotMapped
         public DateTime data_compra_sorteio { get; set; }
         public int numero { get; set; }
         public int id_status_pedido { get; set; }
+        public decimal valor { get; set; }
     }
 }

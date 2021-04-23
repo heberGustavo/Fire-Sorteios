@@ -16,6 +16,7 @@ namespace Sorteio.Domain.IBusiness
         Task<IEnumerable<SorteioNotMapped>> ObterTodosSorteio();
         Task<ResultResponseModel> FinalizarSorteio(VencedorSorteio vencedorSorteio);
         Task<IEnumerable<InformacoesSorteio>> ObterInformacoesSorteio();
+        Task<IEnumerable<Sorteio.Domain.Models.EntityDomain.Sorteio>> ObterTodosSorteioAtivos();
         Task<SorteioNotMapped> ObterSorteioPorId(int idSorteio);
         Task<IEnumerable<MeusBilhetes>> ObterSorteiosBilheteClientePorId(int id_usuario);
         Task<bool> EditarFinalizarSorteio(VencedorSorteio body);
@@ -25,5 +26,6 @@ namespace Sorteio.Domain.IBusiness
         Task<IEnumerable<InformacoesSorteio>> ObterTodosUltimosSorteiosRealizados();
         Task<SorteioBody> ObterDadosDoSorteioPorId(int idSorteio);
         Task<IEnumerable<NumeroEscolhidoBody>> ObterNumerosDoSorteioPorId(int idSorteio);
+        Task<IEnumerable<ParticipanteSorteio>> ObterParticipantesSorteioPorId(int idSorteio);
     }
 }
