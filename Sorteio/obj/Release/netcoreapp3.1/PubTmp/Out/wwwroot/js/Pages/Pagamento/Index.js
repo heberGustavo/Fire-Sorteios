@@ -1,0 +1,101 @@
+﻿$(document).ready(function () {
+
+    datatableListaParticipante = $('.datatableListaParticipante').DataTable({
+        "language": {
+            "url": "https://cdn.datatables.net/plug-ins/1.10.16/i18n/Portuguese-Brasil.json"
+        },
+        "columns.data": [
+            null,
+            null,
+            null,
+            null,
+            { "width": "110px" }
+        ],
+        responsive: true,
+        "bInfo": false,
+        "lengthChange": false,
+        language: {
+            search: "",
+            searchPlaceholder: "Pesquisar",
+            paginate: {
+                previous: '‹‹',
+                next: '››'
+            },
+            "emptyTable": "Nenhum resultado encontrado",
+        },
+        "fnInitComplete": function (oSettings) {
+            oSettings.oLanguage.sZeroRecords = "Nenhum resultado encontrado"
+        }
+    });
+
+});
+
+
+function ObterParticipantesSorteio(idSorteio) {
+
+    var collapse = `collapse_${idSorteio}`;
+
+    if ($('#accordion').find('#' + collapse).hasClass('show')) {
+        return;
+    }
+
+    $('#loading').removeClass('d-none');
+
+    $.ajax({
+        url: "/Sorteios/ObterParticipantesSorteioPorId/" + idSorteio,
+        type: "GET",
+        contentType: 'application/json; charset=UTF-8',
+        dataType: "json",
+        success: function (response) {
+            if (!response.erro) {
+                PreencherTabelaListaDeParticipantes(response);
+            }
+            else {
+                swal("Opss", response.mensagem, "error");
+            }
+            setTimeout(function () {
+                $('#loading').addClass('d-none');
+            }, 500)
+        },
+        error: function (response) {
+            swal("Erro", "Aconteceu um imprevisto. Contate o administrador", "error");
+            console.log(response);
+            $('#loading').addClass('d-none');
+        }
+    });
+}
+
+function PreencherTabelaListaDeParticipantes(dados) {
+
+    datatableListaParticipante.clear().draw();
+
+    $(dados).each(function (i, value) {
+
+        datatableListaParticipante.row.add([
+            value.nome,
+            value.cpf,
+            value.numero,
+            CriarBotaoAções(value.id_status_pedido, value.id_pedido),
+        ]).node().id = value.id_pedido;
+
+    });
+
+    datatableListaParticipante.draw();
+}
+
+function CriarBotaoAções(idStatus, idPedido) {
+
+    var STATUS_PAGO = '2';
+
+    if (idStatus == STATUS_PAGO) {
+        return `<td>
+                    <a class='btn btn-sm btn-success'>Pago <span class="material-icons">thumb_up</span></a>
+                </td>`;
+    }
+    else {
+        return `<td>
+                    <a class='btn btn-sm btn-warning' onclick="ConfirmarPagamento('${idPedido}')">Confirmar <span class="material-icons">paid</span></a>
+                </td>`;
+    }
+    
+}

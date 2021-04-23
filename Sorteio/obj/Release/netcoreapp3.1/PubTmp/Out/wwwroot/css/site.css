@@ -14,6 +14,10 @@ a.navbar-brand {
     word-break: break-all;
 }
 
+.notactive {
+    opacity: 0.5 !important;
+}
+
 /* Provide sufficient contrast against white background */
 a {
     color: #0366d6;
@@ -221,11 +225,11 @@ a.btn-dark {
 }
 
 .item-reservado {
-    background: #00da00e0;
+    background: yellow;
 }
 
 .item-pago {
-    background: yellow;
+    background: #00da00e0;
 }
 
 .consultar-meus-numero {
@@ -244,6 +248,11 @@ a.btn-dark {
     float: left;
     margin: 5px;
     cursor: pointer;
+    box-shadow: 0px 0px 3px 0px #000;
+}
+
+.item-disponivel:hover {
+    background: #eeeeee;
 }
 
 .dados-banco {
@@ -551,4 +560,29 @@ label.selecionar_arquivo {
     font-weight: 900;
     font-size: 15px;
     cursor: pointer;
+}
+
+.nav-pills.nav-pills-rose .nav-item .nav-link.active,
+.nav-pills.nav-pills-rose .nav-item .nav-link.active:focus,
+.nav-pills.nav-pills-rose .nav-item .nav-link.active:hover {
+    background: linear-gradient(150deg, rgba(0,0,0,1) -20%, rgba(164,4,4,1) 60%, rgba(0,0,0,1) 120%);
+    color: #ffffff;
+}
+
+.card-custom {
+    box-shadow: none !important;
+}
+
+.card-header-custom {
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-top: -23px !important;
+    background: linear-gradient( 357deg, #212529, #f44336) !important;
+}
+
+.card-header-custom h5 button {
+    color: #fff !important;
+    font-weight: 900 !important;
 }

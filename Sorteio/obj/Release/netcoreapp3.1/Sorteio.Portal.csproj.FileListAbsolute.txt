@@ -797,3 +797,4 @@ C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\Sorteio.Po
 C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\Sorteio.Portal.pdb
 C:\wp_empresa\Sorteio\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\Sorteio.Portal.genruntimeconfig.cache
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\Razor\Views\Shared\_LayoutLogin.cshtml.g.cs
+C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\Razor\Views\Pagamento\Index.cshtml.g.cs
