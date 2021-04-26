@@ -125,6 +125,9 @@ namespace Sorteio.Data.Repository
             }
         }
 
+        public Task<int> ExcluirSorteio(int idSorteio)
+            => _dataContext.Connection.ExecuteAsync(@"UPDATE Sorteio SET excluido = 1 WHERE id_sorteio = @idSorteio", new { idSorteio });
+
         public Task<IEnumerable<InformacoesSorteio>> FiltrarSorteioPorCategoria(int idCategoria)
              => _dataContext.Connection.QueryAsync<InformacoesSorteio>(@"SELECT s.id_sorteio, s.nome, s.edicao, s.valor, s.quantidade_numeros, s.status, 
                                                                         vs.numero_sorteado, vs.data_sorteio, 
@@ -185,12 +188,18 @@ namespace Sorteio.Data.Repository
         }
 
         public Task<IEnumerable<InformacoesSorteio>> ObterInformacoesSorteio()
-            => _dataContext.Connection.QueryAsync<InformacoesSorteio>(@"SELECT s.id_sorteio, s.nome, s.edicao, s.valor, s.quantidade_numeros, s.status, 
+            => _dataContext.Connection.QueryAsync<InformacoesSorteio>(@"SELECT s.id_sorteio, s.nome, s.edicao, s.valor, s.quantidade_numeros, s.status,
                                                                         vs.numero_sorteado, vs.data_sorteio, 
-                                                                        u.nome as nome_ganhador
-                                                                        FROM Sorteio s 
+                                                                        u.nome as nome_ganhador,
+                                                                        (SELECT TOP 1 gf.url_imagem 
+	                                                                        FROM GaleriaFotos gf  
+	                                                                        WHERE gf.id_sorteio = s.id_sorteio 
+	                                                                        ORDER BY gf.url_imagem) as url_imagem 
+                                                                        FROM Sorteio s
                                                                         LEFT JOIN VencedorSorteio vs ON s.id_sorteio = vs.id_sorteio 
-                                                                        LEFT JOIN Usuario u ON vs.id_usuario = u.id_usuario");
+                                                                        LEFT JOIN Usuario u ON vs.id_usuario = u.id_usuario
+                                                                        WHERE s.excluido = 0
+                                                                        ORDER BY s.edicao + 0 ASC");
 
         public Task<IEnumerable<MeusPremios>> ObterMeusPremiosClientePorId(int idUsuario)
             => _dataContext.Connection.QueryAsync<MeusPremios>(@"SELECT s.nome as nome_sorteio, vs.data_sorteio, vs.numero_sorteado 
@@ -236,7 +245,9 @@ namespace Sorteio.Data.Repository
             => _dataContext.Connection.QueryAsync<SorteioNotMapped>(@"SELECT s.id_sorteio, u.id_usuario, s.nome as nome_sorteio, s.edicao as edicao_sorteio, s.status, u.nome as nome_ganhador
                                                                       FROM Sorteio s 
                                                                       LEFT JOIN VencedorSorteio vs ON s.id_sorteio = vs.id_sorteio 
-                                                                      LEFT JOIN Usuario u ON vs.id_usuario = u.id_usuario");
+                                                                      LEFT JOIN Usuario u ON vs.id_usuario = u.id_usuario
+                                                                      WHERE s.excluido = 0
+                                                                      ORDER BY s.edicao + 0 ASC");
 
         public Task<IEnumerable<InformacoesSorteio>> ObterTodosUltimosSorteiosRealizados()
             => _dataContext.Connection.QueryAsync<InformacoesSorteio>(@"SELECT s.id_sorteio, s.nome, s.edicao, s.valor, s.quantidade_numeros, s.status, 
@@ -245,6 +256,6 @@ namespace Sorteio.Data.Repository
                                                                         FROM Sorteio s 
                                                                         LEFT JOIN VencedorSorteio vs ON s.id_sorteio = vs.id_sorteio 
                                                                         LEFT JOIN Usuario u ON vs.id_usuario = u.id_usuario
-                                                                        WHERE s.status = 1");
+                                                                        WHERE s.status = 1 AND s.excluido = 0");
     }
 }

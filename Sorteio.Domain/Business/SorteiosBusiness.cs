@@ -66,5 +66,8 @@ namespace Sorteio.Domain.Business
 
         public Task<IEnumerable<ParticipanteSorteio>> ObterParticipantesSorteioPorId(int idSorteio)
             => _sorteiosRepository.ObterParticipantesSorteioPorId(idSorteio);
+
+        public Task<int> ExcluirSorteio(int idSorteio)
+            => _sorteiosRepository.ExcluirSorteio(idSorteio);
     }
 }

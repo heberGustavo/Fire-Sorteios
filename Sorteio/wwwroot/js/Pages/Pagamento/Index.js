@@ -89,12 +89,12 @@ function CriarBotaoAções(idStatus, idPedido) {
 
     if (idStatus == STATUS_PAGO) {
         return `<td>
-                    <a class='btn btn-sm btn-success'>Pago <span class="material-icons">thumb_up</span></a>
+                    <a class='btn btn-sm btn-success text-light'>Pago <span class="material-icons">thumb_up</span></a>
                 </td>`;
     }
     else {
         return `<td>
-                    <a class='btn btn-sm btn-warning' onclick="ConfirmarPagamento('${idPedido}')">Confirmar <span class="material-icons">paid</span></a>
+                    <a class='btn btn-sm btn-warning text-light' onclick="ConfirmarPagamento('${idPedido}')">Confirmar <span class="material-icons">paid</span></a>
                 </td>`;
     }
     

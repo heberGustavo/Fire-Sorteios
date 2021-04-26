@@ -220,7 +220,7 @@ a.btn-dark {
     background: #a7a7a769;
 }
 
-.item-disponivel {
+.item-disponivel, .item-disponivel-padrao {
     background: #fff;
 }
 
@@ -585,4 +585,9 @@ label.selecionar_arquivo {
 .card-header-custom h5 button {
     color: #fff !important;
     font-weight: 900 !important;
+}
+
+.pgwSlideshow .ps-current ul {
+    margin: 0;
+    padding: 0;
 }

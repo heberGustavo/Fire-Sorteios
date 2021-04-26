@@ -24,16 +24,12 @@
 
                 <div class="col-md-8">
                     <ul class="pgwSlideshow">
-                        <li><img src="https://media.istockphoto.com/photos/mechanic-repairing-a-motorcycle-picture-id1188820923?s=612x612"></li>
-                        <li><img src="https://media.istockphoto.com/photos/mechanic-repairing-a-motorcycle-picture-id1188820923?s=612x612"></li>
-                        <li><img src="https://media.istockphoto.com/photos/mechanic-repairing-a-motorcycle-picture-id1188820923?s=612x612"></li>
-                        <li><img src="https://media.istockphoto.com/photos/mechanic-repairing-a-motorcycle-picture-id1188820923?s=612x612"></li>
-                        <li><img src="https://media.istockphoto.com/photos/mechanic-repairing-a-motorcycle-picture-id1188820923?s=612x612"></li>
-                        <li><img src="https://media.istockphoto.com/photos/mechanic-repairing-a-motorcycle-picture-id1188820923?s=612x612"></li>
-                        <li><img src="https://media.istockphoto.com/photos/mechanic-repairing-a-motorcycle-picture-id1188820923?s=612x612"></li>
-                        <li><img src="https://media.istockphoto.com/photos/mechanic-repairing-a-motorcycle-picture-id1188820923?s=612x612"></li>
-                        <li><img src="https://media.istockphoto.com/photos/mechanic-repairing-a-motorcycle-picture-id1188820923?s=612x612"></li>
-                        <li><img src="https://media.istockphoto.com/photos/mechanic-repairing-a-motorcycle-picture-id1188820923?s=612x612"></li>
+
+                        @foreach (var item in Model.linkImagens)
+                        {
+                            <li><img src="@item.url_imagem"></li>
+                        }
+
                     </ul>
                 </div>
                 <div class="col-md-4 text-left">
@@ -52,7 +48,7 @@
                 int quantidadeDisponivel = Model.sorteio.quantidade_numeros - quantidadeReservado - quantidadePago;
             }
 
-            <div class="row">
+            <div class="row mt-4">
                 <div class="col-md-12">
                     <h3 class="title">Números do Sorteio</h3>
 
@@ -60,7 +56,7 @@
                         <label class="item item-todos">Todos (@Model.sorteio.quantidade_numeros)</label>
                     </div>
                     <div class="bloco-filtro-sorteio">
-                        <label class="item item-disponivel">Disponível (@quantidadeDisponivel)</label>
+                        <label class="item item-disponivel-padrao">Disponível (@quantidadeDisponivel)</label>
                     </div>
                     <div class="bloco-filtro-sorteio">
                         <label class="item item-reservado">Reservado (@quantidadeReservado)</label>
@@ -94,7 +90,7 @@
                             {
                                 var nomeUsuario = myModel.Where(n => n.numero == i).Select(v => v.nome_usuario).First().ToString();
 
-                                <button class="itens-numero-sorteio item-reservado" data-toggle="tooltip" data-placement="top" title="Pago por: @nomeUsuario">@i.ToString("000")</button>
+                                <button class="itens-numero-sorteio item-pago" data-toggle="tooltip" data-placement="top" title="Pago por: @nomeUsuario">@i.ToString("000")</button>
 
                             }
                             else
@@ -107,14 +103,7 @@
                 </div>
             </div>
 
-            <div class="row">
-                <hr />
-                <div class="itens-numero-sorteio item-disponivel">001</div>
-                <div class="itens-numero-sorteio item-pago">001</div>
-                <div class="itens-numero-sorteio item-reservado">001</div>
-            </div>
-
-            <div class="row">
+            <div class="row mt-4">
                 <div class="col-md-12">
                     <h3 class="title">Dados para o Pagamento</h3>
                 </div>
@@ -123,7 +112,7 @@
                 {
                     <div class="col-md-3">
                         <div class="card" style="width: 17rem;">
-                            <img class="card-img-top" style="background: url(@item.url_imagem)">
+                            <img class="card-img-top" style="background: url('@item.url_imagem'); width: 100%; height: 200px; background-position: center; background-size: contain; background-repeat: no-repeat; ">
                             <div class="card-body dados-banco">
                                 <h4 class="title">@item.nome_banco</h4>
                                 <h6><strong>Cód Banco:</strong> @item.codigo_banco</h6>
@@ -159,9 +148,9 @@
     </div>
     <div class="rodape">
         <div class="container">
-            <br /><br />
             <div>
                 <img src="~/img/logo_preta.png" class="logo" />
+                <br />
                 <div class="row redes-sociais d-flex justify-content-center">
                     <img src="~/img/face.png" alt="Facebook" style="width: 50px; height: 50px;" />
                     <img src="~/img/instagran.png" alt="Instagran" style="width: 50px; height: 50px;" />

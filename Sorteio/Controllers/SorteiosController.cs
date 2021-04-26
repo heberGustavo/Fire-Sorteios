@@ -89,6 +89,18 @@ namespace Sorteio.Controllers
 
             return Json(new { erro = resultado.erro, mensagem = resultado.mensagem });
         }
+        
+        [HttpGet]
+        [Route("[controller]/[action]/{idSorteio:int}")]
+        public async Task<JsonResult> ExcluirSorteio(int idSorteio)
+        {
+            var resultado = await _sorteiosBusiness.ExcluirSorteio(idSorteio);
+
+            if (resultado == 1)
+                return Json(new { erro = false, mensagem = "Sorteio excluído com sucesso!" });
+            else
+                return Json(new { erro = false, mensagem = "Erro ao excluir sorteio!" });
+        }
 
         [HttpGet]
         [Route("[controller]/[action]")]

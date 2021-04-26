@@ -45,9 +45,24 @@
                                                             <button onclick="ObterParticipantesSorteio('@codigoDoPedido')" class="btn btn-link" data-toggle="collapse" data-target="#collapse_@codigoDoPedido" aria-expanded="true" aria-controls="collapse_@codigoDoPedido">
                                                                 @codigoDoPedido.ToString("0000000")
                                                             </button>
+
                                                             @{
-                                                                var valorTotalPagar = myModel.Where(x => x.id_pedido == codigoDoPedido).Sum(x => x.valor);
-                                                                <button class="btn btn-sm btn-warning" style="float: right; margin-right: 10px; margin-top: 10px;">Efetuar Pagamento - R$ @valorTotalPagar</button>
+                                                                var statusBilhete = myModel.Where(x => x.id_pedido == codigoDoPedido).Select(x => x.id_status_pedido).FirstOrDefault();
+
+                                                                if (statusBilhete == DataDictionary.STATUS_PEDIDO_PENDENTE)
+                                                                {
+                                                                    var valorTotalPagar = myModel.Where(x => x.id_pedido == codigoDoPedido).Sum(x => x.valor);
+                                                                    <button class="btn btn-sm btn-warning" style="float: right; margin-right: 10px; margin-top: 10px;">Efetuar Pagamento - R$ @valorTotalPagar</button>
+                                                                }
+                                                                else if (statusBilhete == DataDictionary.STATUS_PEDIDO_PAGO)
+                                                                {
+                                                                    var valorTotalPagar = myModel.Where(x => x.id_pedido == codigoDoPedido).Sum(x => x.valor);
+                                                                    <button class="btn btn-sm btn-success" style="float: right; margin-right: 10px; margin-top: 10px;">Pago - R$ @valorTotalPagar</button>
+                                                                }
+                                                                else if (statusBilhete == DataDictionary.STATUS_PEDIDO_CANCELADO)
+                                                                {
+                                                                    <button class="btn btn-sm btn-success" style="float: right; margin-right: 10px; margin-top: 10px;">Cancelado</button>
+                                                                }
                                                             }
                                                         </h5>
                                                     </div>

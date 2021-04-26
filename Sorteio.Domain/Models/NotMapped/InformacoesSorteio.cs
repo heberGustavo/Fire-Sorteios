@@ -12,10 +12,13 @@ namespace Sorteio.Domain.Models.NotMapped
         public decimal valor { get; set; }
         public int quantidade_numeros { get; set; }
         public bool status { get; set; }
+        public bool excluido { get; set; }
 
         public string nome_ganhador { get; set; }
         public int numero_sorteado { get; set; }
         public DateTime data_sorteio { get; set; }
+
+        public string url_imagem { get; set; }
 
     }
 }

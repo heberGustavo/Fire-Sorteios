@@ -27,5 +27,6 @@ namespace Sorteio.Domain.IRepository
         Task<IEnumerable<MeusPremios>> ObterMeusPremiosClientePorId(int id_usuario);
         Task<IEnumerable<NumeroEscolhidoBody>> ObterNumerosDoSorteioPorId(int idSorteio);
         Task<IEnumerable<ParticipanteSorteio>> ObterParticipantesSorteioPorId(int idSorteio);
+        Task<int> ExcluirSorteio(int idSorteio);
     }
 }

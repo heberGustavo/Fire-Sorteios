@@ -27,5 +27,6 @@ namespace Sorteio.Domain.IBusiness
         Task<SorteioBody> ObterDadosDoSorteioPorId(int idSorteio);
         Task<IEnumerable<NumeroEscolhidoBody>> ObterNumerosDoSorteioPorId(int idSorteio);
         Task<IEnumerable<ParticipanteSorteio>> ObterParticipantesSorteioPorId(int idSorteio);
+        Task<int> ExcluirSorteio(int idSorteio);
     }
 }

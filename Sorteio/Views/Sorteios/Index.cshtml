@@ -45,18 +45,40 @@
                                     <button class="btn btn-sm btn-success">Finalizado</button>
                                 </td>
                             }
-                        <td>
-                            <a class="btn btn-sm btn-info" asp-controller="Sorteios" asp-action="Editar" asp-route-id="@item.id_sorteio">Editar <span class="material-icons">create</span></a>
-                            @if (item.status == false)
-                            {
-                                <button onclick="AbrirModalFinalizarSorteio('@item.id_sorteio')" class="btn btn-sm btn-dark">Finalizar <span class="material-icons">done</span></button>
-                            }
-
-                        </td>
+                            <td>
+                                <a class="btn btn-sm btn-info" asp-controller="Sorteios" asp-action="Editar" asp-route-id="@item.id_sorteio"><span class="material-icons">create</span></a>
+                                <button onclick="AbrirModalExcluirSorteio('@item.id_sorteio')" class="btn btn-sm btn-danger"><span class="material-icons">delete</span></button>
+                                @if (item.status == false)
+                                {
+                                    <a onclick="AbrirModalFinalizarSorteio('@item.id_sorteio')" class="btn btn-sm btn-dark text-light"><span class="material-icons">assignment_turned_in</span></a>
+                                }
+                            </td>
                         </tr>
                     }
                 </tbody>
             </table>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Excluir Sorteio -->
+<div class="modal fade" id="modalExcluirSorteio" tabindex="-1" role="dialog" aria-labelledby="modalExcluirSorteio" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body pt-0 text-center">
+                <input type="hidden" id="idSorteioSelecionadoExclusao" />
+                <h5 class="title m-0 text-center">Finalizar Sorteio</h5>
+                <p>Você tem certeza que deseja excluir o sorteio selecionado?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark btn-sm" data-dismiss="modal">Fechar</button> &#160;
+                <button type="button" onclick="ExcluirSorteio();" class="btn btn-success btn-sm">Finalizar</button>
+            </div>
         </div>
     </div>
 </div>
@@ -108,3 +130,4 @@
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 <script src="~/js/Pages/Sorteios/Index.js" type="text/javascript" asp-append-version="true"></script>
 <script src="~/js/Pages/Sorteios/FinalizarSorteio.js" type="text/javascript" asp-append-version="true"></script>
+<script src="~/js/Pages/Sorteios/ExcluirSorteio.js" type="text/javascript" asp-append-version="true"></script>
