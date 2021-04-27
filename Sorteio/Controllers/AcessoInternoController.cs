@@ -16,11 +16,13 @@ namespace Sorteio.Controllers
     {
         private readonly ISorteiosBusiness _sorteiosBusiness;
         private readonly IUsuarioBusiness _usuarioBusiness;
+        private readonly IFormasDePagamentoBusiness _formasDePagamentoBusiness;
 
-        public AcessoInternoController(ISorteiosBusiness sorteiosBusiness, IUsuarioBusiness usuarioBusiness)
+        public AcessoInternoController(ISorteiosBusiness sorteiosBusiness, IUsuarioBusiness usuarioBusiness, IFormasDePagamentoBusiness formasDePagamentoBusiness)
         {
             _sorteiosBusiness = sorteiosBusiness;
             _usuarioBusiness = usuarioBusiness;
+            _formasDePagamentoBusiness = formasDePagamentoBusiness;
         }
 
         public async Task<IActionResult> Index()
@@ -28,7 +30,8 @@ namespace Sorteio.Controllers
             var usuarioLogado = AuthHelper.USUARIO_LOGADO();
 
             ViewBag.UsuarioLogado = usuarioLogado;
-            
+
+            ViewBag.FormasDePagamentos = await _formasDePagamentoBusiness.ObterTodasFormasDePagamentoAtivo();
             ViewBag.MeusBilhetes = await _sorteiosBusiness.ObterSorteiosBilheteClientePorId(usuarioLogado.id_usuario);
             ViewBag.MeusPremios = await _sorteiosBusiness.ObterMeusPremiosClientePorId(usuarioLogado.id_usuario);
 

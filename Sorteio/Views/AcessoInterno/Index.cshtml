@@ -52,7 +52,7 @@
                                                                 if (statusBilhete == DataDictionary.STATUS_PEDIDO_PENDENTE)
                                                                 {
                                                                     var valorTotalPagar = myModel.Where(x => x.id_pedido == codigoDoPedido).Sum(x => x.valor);
-                                                                    <button class="btn btn-sm btn-warning" style="float: right; margin-right: 10px; margin-top: 10px;">Efetuar Pagamento - R$ @valorTotalPagar</button>
+                                                                    <button class="btn btn-sm btn-warning" onclick="AbrirFormasDePagamento()" style="float: right; margin-right: 10px; margin-top: 10px;">Efetuar Pagamento - R$ @valorTotalPagar</button>
                                                                 }
                                                                 else if (statusBilhete == DataDictionary.STATUS_PEDIDO_PAGO)
                                                                 {
@@ -69,7 +69,7 @@
 
                                                     <div id="collapse_@codigoDoPedido" class="collapse" aria-labelledby="heading_@codigoDoPedido" data-parent="#accordion">
                                                         <div class="card-body">
-                                                            <table class="table table-hover mt-5 text-center" id="datatableMeusBilhetes">
+                                                            <table class="datatableMeusBilhetes table table-hover mt-5 text-center">
                                                                 <thead class="bg-light">
                                                                     <tr>
                                                                         <th scope="col">Sorteio</th>
@@ -196,6 +196,60 @@
     </div>
 </div>
 
+<!-- Modal Formas de Pagamento -->
+<div class="modal fade" id="modalFormasDePagamento" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body pt-0 text-center">
+                <h4 class="title">Formas de Pagamento</h4>
+
+                <div class="row">
+                    @foreach (var item in (IEnumerable<Sorteio.Domain.Models.Body.FormaDePagamentoBody>)ViewBag.FormasDePagamentos)
+                    {
+                        if (item.id_tipo_forma_de_pagamento == DataDictionary.CODIGO_PIX)
+                        {
+                            <div class="col-md-6">
+                                <div class="card card-forma-de-pagamento">
+                                    <img class="card-img-top" style="background: url('@item.url_imagem'); width: 100%; height: 200px; background-position: center; background-size: contain; background-repeat: no-repeat; ">
+                                    <div class="card-body dados-banco text-center">
+                                        <h4 class="title">@item.nome_banco</h4>
+                                        <h6><strong>Tipo:</strong> @item.nome_tipo_forma_de_pagamento</h6>
+                                        <h6><strong>Chave:</strong> @item.pix</h6>
+                                        <h6><strong>Favorecido:</strong> @item.favorecido</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="col-md-6">
+                                <div class="card card-forma-de-pagamento">
+                                    <img class="card-img-top" style="background: url('@item.url_imagem'); width: 100%; height: 200px; background-position: center; background-size: contain; background-repeat: no-repeat; ">
+                                    <div class="card-body dados-banco text-center">
+                                        <h4 class="title">@item.nome_banco</h4>
+                                        <h6><strong>Tipo:</strong> @item.nome_tipo_forma_de_pagamento</h6>
+                                        <h6><strong>Cód Banco:</strong> @item.codigo_banco</h6>
+                                        <h6><strong>Favorecido:</strong> @item.favorecido</h6>
+                                        <h6><strong>CPF:</strong> @item.cpf</h6>
+                                        <h6><strong>Agência:</strong> @item.agencia</h6>
+                                        <h6><strong>Conta:</strong> @item.conta</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    }
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src="~/js/Pages/AcessoInterno/Index.js" type="text/javascript" asp-append-version="true"></script>
 <script src="~/js/Pages/AcessoInterno/AtualizarDadosCliente.js" type="text/javascript" asp-append-version="true"></script>
