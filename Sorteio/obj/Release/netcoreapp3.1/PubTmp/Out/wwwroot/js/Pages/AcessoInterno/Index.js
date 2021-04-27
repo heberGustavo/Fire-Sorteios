@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
 
-    datatableMeusBilhetes = $('#datatableMeusBilhetes').DataTable({
+    datatableMeusBilhetes = $('.datatableMeusBilhetes').DataTable({
         "language": {
             "url": "https://cdn.datatables.net/plug-ins/1.10.16/i18n/Portuguese-Brasil.json"
         },
@@ -57,3 +57,11 @@
     });
 
 });
+
+function AbrirFormasDePagamento() {
+
+    swal('Atenção', 'Após efetuar o pagamento, envie o comprovante e o número do pedido para validarmos seu bilhete!', 'warning')
+        .then((okay) => {
+            $('#modalFormasDePagamento').modal();
+        });
+}
