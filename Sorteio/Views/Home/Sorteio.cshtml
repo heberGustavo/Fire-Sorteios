@@ -19,7 +19,6 @@
                 <div class="col-md-8 ml-auto mr-auto">
                     <h2 class="title mt-5 mb-0 p-0">@Model.sorteio.nome</h2>
                     <h3 class="mt-0 mb-5 p-0 text-danger"><strong id="valor_rifa">R$ @Model.sorteio.valor</strong></h3>
-                    @*<button onclick="AbrirModalCadastrarUsuario()" class="btn">Cadastrar Usuario</button>*@
                 </div>
 
                 <div class="col-md-8">
@@ -110,20 +109,38 @@
 
                 @foreach (var item in (IEnumerable<Sorteio.Domain.Models.Body.FormaDePagamentoBody>)ViewBag.FormasDePamento)
                 {
-                    <div class="col-md-3">
-                        <div class="card" style="width: 17rem;">
-                            <img class="card-img-top" style="background: url('@item.url_imagem'); width: 100%; height: 200px; background-position: center; background-size: contain; background-repeat: no-repeat; ">
-                            <div class="card-body dados-banco">
-                                <h4 class="title">@item.nome_banco</h4>
-                                <h6><strong>Cód Banco:</strong> @item.codigo_banco</h6>
-                                <h6><strong>Favorecido:</strong> @item.favorecido</h6>
-                                <h6><strong>CPF:</strong> @item.cpf</h6>
-                                <h6><strong>Agência:</strong> @item.agencia</h6>
-                                <h6><strong>Conta:</strong> @item.conta</h6>
-                                <h6><strong>Tipo:</strong> @item.nome_tipo_forma_de_pagamento</h6>
+                    if (item.id_tipo_forma_de_pagamento == DataDictionary.CODIGO_PIX)
+                    {
+                        <div class="col-md-3">
+                            <div class="card" style="width: 17rem; height: 27rem;">
+                                <img class="card-img-top" style="background: url('@item.url_imagem'); width: 100%; height: 200px; background-position: center; background-size: contain; background-repeat: no-repeat; ">
+                                <div class="card-body dados-banco text-center">
+                                    <h4 class="title">@item.nome_banco</h4>
+                                    <h6><strong>Tipo:</strong> @item.nome_tipo_forma_de_pagamento</h6>
+                                    <h6><strong>Chave:</strong> @item.pix</h6>
+                                    <h6><strong>Favorecido:</strong> @item.favorecido</h6>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    }
+                    else
+                    {
+                        <div class="col-md-3">
+                            <div class="card" style="width: 17rem; height: 27rem;">
+                                <img class="card-img-top" style="background: url('@item.url_imagem'); width: 100%; height: 200px; background-position: center; background-size: contain; background-repeat: no-repeat; ">
+                                <div class="card-body dados-banco text-center">
+                                    <h4 class="title">@item.nome_banco</h4>
+                                    <h6><strong>Tipo:</strong> @item.nome_tipo_forma_de_pagamento</h6>
+                                    <h6><strong>Cód Banco:</strong> @item.codigo_banco</h6>
+                                    <h6><strong>Favorecido:</strong> @item.favorecido</h6>
+                                    <h6><strong>CPF:</strong> @item.cpf</h6>
+                                    <h6><strong>Agência:</strong> @item.agencia</h6>
+                                    <h6><strong>Conta:</strong> @item.conta</h6>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
                 }
 
             </div>

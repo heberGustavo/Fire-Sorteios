@@ -29,6 +29,7 @@ namespace Sorteio.Data.Repository
             => _dataContext.Connection.QueryAsync<FormaDePagamentoBody>(@"SELECT fdp.*, tfdp.nome as nome_tipo_forma_de_pagamento
                                                                           FROM FormasDePagamento fdp 
                                                                           LEFT JOIN TipoFormaDePagamento tfdp ON fdp.id_tipo_forma_de_pagamento = tfdp.id_tipo_forma_de_pagamento
-                                                                          WHERE fdp.status = 0");
+                                                                          WHERE fdp.status = 0
+                                                                          ORDER BY tfdp.id_tipo_forma_de_pagamento ASC");
     }
 }

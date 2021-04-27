@@ -18,5 +18,6 @@ namespace Sorteio.Domain.Models.Body
         public int id_tipo_forma_de_pagamento { get; set; }
         public string nome_tipo_forma_de_pagamento { get; set; }
         public bool status { get; set; }
+        public string pix { get; set; }
     }
 }

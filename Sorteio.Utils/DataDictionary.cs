@@ -7,6 +7,7 @@ namespace Sorteio.Common
     public class DataDictionary
     {
         public const string CHAVE_ENCRIPTACAO = "fTyKPtEzhYsSKQh1wrKOUPNFzevB8P";
+        public const int CODIGO_PIX = 2;
 
         //Tipos de Usuarios
         public const int USUARIO_ADMINISTRADOR = 1;

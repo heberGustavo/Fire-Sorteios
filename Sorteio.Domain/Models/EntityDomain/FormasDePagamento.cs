@@ -16,5 +16,6 @@ namespace Sorteio.Domain.Models.EntityDomain
         public string url_imagem { get; set; }
         public int id_tipo_forma_de_pagamento { get; set; }
         public bool status { get; set; }
+        public string pix { get; set; }
     }
 }

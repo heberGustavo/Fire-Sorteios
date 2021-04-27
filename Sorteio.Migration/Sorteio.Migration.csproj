@@ -21,6 +21,7 @@
     <None Remove="Scripts\202104221353_Alteracao_Tabela_Usuario.sql" />
     <None Remove="Scripts\202104261436_Alteracao_Tabela_Sorteio.sql" />
     <None Remove="Scripts\202104261440_Alteracao_Tabela_Sorteio.sql" />
+    <None Remove="Scripts\202104270917_Alteracao_Tabela_FormasDePagamento.sql" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,6 +34,7 @@
     <EmbeddedResource Include="Scripts\202104081327_Criacao_Tabela_Numero_Escolhido.sql" />
     <EmbeddedResource Include="Scripts\202104081334_Criacao_Tabela_Sorteio.sql" />
     <EmbeddedResource Include="Scripts\202104081422_Criacao_Tabela_VencedorSorteio.sql" />
+    <EmbeddedResource Include="Scripts\202104270917_Alteracao_Tabela_FormasDePagamento.sql" />
     <EmbeddedResource Include="Scripts\202104261440_Alteracao_Tabela_Sorteio.sql" />
     <EmbeddedResource Include="Scripts\202104261436_Alteracao_Tabela_Sorteio.sql" />
     <EmbeddedResource Include="Scripts\202104221353_Alteracao_Tabela_Usuario.sql" />

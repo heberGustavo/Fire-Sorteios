@@ -41,6 +41,7 @@ C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\j
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\Pages\Pagamento\Index.js
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\Pages\Sorteios\EditarFinalizarSorteio.js
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\Pages\Sorteios\EditarSorteio.js
+C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\Pages\Sorteios\ExcluirSorteio.js
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\Pages\Sorteios\FinalizarSorteio.js
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\Pages\Sorteios\Index.js
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\Pages\Sorteios\NovoSorteio.js

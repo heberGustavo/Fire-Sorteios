@@ -1,4 +1,17 @@
 ﻿$(document).ready(function () {
+
+    $('#select_tipo_conta').change(function () {
+
+        var idSelecionado = $(this).val();
+        var idPix = 2;
+
+        if (parseInt(idSelecionado) == idPix) {
+            $('#campo_chave_pix').removeClass('d-none');
+        }
+        else {
+            $('#campo_chave_pix').addClass('d-none');
+        }
+    });
     
 });
 
@@ -7,6 +20,7 @@ function CadastrarFormaDePagamento() {
     if (VerificarCamposObrigatorios()) {
 
         var dadosJson = GerarJsonCamposObrigatorios();
+        console.log(dadosJson)
 
         $.ajax({
             url: "/FormasDePagamento/CriarNovaFormaDePagamento",
@@ -43,11 +57,13 @@ function GerarJsonCamposObrigatorios() {
         agencia: $('#agencia').val().trim(),
         conta: $('#conta').val().trim(),
         url_imagem: $('#caminhoArquivoLogoBanco').val().trim(),
-        id_tipo_forma_de_pagamento: parseInt($('#select_tipo_conta').val())
+        id_tipo_forma_de_pagamento: parseInt($('#select_tipo_conta').val()),
+        pix: $('#pix').val()
     }
 }
 
 function VerificarCamposObrigatorios() {
+    var idPix = 2;
 
     if (IsNullOrEmpty($('#favorecido').val().trim())) {
         MostrarModalErroCampoObrigatorioNaoPreenchido('Favorecido');
@@ -79,6 +95,10 @@ function VerificarCamposObrigatorios() {
     }
     else if (IsNullOrEmpty($('#select_tipo_conta').val())) {
         MostrarModalErroCampoObrigatorioNaoSelecionado('Tipo de Conta')
+        return false;
+    }
+    else if (parseInt($('#select_tipo_conta').val()) == idPix && IsNullOrEmpty($('#pix').val())) {
+        MostrarModalErroCampoObrigatorioNaoPreenchido('Chave Pix')
         return false;
     }
 

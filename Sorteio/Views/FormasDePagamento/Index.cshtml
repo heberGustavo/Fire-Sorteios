@@ -1,4 +1,6 @@
-﻿@{
+﻿@using Sorteio.Common;
+
+@{
     ViewData["Title"] = "Home Page";
     Layout = "_LayoutAcessoInterno";
 
@@ -18,30 +20,55 @@
             <div class="col-md-12 text-center">
                 <a asp-controller="FormasDePagamento" asp-action="Novo" class="btn btn-outline-danger">Nova Forma de Pagamento</a>
             </div>
-            <table class="table table-hover" id="datatableListaFormasDePagamento">
-                <thead class="bg-light">
-                    <tr>
-                        <th scope="col">Banco</th>
-                        <th scope="col">Agência</th>
-                        <th scope="col">Conta</th>
-                        <th scope="col">Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
+            <div class="col-md-12 mb-3">
+                <table class="table table-hover" id="datatableListaFormasDePagamento">
+                    <thead class="bg-light">
                         <tr>
-                            <td>@item.nome_banco</td>
-                            <td>@item.agencia</td>
-                            <td>@item.conta</td>
-                            <td>
-                                <a class='btn btn-sm btn-dark text-light' asp-controller="FormasDePagamento" asp-action="Editar" asp-route-id="@item.id_forma_de_pagamento"><i class='fas fa-edit'></i></a>
-                                <a class='btn btn-sm btn-danger' onclick="ConfirmarExclusao('@item.id_forma_de_pagamento', '@item.nome_banco')"><i class='fas fa-trash'></i></a>
-                            </td>
+                            <th scope="col">Banco</th>
+                            <th scope="col">Agência</th>
+                            <th scope="col">Conta</th>
+                            <th scope="col">Ações</th>
                         </tr>
-                    }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Where(x => x.id_tipo_forma_de_pagamento != DataDictionary.CODIGO_PIX))
+                        {
+                            <tr>
+                                <td>@item.nome_banco</td>
+                                <td>@item.agencia</td>
+                                <td>@item.conta</td>
+                                <td>
+                                    <a class='btn btn-sm btn-dark text-light' asp-controller="FormasDePagamento" asp-action="Editar" asp-route-id="@item.id_forma_de_pagamento"><i class='fas fa-edit'></i></a>
+                                    <a class='btn btn-sm btn-danger' onclick="ConfirmarExclusao('@item.id_forma_de_pagamento', '@item.nome_banco')"><i class='fas fa-trash'></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-12">
+                <table class="table table-hover" id="datatableListaFormasDePagamentoPix">
+                    <thead class="bg-light">
+                        <tr>
+                            <th scope="col">Pix</th>
+                            <th scope="col">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Where(x => x.id_tipo_forma_de_pagamento == DataDictionary.CODIGO_PIX))
+                        {
+                            <tr>
+                                <td>@item.pix</td>
+                                <td>
+                                    <a class='btn btn-sm btn-dark text-light' asp-controller="FormasDePagamento" asp-action="Editar" asp-route-id="@item.id_forma_de_pagamento"><i class='fas fa-edit'></i></a>
+                                    <a class='btn btn-sm btn-danger' onclick="ConfirmarExclusao('@item.id_forma_de_pagamento', '@item.nome_banco')"><i class='fas fa-trash'></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            
         </div>
     </div>
 </div>
