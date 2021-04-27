@@ -107,6 +107,10 @@ html {
     z-index: 100;
 }
 
+.float_custom:hover{
+    color: #d0d0d0 !important
+}
+
 .my-float {
     margin-top: 16px;
 }
@@ -221,38 +225,35 @@ a.btn-dark {
         }
 
 .item-todos {
-    background: #a7a7a769;
+    background: #a7a7a769 !important;
 }
 
 .item-disponivel, .item-disponivel-padrao {
-    background: #fff;
+    background: #fff !important;
 }
 
 .item-reservado {
-    background: yellow;
+    background: yellow !important;
 }
 
 .item-pago {
-    background: #00da00e0;
+    background: #00da00e0 !important;
 }
 
 .consultar-meus-numero {
-    background: #ffaa0d;
+    background: #ffaa0d !important;
 }
 
-.itens-numero-sorteio {
-    width: 50px;
-    height: 50px;
-    border: 1px solid #a7a7a7;
-    font-weight: 700;
-    border-radius: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    float: left;
-    margin: 5px;
+.numero-escolhido, .itens-numero-sorteio {
+    display: inline-block;
+    background: orange;
+    color: #000;
+    padding: 7px;
+    margin: 2px 2px;
+    border-radius: 10px;
+    font-weight: 900;
+    font-size: 15px;
     cursor: pointer;
-    box-shadow: 0px 0px 3px 0px #000;
 }
 
 .item-disponivel:hover {
@@ -554,18 +555,6 @@ label.selecionar_arquivo {
     color: #fff;
 }
 
-.numero-escolhido {
-    display: inline-block;
-    background: orange;
-    color: #000;
-    padding: 7px;
-    margin: 2px 2px;
-    border-radius: 10px;
-    font-weight: 900;
-    font-size: 15px;
-    cursor: pointer;
-}
-
 .nav-pills.nav-pills-rose .nav-item .nav-link.active,
 .nav-pills.nav-pills-rose .nav-item .nav-link.active:focus,
 .nav-pills.nav-pills-rose .nav-item .nav-link.active:hover {
@@ -600,4 +589,9 @@ label.selecionar_arquivo {
     width: 17rem;
     height: 27rem;
     margin: 8px auto;   
+}
+
+.item-numero-pedido {
+    background: linear-gradient( 328deg, #212529, #f44336) !important;
+    color: #fff;
 }

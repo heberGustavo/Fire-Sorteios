@@ -133,5 +133,26 @@ namespace Sorteio.Controllers
             var resultado = await _sorteiosBusiness.ObterParticipantesSorteioPorId(idSorteio);
             return Json(resultado);
         }
+
+        [HttpGet]
+        [Route("[controller]/[action]/{idPedido:int}")]
+        public async Task<JsonResult> VisualizarNumerosPorIdPedido(int idPedido)
+        {
+            var resultado = await _sorteiosBusiness.VisualizarNumerosPorIdPedido(idPedido);
+            return Json(resultado);
+        }
+
+        [HttpGet]
+        [Route("[controller]/[action]/{idPedido:int}")]
+        public async Task<JsonResult> ConfirmarPagamentoRecebido(int idPedido)
+        {
+            var resultado = await _sorteiosBusiness.ConfirmarPagamentoRecebido(idPedido);
+
+            if (resultado == 1)
+                return Json(new { erro = false, mensagem = "Pagamento confirmado com sucesso!" });
+            else
+                return Json(new { erro = false, mensagem = "Erro ao confirmar pagamento!" });
+
+        }
     }
 }

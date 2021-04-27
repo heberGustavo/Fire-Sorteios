@@ -28,5 +28,7 @@ namespace Sorteio.Domain.IRepository
         Task<IEnumerable<NumeroEscolhidoBody>> ObterNumerosDoSorteioPorId(int idSorteio);
         Task<IEnumerable<ParticipanteSorteio>> ObterParticipantesSorteioPorId(int idSorteio);
         Task<int> ExcluirSorteio(int idSorteio);
+        Task<IEnumerable<NumeroEscolhido>> VisualizarNumerosPorIdPedido(int idPedido);
+        Task<int> ConfirmarPagamentoRecebido(int idPedido, int idStatusPago);
     }
 }

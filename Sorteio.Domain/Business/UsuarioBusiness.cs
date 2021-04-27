@@ -26,6 +26,40 @@ namespace Sorteio.Domain.Business
             _sorteiosRepository = sorteiosRepository;
         }
 
+        public async Task<ResultResponseModel<Usuario>> CadastrarUsuarioCadastrarNumeros(CadastrarUsuarioListaNumerosBody body)
+        {
+            var usuarioExistente = await _usuarioRepository.GetAllAsync(x => x.id_tipo_usuario != DataDictionary.USUARIO_ADMINISTRADOR);
+
+            foreach (var item in usuarioExistente)
+            {
+                if (item.email.Equals(body.usuario.email, StringComparison.OrdinalIgnoreCase))
+                {
+                    return new ResultResponseModel<Usuario>(true, "Email já cadastrado", null);
+                }
+                if (item.cpf.Equals(body.usuario.cpf, StringComparison.OrdinalIgnoreCase))
+                {
+                    return new ResultResponseModel<Usuario>(true, "CPF já cadastrado", null);
+                }
+            }
+
+            body.usuario.id_tipo_usuario = DataDictionary.USUARIO_CLIENTE;
+            body.usuario.senha = Hash.Create(HashType.SHA256, body.usuario.senha, DataDictionary.CHAVE_ENCRIPTACAO, false);
+
+            if (body.usuario.data_de_nascimento.Year <= 1760)
+            {
+                body.usuario.data_de_nascimento = new DateTime(1760, 01, 01);
+            }
+
+            var idUsuarioCadastrado = await _usuarioRepository.CreateAsync(body.usuario);
+
+            if (idUsuarioCadastrado == 0) return new ResultResponseModel<Usuario>(true, "Erro ao cadastrar usuário", null);
+
+            var cadastrarNumerosEscolhidos = await _sorteiosRepository.CadastrarNumerosEscolhidos(body.valor_total, body.numeroSorteios, idUsuarioCadastrado, body.id_sorteio);
+
+            return new ResultResponseModel<Usuario>(false, "Cadastro realizado com sucesso", null);
+
+        }
+
         public async Task<ResultResponseModel> CriarUsuario(Usuario usuario)
         {
             usuario.senha = Hash.Create(HashType.SHA256, usuario.senha, DataDictionary.CHAVE_ENCRIPTACAO, false);

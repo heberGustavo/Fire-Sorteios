@@ -63,6 +63,9 @@ namespace Sorteio.Data.Repository
             }
         }
 
+        public Task<int> ConfirmarPagamentoRecebido(int idPedido, int idStatusPago)
+            => _dataContext.Connection.ExecuteAsync(@"UPDATE Pedido SET id_status_pedido = @idStatusPago WHERE id_pedido = @idPedido", new { idStatusPago, idPedido });
+
         public async Task<ResultResponseModel> CriarNovoSorteio(SorteioBody sorteioBody)
         {
             using (var dbContextTransaction = _dataContext.Connection.BeginTransaction())
@@ -223,11 +226,12 @@ namespace Sorteio.Data.Repository
                                                                          WHERE p.id_sorteio = @idSorteio", new { idSorteio });
 
         public Task<IEnumerable<ParticipanteSorteio>> ObterParticipantesSorteioPorId(int idSorteio)
-            => _dataContext.Connection.QueryAsync<ParticipanteSorteio>(@"SELECT u.id_usuario, u.nome, u.cpf, ne.numero, p.id_status_pedido, p.id_pedido
+            => _dataContext.Connection.QueryAsync<ParticipanteSorteio>(@"SELECT u.id_usuario, u.nome, u.cpf, p.id_status_pedido, p.id_pedido
                                                                          FROM Usuario u 
                                                                          LEFT JOIN Pedido p ON u.id_usuario = p.id_usuario 
                                                                          LEFT JOIN NumeroEscolhido ne ON p.id_pedido = ne.id_pedido
-                                                                         WHERE p.id_sorteio = @idSorteio;", new { idSorteio });
+                                                                         WHERE p.id_sorteio = @idSorteio
+                                                                         GROUP BY u.id_usuario, u.nome, u.cpf, p.id_status_pedido, p.id_pedido;", new { idSorteio });
 
         public async Task<SorteioNotMapped> ObterSorteioPorId(int idSorteio)
             => await _dataContext.Connection.QueryFirstOrDefaultAsync<SorteioNotMapped>(@"SELECT COUNT(gf.id_galeria_fotos) quantidade_imagens, s.id_sorteio, s.id_categoria_sorteio, s.nome as nome_sorteio, s.edicao as edicao_sorteio, s.valor, s.quantidade_numeros, s.descricao_curta, s.descricao_longa, s.status,  
@@ -246,7 +250,7 @@ namespace Sorteio.Data.Repository
                                                                   LEFT JOIN Sorteio s ON p.id_sorteio = s.id_sorteio
                                                                   LEFT JOIN NumeroEscolhido ne ON ne.id_pedido = p.id_pedido
                                                                   WHERE p.id_usuario = @idUsuario
-                                                                  ORDER BY p.data_pedido DESC", new { idUsuario });
+                                                                  ORDER BY p.id_pedido ASC", new { idUsuario });
 
         public Task<IEnumerable<SorteioNotMapped>> ObterTodosSorteio()
             => _dataContext.Connection.QueryAsync<SorteioNotMapped>(@"SELECT s.id_sorteio, u.id_usuario, s.nome as nome_sorteio, s.edicao as edicao_sorteio, s.status, u.nome as nome_ganhador
@@ -271,5 +275,11 @@ namespace Sorteio.Data.Repository
                                                                         LEFT JOIN Usuario u ON vs.id_usuario = u.id_usuario
                                                                         WHERE s.status = 1 AND s.excluido = 0
                                                                         ORDER BY s.edicao + 0 ASC");
+
+        public Task<IEnumerable<NumeroEscolhido>> VisualizarNumerosPorIdPedido(int idPedido)
+            => _dataContext.Connection.QueryAsync<NumeroEscolhido>(@"SELECT * 
+                                                                     FROM NumeroEscolhido ne 
+                                                                     WHERE ne.id_pedido = @idPedido
+                                                                     ORDER BY ne.numero", new { idPedido });
     }
 }

@@ -33,6 +33,21 @@ namespace Sorteio.Controllers
             return View();
         }
 
+
+        public async Task<JsonResult> CadastrarUsuarioLogin([FromBody] Usuario body)
+        {
+            var resultadoCadastro = await _usuarioBusiness.CriarUsuario(body);
+
+            return Json(new { erro = resultadoCadastro.erro, mensagem = resultadoCadastro.mensagem });
+        }
+
+        public async Task<JsonResult> CadastrarUsuarioCadastrarNumeros([FromBody] CadastrarUsuarioListaNumerosBody body)
+        {
+            var resultadoCadastro = await _usuarioBusiness.CadastrarUsuarioCadastrarNumeros(body);
+
+            return Json(new { erro = resultadoCadastro.erro, mensagem = resultadoCadastro.mensagem });
+        }
+
         [HttpPost]
         [Route("[controller]/[action]")]
         public async Task<IActionResult> Login([FromBody] LoginBody loginBody)
@@ -48,13 +63,6 @@ namespace Sorteio.Controllers
             }
 
             return Json(new { erro = resultLogin.erro, mensagem = resultLogin.mensagem, model = resultLogin.model });
-        }
-
-        public async Task<JsonResult> CadastrarUsuarioLogin([FromBody] Usuario body)
-        {
-            var resultadoCadastro = await _usuarioBusiness.CriarUsuario(body);
-
-            return Json(new { erro = resultadoCadastro.erro, mensagem = resultadoCadastro.mensagem });
         }
 
         [HttpPost]
@@ -73,7 +81,6 @@ namespace Sorteio.Controllers
 
             return Json(new { erro = resultLogin.erro, mensagem = resultLogin.mensagem, model = resultLogin.model });
         }
-
 
         [Route("[controller]/[action]")]
         public async Task<IActionResult> Logout()

@@ -1,4 +1,5 @@
-﻿using Sorteio.Domain.Business.Base;
+﻿using Sorteio.Common;
+using Sorteio.Domain.Business.Base;
 using Sorteio.Domain.IBusiness;
 using Sorteio.Domain.IRepository;
 using Sorteio.Domain.IRepository.Base;
@@ -69,5 +70,11 @@ namespace Sorteio.Domain.Business
 
         public Task<int> ExcluirSorteio(int idSorteio)
             => _sorteiosRepository.ExcluirSorteio(idSorteio);
+
+        public Task<IEnumerable<NumeroEscolhido>> VisualizarNumerosPorIdPedido(int idPedido)
+            => _sorteiosRepository.VisualizarNumerosPorIdPedido(idPedido);
+
+        public Task<int> ConfirmarPagamentoRecebido(int idPedido)
+            => _sorteiosRepository.ConfirmarPagamentoRecebido(idPedido, DataDictionary.STATUS_PEDIDO_PAGO);
     }
 }

@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div id="accordion">
-                
+
                 @foreach (var item in Model)
                 {
                     <div class="card card-custom">
@@ -33,6 +33,7 @@
                                 <table class="table table-hover datatableListaParticipante">
                                     <thead class="bg-light">
                                         <tr>
+                                            <th scope="col">Cod.</th>
                                             <th scope="col">Participante</th>
                                             <th scope="col">CPF</th>
                                             <th scope="col">Numero</th>
@@ -47,12 +48,12 @@
                 }
 
             </div>
-            
+
         </div>
     </div>
 </div>
 
-<!-- Modal Finalizar Sorteio -->
+<!-- Modal Confirmar Pagamento -->
 <div class="modal fade" id="modalConfirmarPagamento" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -62,10 +63,7 @@
                 </button>
             </div>
             <div class="modal-body pt-0">
-
-                <h1>nao finalizado</h1>
-
-                <input type="text" id="idPedidoSelecionado" />
+                <input type="hidden" id="idPedidoSelecionado" />
                 <h5 class="title m-0 text-center">Confirmar Pagamento</h5>
                 <p class="text-center">Tem certeza que deseja <text class="font-weight-bold">confirmar o pagamento?</text></p>
             </div>
@@ -77,6 +75,26 @@
     </div>
 </div>
 
+<!-- Modal Visualizar Numeros por Pedido -->
+<div class="modal fade" id="modalVisualizarNumerosPorPedido" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body pt-0">
+                <h4 class="title text-center">Números do Pedido</h4>
+                <div class="row" style="width: 100%; display: flex; flex-direction: row; justify-content: center;">
+                    <div class="numeros-pedido"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="~/js/Pages/Pagamento/Index.js" asp-append-version="true" type="text/javascript"></script>
 <script src="~/js/Pages/Pagamento/ConfirmarPagamento.js" asp-append-version="true" type="text/javascript"></script>
+<script src="~/js/Pages/Pagamento/VisualizarNumerosPorPedido.js" asp-append-version="true" type="text/javascript"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>

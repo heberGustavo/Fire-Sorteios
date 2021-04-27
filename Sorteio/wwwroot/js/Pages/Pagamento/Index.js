@@ -72,15 +72,23 @@ function PreencherTabelaListaDeParticipantes(dados) {
     $(dados).each(function (i, value) {
 
         datatableListaParticipante.row.add([
+            value.id_pedido.toString().padStart(7, "0"),
             value.nome,
             value.cpf,
-            value.numero,
+            CriarBotaoVerNumerosPedido(value.id_pedido),
             CriarBotaoAções(value.id_status_pedido, value.id_pedido),
         ]).node().id = value.id_pedido;
 
     });
 
     datatableListaParticipante.draw();
+}
+
+function CriarBotaoVerNumerosPedido(idPedido) {
+
+    return `<td>
+                <a class='btn btn-sm btn-dark text-light' onclick="VisualizarNumerosPorPedido('${idPedido}')">N° Pedido <span class="material-icons">receipt_long</span></a>
+           </td>`;
 }
 
 function CriarBotaoAções(idStatus, idPedido) {
