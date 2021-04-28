@@ -76,5 +76,11 @@ namespace Sorteio.Domain.Business
 
         public Task<int> ConfirmarPagamentoRecebido(int idPedido)
             => _sorteiosRepository.ConfirmarPagamentoRecebido(idPedido, DataDictionary.STATUS_PEDIDO_PAGO);
+
+        public Task<IEnumerable<NumeroEscolhidoBody>> BuscarTodosNumerosSorteioPorId(int idSorteio)
+            => _sorteiosRepository.BuscarTodosNumerosSorteioPorId(idSorteio);
+
+        public Task<IEnumerable<NumeroEscolhidoBody>> BuscarNumerosReservadoOuPagoSorteioPorId(int idSorteio, int idStatusPedido)
+            => _sorteiosRepository.BuscarNumerosReservadoOuPagoSorteioPorId(idSorteio, idStatusPedido);
     }
 }

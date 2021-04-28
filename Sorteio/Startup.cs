@@ -62,7 +62,7 @@ namespace Sorteio
                    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
                    options.Cookie.SameSite = SameSiteMode.None;
                    options.Cookie.Name = ".Sorteio.AuthCookie";
-                   options.LoginPath = "/Login/Login";
+                   options.LoginPath = "/Login/Index";
                    options.LogoutPath = "/Logout";
                    options.Cookie.MaxAge = TimeSpan.FromDays(1);
                });

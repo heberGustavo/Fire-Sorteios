@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
+using Sorteio.Common;
 using Sorteio.Domain.Models.EntityDomain;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,20 @@ namespace Sorteio.Portal.Utils
             }
         }
 
+        public static Usuario USUARIO_LOGADO_ADM()
+        {
+            try
+            {
+                var usuario = _httpContextAccessor.HttpContext.User.Claims.FirstOrDefault(x => x.Type == PolicyKeys.USUARIO_LOGADO_ADM)?.Value;
+
+                return JsonConvert.DeserializeObject<Usuario>(usuario);
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
         public static ClaimsPrincipal GerarClaimsUsuarioLogado(Usuario usuario)
         {
             var claims = new List<Claim>{
@@ -39,7 +54,16 @@ namespace Sorteio.Portal.Utils
             if (usuario != null)
             {
                 usuario.senha = "";
-                claims.Add(new Claim(PolicyKeys.USUARIO_LOGADO, JsonConvert.SerializeObject(usuario)));
+                
+                if (usuario.id_tipo_usuario == DataDictionary.USUARIO_CLIENTE)
+                {
+                    claims.Add(new Claim(PolicyKeys.USUARIO_LOGADO, JsonConvert.SerializeObject(usuario)));
+                }
+                else if (usuario.id_tipo_usuario == DataDictionary.USUARIO_ADMINISTRADOR)
+                {
+                    claims.Add(new Claim(PolicyKeys.USUARIO_LOGADO_ADM, JsonConvert.SerializeObject(usuario)));
+                }
+
             }
 
             var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
@@ -55,9 +79,11 @@ namespace Sorteio.Portal.Utils
             services.AddAuthorization(options =>
             {
                 options.AddPolicy(PolicyKeys.USUARIO_LOGADO, policy => policy.RequireClaim(PolicyKeys.USUARIO_LOGADO));
+                options.AddPolicy(PolicyKeys.USUARIO_LOGADO_ADM, policy => policy.RequireClaim(PolicyKeys.USUARIO_LOGADO_ADM));
             });
         }
 
         public const string USUARIO_LOGADO = "usuario_logado";
+        public const string USUARIO_LOGADO_ADM = "usuario_logado_adm";
     }
 }

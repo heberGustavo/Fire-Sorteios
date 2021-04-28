@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Sorteio.Domain.IBusiness;
 using Sorteio.Domain.Models.Body;
 using Sorteio.Domain.Models.EntityDomain;
 using Sorteio.Models;
+using Sorteio.Portal.Utils;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -12,6 +14,7 @@ using System.Threading.Tasks;
 
 namespace Sorteio.Controllers
 {
+    [Authorize(Policy = PolicyKeys.USUARIO_LOGADO_ADM)]
     public class SorteiosController : Controller
     {
         private readonly ICategoriaSorteioBusiness _categoriaSorteioBusiness;
@@ -153,6 +156,22 @@ namespace Sorteio.Controllers
             else
                 return Json(new { erro = false, mensagem = "Erro ao confirmar pagamento!" });
 
+        }
+
+        [HttpGet]
+        [Route("[controller]/[action]/{idSorteio:int}")]
+        public async Task<JsonResult> BuscarTodosNumerosSorteioPorId(int idSorteio)
+        {
+            var resultado = await _sorteiosBusiness.BuscarTodosNumerosSorteioPorId(idSorteio);
+            return Json(resultado);
+        }
+
+        [HttpGet]
+        [Route("[controller]/[action]/{idSorteio:int}/{idStatusPedido:int}")]
+        public async Task<JsonResult> BuscarNumerosReservadoOuPagoSorteioPorId(int idSorteio, int idStatusPedido)
+        {
+            var resultado = await _sorteiosBusiness.BuscarNumerosReservadoOuPagoSorteioPorId(idSorteio, idStatusPedido);
+            return Json(resultado);
         }
     }
 }

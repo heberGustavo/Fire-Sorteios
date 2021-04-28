@@ -23,6 +23,25 @@ namespace Sorteio.Data.Repository
         {
         }
 
+        public Task<IEnumerable<NumeroEscolhidoBody>> BuscarNumerosReservadoOuPagoSorteioPorId(int idSorteio, int idStatusPedido)
+            => _dataContext.Connection.QueryAsync<NumeroEscolhidoBody>(@"SELECT ne.*, p.id_status_pedido, u.nome as nome_usuario
+                                                                         FROM NumeroEscolhido ne 
+                                                                         LEFT JOIN Pedido p ON p.id_pedido = ne.id_pedido 
+                                                                         LEFT JOIN Sorteio s ON s.id_sorteio = p.id_sorteio 
+                                                                         LEFT JOIN Usuario u ON u.id_usuario = p.id_usuario 
+                                                                         WHERE s.id_sorteio = @idSorteio AND p.id_status_pedido = @idStatusPedido
+                                                                         ORDER BY ne.numero", 
+                                                                         new { idSorteio, idStatusPedido });
+
+        public Task<IEnumerable<NumeroEscolhidoBody>> BuscarTodosNumerosSorteioPorId(int idSorteio)
+            => _dataContext.Connection.QueryAsync<NumeroEscolhidoBody>(@"SELECT ne.*, p.id_status_pedido, u.nome as nome_usuario
+                                                                         FROM NumeroEscolhido ne 
+                                                                         LEFT JOIN Pedido p ON p.id_pedido = ne.id_pedido 
+                                                                         LEFT JOIN Sorteio s ON s.id_sorteio = p.id_sorteio 
+                                                                         LEFT JOIN Usuario u ON u.id_usuario = p.id_usuario 
+                                                                         WHERE s.id_sorteio = @idSorteio
+                                                                         ORDER BY ne.numero", new { idSorteio });
+
         public async Task<bool> CadastrarNumerosEscolhidos(decimal valorTotal, IEnumerable<NumeroEscolhido> numeroSorteios, int idUsuario, int idSorteio)
         {
             using (var dbContextTransaction = _dataContext.Connection.BeginTransaction())

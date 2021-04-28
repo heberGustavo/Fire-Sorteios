@@ -9,6 +9,7 @@
 
 
 <input type="hidden" id="idSorteioSelecionado" value="@Model.sorteio.id_sorteio"  />
+<input type="hidden" id="quantidadeNumerosSorteio" value="@Model.sorteio.quantidade_numeros"  />
 
 <div class="main main-raised">
     <div class="container">
@@ -52,16 +53,16 @@
                     <h3 class="title">Números do Sorteio</h3>
 
                     <div class="bloco-filtro-sorteio">
-                        <label class="item item-todos">Todos (@Model.sorteio.quantidade_numeros)</label>
+                        <label onclick="BuscarTodosNumeros('@Model.sorteio.id_sorteio');" class="item item-todos">Todos (@Model.sorteio.quantidade_numeros)</label>
                     </div>
                     <div class="bloco-filtro-sorteio">
-                        <label class="item item-disponivel-padrao">Disponível (@quantidadeDisponivel)</label>
+                        <label onclick="BuscarNumerosDisponiveis('@Model.sorteio.id_sorteio');" class="item item-disponivel-padrao">Disponível (@quantidadeDisponivel)</label>
                     </div>
                     <div class="bloco-filtro-sorteio">
-                        <label class="item item-reservado">Reservado (@quantidadeReservado)</label>
+                        <label onclick="BuscarNumerosReservados('@Model.sorteio.id_sorteio', '@DataDictionary.STATUS_PEDIDO_PENDENTE');" class="item item-reservado">Reservado (@quantidadeReservado)</label>
                     </div>
                     <div class="bloco-filtro-sorteio">
-                        <label class="item item-pago">Pago (@quantidadePago)</label>
+                        <label onclick="BuscarNumerosPagos('@Model.sorteio.id_sorteio', '@DataDictionary.STATUS_PEDIDO_PAGO');" class="item item-pago">Pago (@quantidadePago)</label>
                     </div>
                 </div>
                 <div class="col-md-12">
@@ -74,9 +75,9 @@
             </div>
 
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12" id="lista_numeros_sorteio">
                     @{
-                        @for (var i = 0; i <= Model.sorteio.quantidade_numeros; i++)
+                        @for (var i = 0; i < Model.sorteio.quantidade_numeros; i++)
                         {
                             if (myModel.Any(x => x.numero == i && x.id_status_pedido == DataDictionary.STATUS_PEDIDO_PENDENTE))
                             {
@@ -269,3 +270,4 @@
 <script src="~/js/Pages/Home/ItemSorteio.js" asp-append-version="true" type="text/javascript"></script>
 <script src="~/js/Pages/Home/ItemSorteioLogin.js" asp-append-version="true" type="text/javascript"></script>
 <script src="~/js/Pages/Home/ItemSorteioCadastrarAcessarPortal.js" asp-append-version="true" type="text/javascript"></script>
+<script src="~/js/Pages/Home/FiltrarNumeros.js" asp-append-version="true" type="text/javascript"></script>

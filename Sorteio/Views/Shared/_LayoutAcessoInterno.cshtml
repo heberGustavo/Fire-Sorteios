@@ -39,14 +39,30 @@
             <div class="media d-flex align-items-center">
                 <img src="~/img/usuarios/teste.jpg" alt="..." class="mr-3 rounded-circle img-thumbnail shadow-sm img-perfil">
                 <div class="media-body">
-                    <h4 class="font-weight-bold text-light m-0">@AuthHelper.USUARIO_LOGADO().nome</h4>
-                    @if (AuthHelper.USUARIO_LOGADO().id_tipo_usuario == DataDictionary.USUARIO_ADMINISTRADOR)
+
+                    @if (AuthHelper.USUARIO_LOGADO() != null)
                     {
-                        <p class="font-weight-bold text-light mb-0">Administrador</p>
+                        <h4 class="font-weight-bold text-light m-0">@AuthHelper.USUARIO_LOGADO().nome</h4>
+                        @if (AuthHelper.USUARIO_LOGADO().id_tipo_usuario == DataDictionary.USUARIO_ADMINISTRADOR)
+                        {
+                            <p class="font-weight-bold text-light mb-0">Administrador</p>
+                        }
+                        else
+                        {
+                            <p class="font-weight-bold text-light mb-0">Cliente</p>
+                        }
                     }
-                    else
+                    else if (AuthHelper.USUARIO_LOGADO_ADM() != null)
                     {
-                        <p class="font-weight-bold text-light mb-0">Cliente</p>
+                        <h4 class="font-weight-bold text-light m-0">@AuthHelper.USUARIO_LOGADO_ADM().nome</h4>
+                        @if (AuthHelper.USUARIO_LOGADO_ADM().id_tipo_usuario == DataDictionary.USUARIO_ADMINISTRADOR)
+                        {
+                            <p class="font-weight-bold text-light mb-0">Administrador</p>
+                        }
+                        else
+                        {
+                            <p class="font-weight-bold text-light mb-0">Cliente</p>
+                        }
                     }
 
                 </div>
@@ -55,7 +71,7 @@
         <hr class="bg-light" />
         <ul class="nav flex-column mb-0">
 
-            @if (AuthHelper.USUARIO_LOGADO().id_tipo_usuario == DataDictionary.USUARIO_ADMINISTRADOR)
+            @if (AuthHelper.USUARIO_LOGADO_ADM() != null)
             {
                 <li class="nav-item">
                     <a asp-controller="Sorteios" asp-action="Index" class="nav-link text-light font-italic font-weight-bold">

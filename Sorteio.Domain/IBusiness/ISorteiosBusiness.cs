@@ -30,5 +30,7 @@ namespace Sorteio.Domain.IBusiness
         Task<int> ExcluirSorteio(int idSorteio);
         Task<IEnumerable<NumeroEscolhido>> VisualizarNumerosPorIdPedido(int idPedido);
         Task<int> ConfirmarPagamentoRecebido(int idPedido);
+        Task<IEnumerable<NumeroEscolhidoBody>> BuscarTodosNumerosSorteioPorId(int idSorteio);
+        Task<IEnumerable<NumeroEscolhidoBody>> BuscarNumerosReservadoOuPagoSorteioPorId(int idSorteio, int idStatusPedido);
     }
 }

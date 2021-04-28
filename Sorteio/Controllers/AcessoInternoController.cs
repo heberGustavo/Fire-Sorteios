@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Sorteio.Domain.IBusiness;
 using Sorteio.Domain.Models.EntityDomain;
@@ -12,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace Sorteio.Controllers
 {
+    [Authorize(Policy = PolicyKeys.USUARIO_LOGADO)]
     public class AcessoInternoController : Controller
     {
         private readonly ISorteiosBusiness _sorteiosBusiness;
