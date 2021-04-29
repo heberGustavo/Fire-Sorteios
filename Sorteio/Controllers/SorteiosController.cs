@@ -14,7 +14,6 @@ using System.Threading.Tasks;
 
 namespace Sorteio.Controllers
 {
-    [Authorize(Policy = PolicyKeys.USUARIO_LOGADO_ADM)]
     public class SorteiosController : Controller
     {
         private readonly ICategoriaSorteioBusiness _categoriaSorteioBusiness;
@@ -28,6 +27,7 @@ namespace Sorteio.Controllers
             _usuarioBusiness = usuarioBusiness;
         }
 
+        [Authorize(Policy = PolicyKeys.USUARIO_LOGADO_ADM)]
         public async Task<IActionResult> Index()
         {
             ViewBag.Usuario = await _usuarioBusiness.ObterTodosUsuarios();
@@ -36,6 +36,7 @@ namespace Sorteio.Controllers
             return View(resultado);
         }
 
+        [Authorize(Policy = PolicyKeys.USUARIO_LOGADO_ADM)]
         public async Task<IActionResult> Novo()
         {
             ViewBag.CategoriaSorteio = await _categoriaSorteioBusiness.ObterTodosCategoriaSorteioAtivo();
@@ -43,6 +44,7 @@ namespace Sorteio.Controllers
             return View();
         }
 
+        [Authorize(Policy = PolicyKeys.USUARIO_LOGADO_ADM)]
         [HttpGet]
         [Route("[controller]/[action]/{idSorteio:int}")]
         public async Task<IActionResult> Editar(int idSorteio)
@@ -55,6 +57,7 @@ namespace Sorteio.Controllers
             return View(resultado);
         }
 
+        [Authorize(Policy = PolicyKeys.USUARIO_LOGADO_ADM)]
         [HttpPost]
         [Route("[controller]/[action]")]
         public async Task<JsonResult> CriarNovoSorteio([FromBody] SorteioBody body)
@@ -64,6 +67,7 @@ namespace Sorteio.Controllers
             return Json(new { erro = resultado.erro, mensagem = resultado.mensagem});
         }
 
+        [Authorize(Policy = PolicyKeys.USUARIO_LOGADO_ADM)]
         [HttpPost]
         [Route("[controller]/[action]")]
         public async Task<JsonResult> EditarSorteio([FromBody] SorteioBody body)
@@ -72,6 +76,7 @@ namespace Sorteio.Controllers
             return Json(new { erro = resultado.erro, mensagem = resultado.mensagem });
         }
 
+        [Authorize(Policy = PolicyKeys.USUARIO_LOGADO_ADM)]
         [HttpPost]
         [Route("[controller]/[action]")]
         public async Task<JsonResult> EditarFinalizarSorteio([FromBody] VencedorSorteio body)
@@ -84,6 +89,7 @@ namespace Sorteio.Controllers
                 return Json(new { erro = true, mensagem = "Erro ao atualizar dados. Tente novamente!" });
         }
 
+        [Authorize(Policy = PolicyKeys.USUARIO_LOGADO_ADM)]
         [HttpPost]
         [Route("[controller]/[action]")]
         public async Task<JsonResult> FinalizarSorteio([FromBody] VencedorSorteio body)
@@ -92,7 +98,8 @@ namespace Sorteio.Controllers
 
             return Json(new { erro = resultado.erro, mensagem = resultado.mensagem });
         }
-        
+
+        [Authorize(Policy = PolicyKeys.USUARIO_LOGADO_ADM)]
         [HttpGet]
         [Route("[controller]/[action]/{idSorteio:int}")]
         public async Task<JsonResult> ExcluirSorteio(int idSorteio)
@@ -145,6 +152,7 @@ namespace Sorteio.Controllers
             return Json(resultado);
         }
 
+        [Authorize(Policy = PolicyKeys.USUARIO_LOGADO_ADM)]
         [HttpGet]
         [Route("[controller]/[action]/{idPedido:int}")]
         public async Task<JsonResult> ConfirmarPagamentoRecebido(int idPedido)

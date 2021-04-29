@@ -1,8 +1,9 @@
 ﻿$(document).ready(function () {
-   
+
 });
 
 function BuscarTodosNumeros(idSorteio) {
+    EsconderLimparCampos();
 
     $.ajax({
         url: "/Sorteios/BuscarTodosNumerosSorteioPorId/" + idSorteio,
@@ -25,37 +26,52 @@ function BuscarTodosNumeros(idSorteio) {
 }
 
 function CriarBotoesTodosNumeros(dados) {
+    $('#lista_numeros_sorteio').html('');
+
     var STATUS_PENDENTE = 1;
     var STATUS_PAGO = 2;
 
-    $('#lista_numeros_sorteio').html('');
     var quantidadeDeNumeros = parseInt($('#quantidadeNumerosSorteio').val());
-    var meuArrayNumero = [];
+    var meuArrayNumeroPagoOuReservado = [];
+    var meuArraySomenteNumeros = [];
 
     $(dados).each(function (i, element) {
-        meuArrayNumero.push({ "numero": element.numero, "status": element.id_status_pedido })
+        meuArrayNumeroPagoOuReservado.push({ "nome_usuario": element.nome_usuario, "numero": element.numero, "status": element.id_status_pedido })
+        meuArraySomenteNumeros.push(element.numero);
     });
 
     for (i = 0; i < quantidadeDeNumeros; i++) {
 
-        console.log(meuArrayNumero[i].numero)
+        if (($.inArray(i, meuArraySomenteNumeros) > -1)) {
 
-        /////AQUUIIII
+            var posicao = meuArraySomenteNumeros.indexOf(i);
+            
+            if (meuArrayNumeroPagoOuReservado[posicao].status == STATUS_PENDENTE) {
+                var item = `<button style = "margin: 2px 4px;" class="itens-numero-sorteio item-reservado" data-toggle="tooltip" data-placement="top" title="Pago por: ${meuArrayNumeroPagoOuReservado[posicao].nome_usuario}">${meuArrayNumeroPagoOuReservado[posicao].numero.toString().padStart(3, "0")}</button>`;
+                $('#lista_numeros_sorteio').append(item);
+            }
+            if (meuArrayNumeroPagoOuReservado[posicao].status == STATUS_PAGO) {
+                var item = `<button style = "margin: 2px 4px;" class="itens-numero-sorteio item-pago" data-toggle="tooltip" data-placement="top" title="Pago por: ${meuArrayNumeroPagoOuReservado[posicao].nome_usuario}">${meuArrayNumeroPagoOuReservado[posicao].numero.toString().padStart(3, "0")}</button>`;
+                $('#lista_numeros_sorteio').append(item);
+            }
+        }
+        else { //Mostra disponivel
+            if ($.inArray(i, meuArraySomenteNumeros) == -1) {
 
-        //if (!meuArrayNumero.includes(i)) { //disponiveis
-        //    var item = `<button class="itens-numero-sorteio item-disponivel">${i.toString().padStart(3, "0")}</button>`;
-        //    $('#lista_numeros_sorteio').append(item);
-        //}
-        //else if (meuArrayNumero.includes(i)) { //pendente ou pago
-        //    var item = `<button class="itens-numero-sorteio item-disponivel">${i.toString().padStart(3, "0")}</button>`;
-        //    $('#lista_numeros_sorteio').append(item);
-        //}
+                var item = `<button style = "margin: 2px 4px;" onclick="EscolhaItemDisponivel(this)" class="itens-numero-sorteio item-disponivel">${i.toString().padStart(3, "0")}</button>`;
+                $('#lista_numeros_sorteio').append(item);
+
+            }
+        }
+
+        $('[data-toggle="tooltip"]').tooltip();
 
     }
 
 }
 
 function BuscarNumerosDisponiveis(idSorteio) {
+    EsconderLimparCampos();
 
     $.ajax({
         url: "/Sorteios/BuscarTodosNumerosSorteioPorId/" + idSorteio,
@@ -91,7 +107,7 @@ function CriarBotoesNumerosDisponiveis(dados) {
     for (i = 0; i < quantidadeDeNumeros; i++) {
 
         if (!meuArrayNumero.includes(i)) {
-            var item = `<button class="itens-numero-sorteio item-disponivel">${i.toString().padStart(3, "0")}</button>`;
+            var item = `<button style = "margin: 2px 4px;" onclick="EscolhaItemDisponivel(this)" class="itens-numero-sorteio item-disponivel">${i.toString().padStart(3, "0")}</button>`;
             $('#lista_numeros_sorteio').append(item);
         }
 
@@ -100,6 +116,7 @@ function CriarBotoesNumerosDisponiveis(dados) {
 }
 
 function BuscarNumerosReservados(idSorteio, idStatusReservado) {
+    EsconderLimparCampos();
 
     $.ajax({
         url: "/Sorteios/BuscarNumerosReservadoOuPagoSorteioPorId/" + idSorteio + "/" + idStatusReservado,
@@ -124,6 +141,7 @@ function BuscarNumerosReservados(idSorteio, idStatusReservado) {
 }
 
 function BuscarNumerosPagos(idSorteio, idStatusPago) {
+    EsconderLimparCampos();
 
     $.ajax({
         url: "/Sorteios/BuscarNumerosReservadoOuPagoSorteioPorId/" + idSorteio + "/" + idStatusPago,
@@ -153,10 +171,15 @@ function CriarBotoesNumerosReservadoOuPago(dados, classeBotao) {
 
     $(dados).each(function (i, element) {
 
-        var item = `<button class="itens-numero-sorteio ${classeBotao}" data-toggle="tooltip" data-placement="top" title="Pago por: ${element.nome_usuario}">${element.numero.toString().padStart(3, "0")}</button>`;
+        var item = `<button style = "margin: 2px 4px;" class="itens-numero-sorteio ${classeBotao}" data-toggle="tooltip" data-placement="top" title="Pago por: ${element.nome_usuario}">${element.numero.toString().padStart(3, "0")}</button>`;
         $('#lista_numeros_sorteio').append(item);
     });
 
     $('[data-toggle="tooltip"]').tooltip();
 
 }
+
+function EsconderLimparCampos() {
+    itens_escolhidos = [];
+    $('#sessao-fixa').addClass('d-none');
+} 
