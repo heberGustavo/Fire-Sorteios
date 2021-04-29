@@ -221,9 +221,19 @@ namespace Sorteio.Data.Repository
                                                                         vs.numero_sorteado, vs.data_sorteio, 
                                                                         u.nome as nome_ganhador,
                                                                         (SELECT TOP 1 gf.url_imagem 
-	                                                                        FROM GaleriaFotos gf  
-	                                                                        WHERE gf.id_sorteio = s.id_sorteio 
-	                                                                        ORDER BY gf.url_imagem) as url_imagem 
+                                                                            FROM GaleriaFotos gf  
+                                                                            WHERE gf.id_sorteio = s.id_sorteio 
+                                                                            ORDER BY gf.url_imagem) as url_imagem,
+                                                                        (SELECT COUNT(1) 
+	                                                                        FROM NumeroEscolhido ne 
+	                                                                        LEFT JOIN Pedido p ON p.id_pedido = ne.id_pedido 
+	                                                                        WHERE p.id_sorteio = s.id_sorteio and p.id_status_pedido = 1 
+                                                                        ) as numeros_reservados,
+                                                                        (SELECT COUNT(1) 
+	                                                                        FROM NumeroEscolhido ne 
+	                                                                        LEFT JOIN Pedido p ON p.id_pedido = ne.id_pedido 
+	                                                                        WHERE p.id_sorteio = s.id_sorteio and p.id_status_pedido = 2
+                                                                        ) as numeros_pagos
                                                                         FROM Sorteio s
                                                                         LEFT JOIN VencedorSorteio vs ON s.id_sorteio = vs.id_sorteio 
                                                                         LEFT JOIN Usuario u ON vs.id_usuario = u.id_usuario

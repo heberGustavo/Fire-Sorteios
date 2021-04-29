@@ -20,5 +20,8 @@ namespace Sorteio.Domain.Models.NotMapped
 
         public string url_imagem { get; set; }
 
+        public int numeros_reservados { get; set; }
+        public int numeros_pagos { get; set; }
+
     }
 }

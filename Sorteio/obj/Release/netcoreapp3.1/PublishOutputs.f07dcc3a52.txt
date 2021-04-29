@@ -33,6 +33,7 @@ C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\j
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\Pages\FormasDePagamento\Editar.js
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\Pages\FormasDePagamento\Excluir.js
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\Pages\FormasDePagamento\Index.js
+C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\Pages\Home\FiltrarNumeros.js
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\Pages\Home\Index.js
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\Pages\Home\ItemSorteio.js
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\Pages\Home\ItemSorteioCadastrarAcessarPortal.js

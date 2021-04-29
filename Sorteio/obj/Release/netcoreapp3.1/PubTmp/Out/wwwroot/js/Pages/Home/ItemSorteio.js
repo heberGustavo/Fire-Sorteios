@@ -11,8 +11,7 @@
 });
 
 var itens_escolhidos = [];
-$('.item-disponivel').click(function (e) {
-    e.preventDefault();
+function EscolhaItemDisponivel(botao) {
 
     //Mostra sessão
     if ($('#sessao-fixa').hasClass('d-none')) {
@@ -22,30 +21,32 @@ $('.item-disponivel').click(function (e) {
     $('#numeros_selecionados').html('');
 
     //Remove dos itens selecionados e habilita o botao
-    if ($(this).hasClass("notactive")) {
+    if ($(botao).hasClass("notactive")) {
 
-        var numeroClicado = $(this).text();
+        var numeroClicado = $(botao).text();
+
         if ($.inArray(numeroClicado, itens_escolhidos) !== -1) {
             itens_escolhidos.splice($.inArray(numeroClicado, itens_escolhidos), 1);
-            $(this).removeClass("notactive");
+            $(botao).removeClass("notactive");
 
             MostrarItensSelecionados(itens_escolhidos);
         }
         return;
     }
     else {
-        
-        var numero_atual = $(this).text();
+
+        var numero_atual = $(botao).text();
         itens_escolhidos.push(numero_atual);
 
         MostrarItensSelecionados(itens_escolhidos);
 
-        $(this).addClass("notactive");
+        $(botao).addClass("notactive");
     }
 
-});
+}
 
 function MostrarItensSelecionados(itens_escolhidos) {
+
     itens_escolhidos.forEach(function (value) {
         var html = `<div class="numero-escolhido">${value}</div>`;
 

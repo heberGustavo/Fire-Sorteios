@@ -7,8 +7,6 @@ function AtualizarDadosCliente() {
     if (VerificarCamposObrigatoriosDadosClientes()) {
 
         var dadosJson = GerarJsonDadosCliente();
-        console.log(dadosJson)
-        debugger;
 
         $.ajax({
             url: "/AcessoInterno/EditarDadosCliente",
