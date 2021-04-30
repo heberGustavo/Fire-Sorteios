@@ -58,4 +58,5 @@ function MostrarItensSelecionados(itens_escolhidos) {
 
     $('#quantidade_selecionado').text(itens_escolhidos.length);
     $('#valor_total').text(valor_total_rifas);
+    $('#valor_total_visual').text(FormatDinheiro(ConverterParaFloat(valor_total_rifas)));
 }

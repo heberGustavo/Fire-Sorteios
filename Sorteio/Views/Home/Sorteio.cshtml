@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="col-md-8 ml-auto mr-auto">
                     <h2 class="title mt-5 mb-0 p-0">@Model.sorteio.nome</h2>
-                    <h3 class="mt-0 mb-5 p-0 text-danger"><strong id="valor_rifa">R$ @Model.sorteio.valor</strong></h3>
+                    <h3 class="mt-0 mb-5 p-0 text-danger"><strong id="valor_rifa">@Convert.ToDecimal(Model.sorteio.valor).ToString("C")</strong></h3>
                 </div>
 
                 <div class="col-md-8">
@@ -32,7 +32,7 @@
 
                     </ul>
                 </div>
-                <div class="col-md-4 text-left">
+                <div class="col-md-4 text-left" id="regulamento">
                     <h4 class="title mt-0">REGULAMENTO / DESCRIÇÃO</h4>
                     <div id="texto_longo_html" class="d-none">@Model.sorteio.descricao_longa</div>
                     <div class="summernote" id="contentSummernote"></div>
@@ -154,7 +154,10 @@
                     <div class="col-md-3">
                         <strong>Selecionado(s): <text id="quantidade_selecionado"></text> </strong>
                         <br />
-                        <strong>Total a pagar: R$ <text id="valor_total"></text> </strong>
+                        <div class="d-none">
+                            <strong>Total a pagar: R$ <text id="valor_total"></text> </strong>
+                        </div>
+                        <strong>Total a pagar: R$ <text id="valor_total_visual"></text> </strong>
                     </div>
                     <div class="col-md-2">
                         <button onclick="GerarTicket()" class="btn btn-success">GERAR TICKET <span class="material-icons">check</span></button>
@@ -180,7 +183,7 @@
                 <div class="text-center mt-3">
                     <a asp-controller="Home" asp-action="Index" asp-fragment="home">HOME</a> | <a asp-controller="Home" asp-action="Index" asp-fragment="ultimos-sorteios">ÚLTIMOS SORTEIOS</a>
                     <br />
-                    <a href="#">ENVIE SEU COMPROVANTE</a> | <a href="#">TIRE SUAS DÚVIDAS</a>
+                    <a href="https://api.whatsapp.com/send?phone=5519997548893&text=Ol%C3%A1%2C%20tudo%20bem%20%3F%20Vim%20pelo%20site%20da%20Fire%20Sorteios!" target="_blank">ENVIE SEU COMPROVANTE</a> | <a href="https://api.whatsapp.com/send?phone=5519997548893&text=Ol%C3%A1%2C%20tudo%20bem%20%3F%20Vim%20pelo%20site%20da%20Fire%20Sorteios!" target="_blank">TIRE SUAS DÚVIDAS</a>
                     <br /><br />
                 </div>
                 <div class="copyright text-center">

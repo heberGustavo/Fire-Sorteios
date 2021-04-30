@@ -120,10 +120,10 @@
                     </div>
 
                     <div class="collapse navbar-collapse">
-                        <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm btn-sm"><i class="fas fa-bars mr-2 text-dark"></i><small class="text-uppercase font-weight-bold">Menu</small></button>
+                        <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm btn-sm" style="z-index: 9999; padding: 10px 30px; margin: 10px; box-shadow: 0 0px 0px 0 rgb(0 0 0), 0 0px 1px -2px rgb(0 0 0), 0 1px 5px 0 rgb(4 4 4 / 97%);"><i class="fas fa-bars mr-2 text-dark"></i><small class="text-uppercase font-weight-bold">Menu</small></button>
 
                         <div class="ml-auto">
-                            <a asp-controller="Login" asp-action="Logout" class="btn btn-secondary btn-sm">Sair <i class="material-icons">exit_to_app</i></a>
+                            <a asp-controller="Login" asp-action="Logout" class="btn btn-secondary btn-sm btn-mobile" style="z-index: 9999;">Sair <i class="material-icons">exit_to_app</i></a>
                         </div>
                     </div>
                 </div>

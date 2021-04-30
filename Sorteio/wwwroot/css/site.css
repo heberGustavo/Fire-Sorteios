@@ -192,6 +192,12 @@ a.btn-dark {
     margin: 10px;
 }
 
+.rodape .redes-sociais img:hover{
+    border: 1px solid black;
+    padding: 2px;
+    border-radius: 100%;
+}
+
 .rodape a {
     color: #000;
     font-weight: 500;
@@ -225,9 +231,9 @@ a.btn-dark {
         border: 1px solid #a7a7a7;
     }
 
-        .bloco-filtro-sorteio .item:hover {
-            cursor: pointer;
-        }
+.bloco-filtro-sorteio .item:hover {
+    cursor: pointer;
+}
 
 .item-todos {
     background: #a7a7a769 !important;
@@ -236,6 +242,11 @@ a.btn-dark {
 .item-disponivel, .item-disponivel-padrao {
     background: #fff !important;
 }
+
+.item-reservado:hover {
+    background: #ffe700 !important;
+}
+
 
 .item-disponivel:hover, .item-disponivel-padrao:hover {
     background: #e2e2e2  !important;
@@ -249,8 +260,21 @@ a.btn-dark {
     background: #00da00e0 !important;
 }
 
+.item-pago:hover {
+    background: #15c115 !important;
+}
+
+
 .consultar-meus-numero {
     background: #ffaa0d !important;
+}
+
+.consultar-meus-numero:hover {
+    background: #ff9800 !important;
+}
+
+.navbar .navbar-nav .nav-item .nav-link:hover {
+    color: #f44336
 }
 
 .numero-escolhido, .itens-numero-sorteio {
@@ -605,14 +629,66 @@ label.selecionar_arquivo {
     color: #fff;
 }
 
+table tbody td{
+    vertical-align: middle !important;
+}
+
 
 /* Media Query*/
 @media (max-width: 575.98px) {
 }
 
+@media (max-width: 360px) {
+    .title {
+        font-size: 25px !important;
+    }
+}
+
+@media (min-width: 360.99px) (max-width: 767px) {
+
+    .title {
+        font-size: 30px !important;
+    }
+}
+
 @media (max-width: 767px) {
     .page-header .logo {
         background: transparent !important;
+    }
+
+    #regulamento {
+        margin-top: 20px;
+    }
+
+    #dados-pagamento .card {
+        margin: 10px auto;
+    }
+
+    #sidebarCollapse,
+    .btn-mobile {
+        z-index: 9999 !important;
+        padding: 10px 30px !important;
+        margin: 10px !important;
+        box-shadow: 0 0px 0px 0 rgb(0 0 0), 0 0px 1px -2px rgb(0 0 0), 0 1px 5px 0 rgb(4 4 4 / 97%) !important;
+    }
+
+    #tab_meus_dados {
+        margin-top: 20px;
+    }
+
+}
+
+
+@media (max-width: 991px) {
+    .navbar .navbar-toggler .navbar-toggler-icon {
+        background-color: #fff;
+    }
+
+    .btn-mobile {
+        z-index: 9999 !important;
+        padding: 10px 30px !important;
+        margin: 10px !important;
+        box-shadow: 0 0px 0px 0 rgb(0 0 0), 0 0px 1px -2px rgb(0 0 0), 0 1px 5px 0 rgb(4 4 4 / 97%) !important;
     }
 }
 
