@@ -22,11 +22,13 @@ namespace Sorteio.Domain.IBusiness
         Task<bool> EditarFinalizarSorteio(VencedorSorteio body);
         Task<IEnumerable<MeusPremios>> ObterMeusPremiosClientePorId(int id_usuario);
         Task<ResultResponseModel> EditarSorteio(SorteioBody body);
+        Task<IEnumerable<Pedido>> ObterTodosPedidosPendentes();
         Task<IEnumerable<InformacoesSorteio>> FiltrarSorteioPorCategoria(int idCategoria);
         Task<IEnumerable<InformacoesSorteio>> ObterTodosUltimosSorteiosRealizados();
         Task<SorteioBody> ObterDadosDoSorteioPorId(int idSorteio);
         Task<IEnumerable<NumeroEscolhidoBody>> ObterNumerosDoSorteioPorId(int idSorteio);
         Task<IEnumerable<ParticipanteSorteio>> ObterParticipantesSorteioPorId(int idSorteio);
+        Task<int> RemoverPedidoPendenteAposPrazoMaximo(Pedido pedido);
         Task<int> ExcluirSorteio(int idSorteio);
         Task<IEnumerable<NumeroEscolhido>> VisualizarNumerosPorIdPedido(int idPedido);
         Task<int> ConfirmarPagamentoRecebido(int idPedido);

@@ -82,6 +82,9 @@ namespace Sorteio.Domain.Business
             return resultado;
         }
 
+        public Task<Usuario> InformacoesDoUsuarioGanhadorPorId(int idUsuario)
+            => _usuarioRepository.GetById(idUsuario);
+
         public async Task<ResultResponseModel<Usuario>> LogarCadastraNumeros(LoginListaNumerosBody login)
         {
             var usuarios = await _usuarioRepository.GetAllAsync();

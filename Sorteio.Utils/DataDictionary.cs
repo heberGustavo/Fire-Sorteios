@@ -18,5 +18,8 @@ namespace Sorteio.Common
         public const int STATUS_PEDIDO_PAGO = 2;
         public const int STATUS_PEDIDO_CANCELADO = 4;
 
+
+        //Dias maximo pagamento
+        public const int DIAS_MAXIMO_PAGAMENTO = 2;
     }
 }

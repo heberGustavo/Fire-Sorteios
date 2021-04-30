@@ -29,26 +29,34 @@
                             <div class="tab-content">
                                 <div class="tab-pane active" id="tab_meus_bilhetes">
                                     <h4 class="titulo-cards-perfil">Meus Bilhetes</h4>
-                                    <span class="font-weight-bold">Importante:</span> <span>Os bilhetes apenas reservados serão cancelados automaticamente ao passar da data de validade!</span>
+                                    <span class="font-weight-bold">Importante:</span> <span>Os bilhetes reservados só serão cancelados automaticamente ao passar da data de validade!</span>
 
                                     <div id="accordion">
                                         @{
                                             var myModel = (IEnumerable<Sorteio.Domain.Models.NotMapped.MeusBilhetes>)ViewBag.MeusBilhetes;
                                             var query = myModel.GroupBy(x => x.id_pedido);
+                                            var DIA_MAXIMO_PARA_PAGAMENTO = 2;
 
                                             foreach (var item in query)
                                             {
                                                 var codigoDoPedido = item.Key;
+                                                var statusBilhete = myModel.Where(x => x.id_pedido == codigoDoPedido).Select(x => x.id_status_pedido).FirstOrDefault();
+                                                var dataCompraBilhete = myModel.Where(x => x.id_pedido == codigoDoPedido).Select(x => x.data_compra_sorteio).FirstOrDefault();
+
                                                 <div class="card card-custom">
                                                     <div class="card-header card-header-custom" id="heading_@codigoDoPedido">
                                                         <h5 class="mb-0 mt-0">
                                                             <button onclick="ObterParticipantesSorteio('@codigoDoPedido')" class="btn btn-link" data-toggle="collapse" data-target="#collapse_@codigoDoPedido" aria-expanded="true" aria-controls="collapse_@codigoDoPedido">
+                                                                
                                                                 @codigoDoPedido.ToString("0000000")
+                                                                @if (statusBilhete == DataDictionary.STATUS_PEDIDO_PENDENTE)
+                                                                {
+                                                                <span data-toggle="tooltip" data-placement="top" title="Seu bilhete expira em @dataCompraBilhete.AddDays(DIA_MAXIMO_PARA_PAGAMENTO).ToString("dd/MM/yyyy")" class="material-icons text-warning">alarm</span>
+                                                                }
+
                                                             </button>
 
                                                             @{
-                                                                var statusBilhete = myModel.Where(x => x.id_pedido == codigoDoPedido).Select(x => x.id_status_pedido).FirstOrDefault();
-
                                                                 if (statusBilhete == DataDictionary.STATUS_PEDIDO_PENDENTE)
                                                                 {
                                                                     var valorTotalPagar = myModel.Where(x => x.id_pedido == codigoDoPedido).Sum(x => x.valor);
@@ -61,7 +69,7 @@
                                                                 }
                                                                 else if (statusBilhete == DataDictionary.STATUS_PEDIDO_CANCELADO)
                                                                 {
-                                                                    <button class="btn btn-sm btn-success" style="float: right; margin-right: 10px; margin-top: 10px;">Cancelado</button>
+                                                                    <button class="btn btn-sm btn-danger" style="float: right; margin-right: 10px; margin-top: 10px;">Cancelado</button>
                                                                 }
                                                             }
                                                         </h5>

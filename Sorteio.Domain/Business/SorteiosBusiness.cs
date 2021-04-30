@@ -82,5 +82,11 @@ namespace Sorteio.Domain.Business
 
         public Task<IEnumerable<NumeroEscolhidoBody>> BuscarNumerosReservadoOuPagoSorteioPorId(int idSorteio, int idStatusPedido)
             => _sorteiosRepository.BuscarNumerosReservadoOuPagoSorteioPorId(idSorteio, idStatusPedido);
+
+        public Task<IEnumerable<Pedido>> ObterTodosPedidosPendentes()
+            => _sorteiosRepository.ObterTodosPedidosPendentes(DataDictionary.STATUS_PEDIDO_PENDENTE);
+
+        public Task<int> RemoverPedidoPendenteAposPrazoMaximo(Pedido pedido)
+            => _sorteiosRepository.RemoverPedidoPendenteAposPrazoMaximo(pedido, DataDictionary.STATUS_PEDIDO_CANCELADO);
     }
 }

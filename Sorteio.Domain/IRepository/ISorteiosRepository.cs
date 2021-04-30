@@ -32,5 +32,7 @@ namespace Sorteio.Domain.IRepository
         Task<int> ConfirmarPagamentoRecebido(int idPedido, int idStatusPago);
         Task<IEnumerable<NumeroEscolhidoBody>> BuscarTodosNumerosSorteioPorId(int idSorteio);
         Task<IEnumerable<NumeroEscolhidoBody>> BuscarNumerosReservadoOuPagoSorteioPorId(int idSorteio, int idStatusPedido);
+        Task<IEnumerable<Pedido>> ObterTodosPedidosPendentes(int statusPendente);
+        Task<int> RemoverPedidoPendenteAposPrazoMaximo(Pedido pedido, int statusCancelado);
     }
 }

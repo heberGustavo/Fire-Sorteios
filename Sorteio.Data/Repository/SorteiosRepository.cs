@@ -281,6 +281,11 @@ namespace Sorteio.Data.Repository
                                                                   WHERE p.id_usuario = @idUsuario
                                                                   ORDER BY p.id_pedido ASC", new { idUsuario });
 
+        public Task<IEnumerable<Pedido>> ObterTodosPedidosPendentes(int statusPendente)
+            => _dataContext.Connection.QueryAsync<Pedido>(@"SELECT *
+                                                            FROM Pedido p 
+                                                            WHERE p.id_status_pedido = @statusPendente AND status = 0;", new { statusPendente });
+
         public Task<IEnumerable<SorteioNotMapped>> ObterTodosSorteio()
             => _dataContext.Connection.QueryAsync<SorteioNotMapped>(@"SELECT s.id_sorteio, u.id_usuario, s.nome as nome_sorteio, s.edicao as edicao_sorteio, s.status, u.nome as nome_ganhador
                                                                       FROM Sorteio s 
@@ -304,6 +309,33 @@ namespace Sorteio.Data.Repository
                                                                         LEFT JOIN Usuario u ON vs.id_usuario = u.id_usuario
                                                                         WHERE s.status = 1 AND s.excluido = 0
                                                                         ORDER BY s.edicao + 0 ASC");
+
+        public async Task<int> RemoverPedidoPendenteAposPrazoMaximo(Pedido pedido, int statusCancelado)
+        {
+            using (var dbContextTransaction = _dataContext.Connection.BeginTransaction())
+            {
+                try
+                {
+                    await _dataContext.Connection.ExecuteAsync(@"UPDATE Pedido
+                                                                 SET status = 1
+                                                                 WHERE id_pedido = @idPedido;",
+                                                                 new { idPedido = pedido.id_pedido }, dbContextTransaction);
+
+                    await _dataContext.Connection.ExecuteAsync(@"UPDATE Pedido
+                                                                 SET id_status_pedido = @statusCancelado
+                                                                 WHERE id_pedido = @idPedido;",
+                                                                 new { statusCancelado, idPedido = pedido.id_pedido }, dbContextTransaction);
+
+                    dbContextTransaction.Commit();
+                    return 1;
+                }
+                catch (Exception ex)
+                {
+                    dbContextTransaction.Rollback();
+                    return 0;
+                }
+            }
+        }
 
         public Task<IEnumerable<NumeroEscolhido>> VisualizarNumerosPorIdPedido(int idPedido)
             => _dataContext.Connection.QueryAsync<NumeroEscolhido>(@"SELECT * 

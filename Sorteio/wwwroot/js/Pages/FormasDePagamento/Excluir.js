@@ -23,9 +23,12 @@ function ExcluirFormaDePagamento() {
         dataType: "json",
         success: function (response) {
             if (!response.erro) {
-                swal("Sucesso", response.mensagem, "success");
-                ObterTodasFormasDePagamentoAtivo();
-                FecharModalExcluirFormaDePagamentoLimparCampos();
+                swal("Sucesso", response.mensagem, "success")
+                    .then((okay) => {
+                        window.location.reload(true);
+                    });
+                //ObterTodasFormasDePagamentoAtivo();
+                //FecharModalExcluirFormaDePagamentoLimparCampos();
             }
             else {
                 swal("Opss", response.mensagem, "error");

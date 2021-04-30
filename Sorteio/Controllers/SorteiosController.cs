@@ -181,5 +181,13 @@ namespace Sorteio.Controllers
             var resultado = await _sorteiosBusiness.BuscarNumerosReservadoOuPagoSorteioPorId(idSorteio, idStatusPedido);
             return Json(resultado);
         }
+
+        [HttpGet]
+        [Route("[controller]/[action]/{idUsuario:int}")]
+        public async Task<JsonResult> InformacoesDoUsuarioGanhadorPorId(int idUsuario)
+        {
+            var resultado = await _usuarioBusiness.InformacoesDoUsuarioGanhadorPorId(idUsuario);
+            return Json(resultado);
+        }
     }
 }

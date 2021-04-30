@@ -16,6 +16,8 @@ C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\i
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\logo_branca.png
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\logo_preta.png
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\moto_modelo.jpg
+C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\usuarios\admin.png
+C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\usuarios\cliente.png
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\usuarios\teste.jpg
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\whatsapp.png
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\core\bootstrap-material-design.min.js
