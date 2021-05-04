@@ -7,50 +7,57 @@ function CadastrarAcessarPortal() {
     if (VerificarCamposObrigatoriosCadastroUsuario()) {
 
         var senha = $('#senhaCadastro').val(); 
-        var repetirSenha = $('#repetirSenhaCadastro').val(); 
 
-        if (senha == repetirSenha) {
+        if (senha.length >= 6) {
 
-            var arrayItensEscolhidos = [];
-            $('.numero-escolhido').each(function (i, element) {
-                var numero = $(element).text();
-                arrayItensEscolhidos.push(numero)
-            })
+            var repetirSenha = $('#repetirSenhaCadastro').val();
 
-            var jsonBody = {
-                "id_sorteio": parseInt($('#idSorteioSelecionado').val()),
-                "valor_total": ConverterParaFloat($('#valor_total').text()),
-                "usuario": GerarDadosJsonCadastrarUsuario(),
-                "numeroSorteios": GerarJsonNumerosSorteios(arrayItensEscolhidos)
-            };
+            if (senha == repetirSenha) {
 
-            $.ajax({
-                url: "/Login/CadastrarUsuarioCadastrarNumeros",
-                type: "POST",
-                contentType: 'application/json; charset=UTF-8',
-                dataType: "json",
-                data: JSON.stringify(jsonBody),
-                success: function (response) {
-                    if (!response.erro) {
-                        swal("Sucesso", response.mensagem, "success")
-                            .then((okay) => {
-                                RealizarLoginSimples();
-                            });
+                var arrayItensEscolhidos = [];
+                $('.numero-escolhido').each(function (i, element) {
+                    var numero = $(element).text();
+                    arrayItensEscolhidos.push(numero)
+                })
+
+                var jsonBody = {
+                    "id_sorteio": parseInt($('#idSorteioSelecionado').val()),
+                    "valor_total": ConverterParaFloat($('#valor_total').text()),
+                    "usuario": GerarDadosJsonCadastrarUsuario(),
+                    "numeroSorteios": GerarJsonNumerosSorteios(arrayItensEscolhidos)
+                };
+
+                $.ajax({
+                    url: "/Login/CadastrarUsuarioCadastrarNumeros",
+                    type: "POST",
+                    contentType: 'application/json; charset=UTF-8',
+                    dataType: "json",
+                    data: JSON.stringify(jsonBody),
+                    success: function (response) {
+                        if (!response.erro) {
+                            swal("Sucesso", response.mensagem, "success")
+                                .then((okay) => {
+                                    RealizarLoginSimples();
+                                });
+                        }
+                        else {
+                            swal("Opss", response.mensagem, "error");
+                        }
+                    },
+                    error: function (response) {
+                        swal("Erro", "Aconteceu um imprevisto. Contate o administrador", "error");
+                        console.log(response);
                     }
-                    else {
-                        swal("Opss", response.mensagem, "error");
-                    }
-                },
-                error: function (response) {
-                    swal("Erro", "Aconteceu um imprevisto. Contate o administrador", "error");
-                    console.log(response);
-                }
 
-            });
+                });
+            }
+            else {
+                swal("Erro", "Verifique a senha!", "error");
+            }
+
         }
-        else {
-            swal("Erro", "Verifique a senha!", "error");
-        }
+        else
+            swal("Erro", "Informe uma senha de pelo menos 6 caracteres", "error");
 
     }
     
