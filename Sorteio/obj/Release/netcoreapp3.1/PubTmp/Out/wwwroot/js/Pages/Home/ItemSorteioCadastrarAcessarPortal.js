@@ -4,6 +4,7 @@
 
 function CadastrarAcessarPortal() {
 
+
     if (VerificarCamposObrigatoriosCadastroUsuario()) {
 
         var senha = $('#senhaCadastro').val(); 
@@ -93,6 +94,14 @@ function VerificarCamposObrigatoriosCadastroUsuario() {
     }
     else if (IsNullOrEmpty($('#telefoneCadastro').val().trim())) {
         MostrarModalErroCampoObrigatorioNaoPreenchido('Telefone');
+        return false;
+    }
+    else if (ObterValorCheckBoxOuDefault('checkPoliticas') == false) {
+        swal("Erro", "É necessário aceitar os termos", "error");
+        return false;
+    }
+    else if (IsNullOrEmpty($('#g-recaptcha-response').val())) {
+        swal("Erro", "É necessário verificar o reCAPTCHA", "error");
         return false;
     }
 

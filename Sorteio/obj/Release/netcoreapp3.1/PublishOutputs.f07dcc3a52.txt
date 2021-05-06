@@ -12,6 +12,7 @@ C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\i
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\fundo_vermelho.png
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\instagran.png
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\loading\fire.gif
+C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\logo-sq.png
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\logo.jpeg
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\logo_branca.png
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\logo_preta.png

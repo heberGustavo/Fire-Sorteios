@@ -7,7 +7,6 @@ function CadastrarAcessarPortal() {
 
     if (VerificarCamposObrigatoriosCadastroUsuario()) {
 
-        return;
         var senha = $('#senhaCadastro').val(); 
 
         if (senha.length >= 6) {
@@ -99,6 +98,10 @@ function VerificarCamposObrigatoriosCadastroUsuario() {
     }
     else if (ObterValorCheckBoxOuDefault('checkPoliticas') == false) {
         swal("Erro", "É necessário aceitar os termos", "error");
+        return false;
+    }
+    else if (IsNullOrEmpty($('#g-recaptcha-response').val())) {
+        swal("Erro", "É necessário verificar o reCAPTCHA", "error");
         return false;
     }
 

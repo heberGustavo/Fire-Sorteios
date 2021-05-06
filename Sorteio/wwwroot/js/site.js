@@ -45,6 +45,24 @@ $(function () {
         }
     });
 
+    $('.letras-e-espaco').on('input', function () {
+
+        var input = $(this).val();
+
+        var caracterEspecial = /^(?=.*[@!#$%^&*()/\\])/;
+        var numeros = /[0-9]/;
+
+        if (caracterEspecial.test(input)) {
+            input = input.replace(caracterEspecial, '');
+            $(this).val(input);
+        }
+        if (numeros.test(input)) {
+            input = input.replace(numeros, '');
+            $(this).val(input);
+        }
+
+    });
+
     $(".time").blur(function () {
         if (this.value === '' || this.value === '' || this.value === null || this.value === 'NaN') {
             return;

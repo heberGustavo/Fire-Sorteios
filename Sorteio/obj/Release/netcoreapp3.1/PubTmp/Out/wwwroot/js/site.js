@@ -131,7 +131,6 @@ $(function () {
     $('.uf').mask('SS');
     $('.horario-entrada-saida').mask('00:00 - 00:00');
 
-
     /*CUSTOMIZAR DATATABLE*/
     setTimeout(function () {
         $('.dataTables_length label>select').addClass('form-control-custom');
