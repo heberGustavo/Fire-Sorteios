@@ -1193,3 +1193,4 @@ C:\wf_heber\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Sorteio.Portal.csproj.
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Sorteio.Portal.dll
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Sorteio.Portal.pdb
 C:\wf_heber\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Sorteio.Portal.genruntimeconfig.cache
+C:\wf_heber\Fire-Sorteios\Sorteio\obj\Debug\netcoreapp3.1\Razor\Views\Home\PoliticaDePrivacidade.cshtml.g.cs

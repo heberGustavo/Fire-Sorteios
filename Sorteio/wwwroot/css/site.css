@@ -22,9 +22,21 @@ a.navbar-brand {
     opacity: 0.5 !important;
 }
 
+.email-invalido{
+    font-size: 15px;
+}
+
 /* Provide sufficient contrast against white background */
 a {
     color: #0366d6;
+}
+
+.link-custom:hover{
+    color: red !important;
+}
+
+.sub-item {
+    color: #ffffff !important
 }
 
 .btn-primary {
@@ -605,7 +617,16 @@ label.selecionar_arquivo {
     margin-left: 0 !important;
     margin-right: 0 !important;
     margin-top: -23px !important;
-    background: linear-gradient( 185deg, #2e3338, #797777) !important
+    background: linear-gradient( 185deg, #2e3338, #797777) !important;
+}
+
+.card-header-custom2 {
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-top: 5px !important;
+    background: #ababab !important;
 }
 
 .card-header-custom h5 button {
@@ -631,6 +652,10 @@ label.selecionar_arquivo {
 
 table tbody td{
     vertical-align: middle !important;
+}
+
+.form-check .form-check-input:checked~.form-check-sign .check{
+    background: red !important;
 }
 
 
@@ -692,14 +717,9 @@ table tbody td{
     }
 }
 
-@media (min-width: 576px) and (max-width: 767.98px) {
-}
-
-@media (min-width: 768px) and (max-width: 991.98px) {
-}
-
-@media (min-width: 992px) and (max-width: 1199.98px) {
-}
-
-@media (min-width: 1200px) {
+@media (min-width: 768px) {
+    .modal-xl {
+        width: 90%;
+        max-width: 1200px;
+    }
 }

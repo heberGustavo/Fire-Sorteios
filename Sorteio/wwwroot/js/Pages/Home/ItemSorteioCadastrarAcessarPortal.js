@@ -4,8 +4,10 @@
 
 function CadastrarAcessarPortal() {
 
+
     if (VerificarCamposObrigatoriosCadastroUsuario()) {
 
+        return;
         var senha = $('#senhaCadastro').val(); 
 
         if (senha.length >= 6) {
@@ -93,6 +95,10 @@ function VerificarCamposObrigatoriosCadastroUsuario() {
     }
     else if (IsNullOrEmpty($('#telefoneCadastro').val().trim())) {
         MostrarModalErroCampoObrigatorioNaoPreenchido('Telefone');
+        return false;
+    }
+    else if (ObterValorCheckBoxOuDefault('checkPoliticas') == false) {
+        swal("Erro", "É necessário aceitar os termos", "error");
         return false;
     }
 

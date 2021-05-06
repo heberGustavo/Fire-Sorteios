@@ -66,5 +66,10 @@ namespace Sorteio.Controllers
 
             return View(resultado);
         }
+
+        public IActionResult PoliticaDePrivacidade()
+        {
+            return View();
+        }
     }
 }
