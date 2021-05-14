@@ -26,30 +26,6 @@ namespace Sorteio.Controllers
 
         public async Task<IActionResult> Index()
         {
-
-            var pedidos = await _sorteiosBusiness.ObterTodosPedidosPendentes();
-
-            DateTime dataAtual = DateTime.Now;
-            foreach (var item in pedidos)
-            {
-                if (item.data_pedido.ToString("dd/MM/yyyy") != dataAtual.ToString("dd/MM/yyyy"))
-                {
-                    DateTime dataFim = item.data_pedido.AddDays(DataDictionary.DIAS_MAXIMO_PAGAMENTO);
-
-                    var data = dataAtual.Ticks - dataFim.Ticks;
-
-                    TimeSpan ts = new TimeSpan(data);
-
-                    var diferencaEntreDatas = ts.Days;
-
-                    if (diferencaEntreDatas > 2)
-                    {
-                        await _sorteiosBusiness.RemoverPedidoPendenteAposPrazoMaximo(item);
-                    }
-                }
-
-            }
-
             ViewBag.CategoriaSorteio = await _categoriaSorteioBusiness.ObterTodosCategoriaSorteioAtivo();
             var resultado = await _sorteiosBusiness.ObterInformacoesSorteio();
             return View(resultado);
