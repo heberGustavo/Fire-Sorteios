@@ -45,6 +45,24 @@ $(function () {
         }
     });
 
+    $('.letras-e-espaco').on('input', function () {
+
+        var input = $(this).val();
+
+        var caracterEspecial = /^(?=.*[@!#$%^&*()/\\])/;
+        var numeros = /[0-9]/;
+
+        if (caracterEspecial.test(input)) {
+            input = input.replace(caracterEspecial, '');
+            $(this).val(input);
+        }
+        if (numeros.test(input)) {
+            input = input.replace(numeros, '');
+            $(this).val(input);
+        }
+
+    });
+
     $(".time").blur(function () {
         if (this.value === '' || this.value === '' || this.value === null || this.value === 'NaN') {
             return;
@@ -130,6 +148,7 @@ $(function () {
     $('.mask_nire').mask('00-0-0000000-0', { reverse: true });
     $('.uf').mask('SS');
     $('.horario-entrada-saida').mask('00:00 - 00:00');
+
 
     /*CUSTOMIZAR DATATABLE*/
     setTimeout(function () {

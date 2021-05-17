@@ -5,7 +5,9 @@ using Sorteio.Domain.IBusiness;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using VerificacaoSorteio;
 
+[assembly: FunctionsStartup(typeof(Startup))]
 namespace VerificacaoSorteio
 {
     public class Startup : FunctionsStartup

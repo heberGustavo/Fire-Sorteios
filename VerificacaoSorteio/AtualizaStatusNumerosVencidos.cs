@@ -22,29 +22,36 @@ namespace VerificacaoSorteio
         }
 
         [FunctionName("AtualizaStatusNumerosVencidos")]
-        public async Task Run([TimerTrigger("0 0 4 * * *")] TimerInfo timerInfo, ILogger log)
+        public async Task Run([TimerTrigger("0 0 1 * * *", RunOnStartup = true)] TimerInfo timerInfo, ILogger log)
         {
-            var pedidos = await _sorteiosBusiness.ObterTodosPedidosPendentes();
-
-            DateTime dataAtual = DateTime.Now;
-            foreach (var item in pedidos)
+            try
             {
-                if (item.data_pedido.ToString("dd/MM/yyyy") != dataAtual.ToString("dd/MM/yyyy"))
+                var pedidos = await _sorteiosBusiness.ObterTodosPedidosPendentes();
+
+                DateTime dataAtual = DateTime.Now;
+                foreach (var item in pedidos)
                 {
-                    DateTime dataFim = item.data_pedido.AddDays(DataDictionary.DIAS_MAXIMO_PAGAMENTO);
-
-                    var data = dataAtual.Ticks - dataFim.Ticks;
-
-                    TimeSpan ts = new TimeSpan(data);
-
-                    var diferencaEntreDatas = ts.Days;
-
-                    if (diferencaEntreDatas > 2)
+                    if (item.data_pedido.ToString("dd/MM/yyyy") != dataAtual.ToString("dd/MM/yyyy"))
                     {
-                        await _sorteiosBusiness.RemoverPedidoPendenteAposPrazoMaximo(item);
-                    }
-                }
+                        DateTime dataFim = item.data_pedido.AddDays(DataDictionary.DIAS_MAXIMO_PAGAMENTO);
 
+                        var data = dataAtual.Ticks - dataFim.Ticks;
+
+                        TimeSpan ts = new TimeSpan(data);
+
+                        var diferencaEntreDatas = ts.Days;
+
+                        if (diferencaEntreDatas > 2)
+                        {
+                            await _sorteiosBusiness.RemoverPedidoPendenteAposPrazoMaximo(item);
+                        }
+                    }
+
+                }
+            }
+            catch(Exception e)
+            {
+                log.LogError(e.Message.);
             }
 
         }
