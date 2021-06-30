@@ -19,6 +19,7 @@ namespace Sorteio.Data.Repository
 {
     public class SorteiosRepository : RepositoryBase<Domain.Models.EntityDomain.Sorteio, Data.EntityData.SorteioData>, ISorteiosRepository
     {
+
         public SorteiosRepository(SqlDataContext dataContext, IMapper mapper) : base(dataContext, mapper)
         {
         }
@@ -282,9 +283,22 @@ namespace Sorteio.Data.Repository
                                                                   ORDER BY p.id_pedido ASC", new { idUsuario });
 
         public Task<IEnumerable<Pedido>> ObterTodosPedidosPendentes(int statusPendente)
-            => _dataContext.Connection.QueryAsync<Pedido>(@"SELECT *
-                                                            FROM Pedido p 
-                                                            WHERE p.id_status_pedido = @statusPendente AND status = 0;", new { statusPendente });
+        {
+            try
+            {
+                var query = @"SELECT *
+                          FROM Pedido p 
+                          WHERE p.id_status_pedido = @statusPendente AND status = 0;";
+
+                return _dataContext.Connection.QueryAsync<Pedido>(query, new { statusPendente });
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return null;
+            }
+            
+        }
 
         public Task<IEnumerable<SorteioNotMapped>> ObterTodosSorteio()
             => _dataContext.Connection.QueryAsync<SorteioNotMapped>(@"SELECT s.id_sorteio, u.id_usuario, s.nome as nome_sorteio, s.edicao as edicao_sorteio, s.status, u.nome as nome_ganhador
