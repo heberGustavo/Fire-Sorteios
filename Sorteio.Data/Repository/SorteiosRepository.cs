@@ -286,7 +286,7 @@ namespace Sorteio.Data.Repository
         {
             try
             {
-                var query = @"SELECT *
+                var query = @"SELECT * 
                           FROM Pedido p 
                           WHERE p.id_status_pedido = @statusPendente AND status = 0;";
 

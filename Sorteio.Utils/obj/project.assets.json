@@ -379,6 +379,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "Microsoft.Extensions.Configuration >= 5.0.0",
+      "Microsoft.Extensions.Configuration.Abstractions >= 5.0.0",
       "Microsoft.Extensions.Configuration.Json >= 5.0.0",
       "Refit >= 6.0.15"
     ]
@@ -428,6 +429,10 @@
         "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "Microsoft.Extensions.Configuration": {
+            "target": "Package",
+            "version": "[5.0.0, )"
+          },
+          "Microsoft.Extensions.Configuration.Abstractions": {
             "target": "Package",
             "version": "[5.0.0, )"
           },

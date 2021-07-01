@@ -121,6 +121,14 @@ namespace Sorteio.Controllers
         }
 
         [HttpGet]
+        [Route("[controller]/[action]")]
+        public async Task<JsonResult> ObterTodosPedidosPendentes()
+        {
+            var resultado = await _sorteiosBusiness.ObterTodosPedidosPendentes();
+            return Json(new { resultado });
+        }
+
+        [HttpGet]
         [Route("[controller]/[action]/{idCategoria}")]
         public async Task<JsonResult> FiltrarSorteioPorCategoria(int idCategoria)
         {

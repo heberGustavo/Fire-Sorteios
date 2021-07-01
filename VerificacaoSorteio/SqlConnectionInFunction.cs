@@ -7,7 +7,6 @@ using System.Text;
 
 namespace VerificacaoSorteio
 {
-    
     public class SqlConnectionInFunction : IDisposable
     {
         public SqlConnection Connection { get; }
