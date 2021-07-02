@@ -1,4 +1,5 @@
-﻿using Microsoft.Azure.Functions.Extensions.DependencyInjection;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
 using Sorteio.Data;
 using Sorteio.Data.Repository;
@@ -14,12 +15,12 @@ namespace VerificacaoSorteio
     {
         public override void Configure(IFunctionsHostBuilder builder)
         {
-            builder.Services.AddScoped<SqlDataContext, SqlDataContext>();
+            //builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            builder.Services.AddTransient<SqlDataContext, SqlDataContext>();
 
             builder.Services.AddTransient<ISorteiosBusiness, SorteiosBusiness>();
             builder.Services.AddTransient<ISorteiosRepository, SorteiosRepository>();
 
-            builder.Services.AddLogging();
         }
     }
 }

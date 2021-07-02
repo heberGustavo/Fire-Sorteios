@@ -22,13 +22,11 @@ namespace VerificacaoSorteio
         }
 
         [FunctionName("AtualizaStatusNumerosVencidos")]
-        public async Task Run([TimerTrigger("0 * * * * *", RunOnStartup = true)] TimerInfo timerInfo, ILogger log)
+        public async Task Run([TimerTrigger("0 0 2 * * *", RunOnStartup = true)] TimerInfo timerInfo, ILogger log)
         {
             try
             {
                 var pedidos = await _sorteiosBusiness.ObterTodosPedidosPendentes();
-
-                log.LogInformation("Pedidos: " + pedidos);
 
                 DateTime dataAtual = DateTime.Now;
                 foreach (var item in pedidos)
